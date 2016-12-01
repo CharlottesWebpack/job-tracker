@@ -1,5 +1,6 @@
 angular.module('jobTracker', [
   'ui.router',
+  'mainListController'
   //need to add in our other modules as we create them!
 ])
 .config(function($stateProvider, $urlRouteProvider) {
@@ -18,7 +19,7 @@ angular.module('jobTracker', [
     .state('mainList', {
       url: '/mainList',
       urlTemplate: 'app/mainlist/mainlist.html',
-      controller: 'INSERT CONTROLLER NAME HERE'
+      controller: 'mainListController'
     })
     .state('singleJob', {
       url: '/singleJob',
