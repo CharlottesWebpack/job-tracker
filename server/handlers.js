@@ -1,17 +1,31 @@
 var mongoose = require('mongoose');
-var User = require('./models/userModel.js');
+var userController = require('./userController.js');
 
 
 var getUser = function(req, res) {
-  var query = User.find(function(err, user) {
-    if(err) {
-      console.log(err, 'err');
+  userController.retrieveUser(req.query.username).then(function(user) {
+    if(user === null) {
+      console.log('user not found');
+      res.sendStatus(204);
     }else {
-      console.log(user, 'user');
+      console.log(user);
+      res.status(200).json(user);
     }
-    res.send(200);
+  }).catch(function(err) {
+    console.log(err);
+    res.status(500).json(err);
   });
-
 };
 
+var postUser = function(req, res) {
+  userController.addUser(req.body).then(function(user) {
+    console.log('a user was added to the database :): ', user);
+    res.status(201).json(user);
+  }).catch(function(err) {
+    console.log(err);
+    res.status(400).json(err);
+  });
+};
+
+module.exports.postUser = postUser;
 module.exports.getUser = getUser;
