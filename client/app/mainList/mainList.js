@@ -1,4 +1,4 @@
-angular.module('jobHunter.mainList', [])
+angular.module('jobTracker.mainList', [])
 .controller('mainListController', function($scope) {
 
 });

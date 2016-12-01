@@ -1,4 +1,4 @@
-angular.module('jobHunter.singleJob', [])
+angular.module('jobTracker.singleJob', [])
 .controller('singleJobController', function($scope) {
   
 });

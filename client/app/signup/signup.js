@@ -1,4 +1,4 @@
-angular.module('jobHunter.signup', [])
+angular.module('jobTracker.signup', [])
 .controller('signupController', function($scope) {
   
 });
