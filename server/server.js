@@ -20,10 +20,6 @@ app.post('/user', handlers.postUser);
 
 
 
-
-
-
-
 db.on('error', (err) => {
   console.error("DB CONNECTION ERROR", err);
 });
