@@ -1,4 +1,4 @@
 angular.module('jobTracker.login', [])
-.controller('loginController', function($scope) {
+.controller('loginController', function($scope, AuthFactory) {
 
 });
