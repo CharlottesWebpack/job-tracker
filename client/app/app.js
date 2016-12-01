@@ -1,10 +1,13 @@
 angular.module('jobTracker', [
   'ui.router',
-  'mainListController'
-  //need to add in our other modules as we create them!
+  'jobHunter.login',
+  'jobHunter.signup',
+  'jobHunter.mainList',
+  'jobHunter.singleJob'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
+
   $stateProvider
     .state('login', {
       url: '/login',
