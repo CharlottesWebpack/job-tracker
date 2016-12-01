@@ -1,0 +1,13 @@
+{
+  "name": "job-tracker",
+  "description": "track your job applications",
+  "main": "app.js",
+  "authors": [
+    "Charlotte's Webpack"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.3.2",
+    "angular-ui-bootstrap": "^2.2.0",
+    "bootstrap": "^3.3.7"
+  }
+}
