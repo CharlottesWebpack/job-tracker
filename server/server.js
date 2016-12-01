@@ -7,11 +7,11 @@ var PORT = process.env.PORT || 3000;
 
 db.on('error', (err) => {
   console.error("DB CONNECTION ERROR", err);
-})
+});
 
 db.once('open', () => {
   console.log('MongoDB connected');
   app.listen(PORT, () => {
     console.log("Server listening on port", PORT);
-  } )
-})
+  });
+});
