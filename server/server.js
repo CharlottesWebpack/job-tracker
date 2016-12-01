@@ -9,7 +9,7 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/client'));
+app.use(express.static('../client'));
 
 app.get('/user', handlers.getUser);
 
