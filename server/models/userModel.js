@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var jobSchema = require('./jobModel.js');
+var jobSchema = require('./jobSchema.js');
 
 var userSchema = mongoose.Schema({
   username: String,
