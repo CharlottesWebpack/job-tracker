@@ -15,8 +15,8 @@ angular.module('jobTracker', [
       urlTemplate: 'client/signup/signup.html',
       controller: 'INSERT CONTROLLER NAME HERE'
     })
-    .state('mainlist', {
-      url: '/mainlist',
+    .state('mainList', {
+      url: '/mainList',
       urlTemplate: 'client/mainlist/mainlist.html',
       controller: 'INSERT CONTROLLER NAME HERE'
     })
