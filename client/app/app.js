@@ -24,6 +24,6 @@ angular.module('jobTracker', [
     .state('singleJob', {
       url: '/singleJob',
       urlTemplate: 'app/singleJob/singleJob.html',
-      controller: 'INSERT CONTROLLER NAME HERE'
+      controller: 'singleJobController'
     });
 });
