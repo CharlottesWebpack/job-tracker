@@ -1,0 +1,27 @@
+{
+  "name": "job-tracker",
+  "version": "1.0.0",
+  "description": "track your job applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlottesWebpack/job-tracker.git"
+  },
+  "author": "Charlotte's Webpack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CharlottesWebpack/job-tracker/issues"
+  },
+  "homepage": "https://github.com/CharlottesWebpack/job-tracker#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.1",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "shortid": "^2.2.6"
+  }
+}
