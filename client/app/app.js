@@ -9,7 +9,7 @@ angular.module('jobTracker', [
     .state('login', {
       url: '/login',
       urlTemplate: 'app/login/login.html',
-      controller: 'INSERT CONTROLLER NAME HERE'
+      controller: 'loginController'
     })
     .state('signup', {
       url: '/signup',
