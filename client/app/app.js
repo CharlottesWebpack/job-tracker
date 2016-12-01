@@ -3,8 +3,8 @@ angular.module('jobTracker', [
   'mainListController'
   //need to add in our other modules as we create them!
 ])
-.config(function($stateProvider, $urlRouteProvider) {
-  $urlRouteProvider.otherwise('/');
+.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/');
   $stateProvider
     .state('login', {
       url: '/login',
