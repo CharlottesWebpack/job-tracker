@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='job'>
+<html ng-app='jobTracker'>
   <head>
     <meta charset="utf-8" />
     <title>Job-Tracker</title>
@@ -8,16 +8,17 @@
   <body>
     <h1>Job-Tracker</h1>
 
-    <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view></div>
+    
+    <div ui-view></div>
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
 
-    <script src="login.js"></script>
-    <script src="app/links/links.js"></script>
-    <script src="app/shorten/shorten.js"></script>
-    <script src="app/services/services.js"></script>
+    <script src="app/login/login.js"></script>
+    <script src="app/mainList/mainList.js"></script>
+    <script src="app/signup/signup.js"></script>
+    <script src="app/singleJob/singleJob.js"></script>
     <script src="app/app.js"></script>
   </body>
 </html>
+
