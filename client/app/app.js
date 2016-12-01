@@ -7,22 +7,22 @@ angular.module('jobTracker', [
   $stateProvider
     .state('login', {
       url: '/login',
-      urlTemplate: 'client/login/login.html',
+      urlTemplate: 'app/login/login.html',
       controller: 'INSERT CONTROLLER NAME HERE'
     })
     .state('signup', {
       url: '/signup',
-      urlTemplate: 'client/signup/signup.html',
+      urlTemplate: 'app/signup/signup.html',
       controller: 'INSERT CONTROLLER NAME HERE'
     })
     .state('mainList', {
       url: '/mainList',
-      urlTemplate: 'client/mainlist/mainlist.html',
+      urlTemplate: 'app/mainlist/mainlist.html',
       controller: 'INSERT CONTROLLER NAME HERE'
     })
     .state('singleJob', {
       url: '/singleJob',
-      urlTemplate: 'client/singleJob/singleJob.html',
+      urlTemplate: 'app/singleJob/singleJob.html',
       controller: 'INSERT CONTROLLER NAME HERE'
     });
 });
