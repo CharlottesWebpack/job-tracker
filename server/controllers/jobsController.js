@@ -20,10 +20,9 @@ var fakeUser = {
 
 module.exports = {
 
-  getJobsFromDb: function(user) {
-    var un = user.username
-    userController.retrieveUser(un).then(function(resp) {
-      console.log('inside of jobsconttoller', resp);
+  getJobsFromDb: function(username) {
+    return userController.retrieveUser(username).then(function(resp) {
+      return resp.jobList;
     })
   },
 
