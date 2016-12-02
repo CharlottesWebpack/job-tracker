@@ -4,7 +4,7 @@ angular.module('jobTracker', [
   'jobTracker.signup',
   'jobTracker.mainList',
   'jobTracker.singleJob',
-  'jobTracker.auth'
+  'jobTracker.authService'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
