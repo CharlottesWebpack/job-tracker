@@ -2,6 +2,7 @@ var express = require('express');
 var db = require('./db.js');
 var bodyParser = require('body-parser');
 var handlers = require('./handlers.js');
+var path = require('path');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -10,7 +11,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 
-app.use(express.static('../client'));
+app.use(express.static(path.join(__dirname,'../client')));
 
 
 app.get('/user', handlers.getUser);
