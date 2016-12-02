@@ -3,9 +3,9 @@ angular.module('jobTracker.mainList', [])
   
   $scope.data = {jobs: [{
     company: 'fakeCompany',
-  job_title: 'fakeTitle',
-  interest_level: 3,
-  status: 'fakeStatus'
+    job_title: 'fakeTitle',
+    interest_level: 3,
+    status: 'fakeStatus'
   }]};
 
   $scope.addJob = function() {
