@@ -15,10 +15,9 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname,'../client')));
 
+app.get('/login', handlers.getUser);
 
-app.get('/user', handlers.getUser);
-
-app.post('/user', handlers.postUser);
+app.post('/signup', handlers.postUser);
 
 
 
