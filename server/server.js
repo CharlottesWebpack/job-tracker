@@ -15,9 +15,12 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname,'../client')));
 
+
 app.get('/user', handlers.getUser);
 
 app.post('/user', handlers.postUser);
+
+
 
 
 
