@@ -1,35 +1,37 @@
 <nav-bar></nav-bar>
-<div class="col-lg-12">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search job list">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Search</button>
-        </span>
-      </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-  </div><!-- /.row -->
-</div>
+<div class="container-fluid">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search job list">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Search</button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+  <!-- </div> -->
 
-<!-- Job list table -->
-<div>
-   <table class='table'>
-     <thead >
-       <tr>
-         <th>Company</th>
-         <th>Title</th>
-         <th>Interest</th>
-         <th>Status</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr ng-repeat='job in data.jobs'>
-         <td>{{job.company}}</td>
-         <td>{{job.job_title}}</td>
-         <td>{{job.interest_level}}</td>
-         <td>{{job.status}}</td>
-       </tr>
-    </tbody>
-  </table>
+  <!-- Job list table -->
+  <div>
+     <table class='table'>
+       <thead >
+         <tr>
+           <th>Company</th>
+           <th>Title</th>
+           <th>Interest</th>
+           <th>Status</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat='job in data.jobs'>
+           <td>{{job.company}}</td>
+           <td>{{job.job_title}}</td>
+           <td>{{job.interest_level}}</td>
+           <td>{{job.status}}</td>
+         </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

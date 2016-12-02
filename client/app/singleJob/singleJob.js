@@ -5,7 +5,7 @@ angular.module('jobTracker.singleJob', [])
 .directive('singleJobDirective', function(){
   return {
     transclude: true,
-    restrict: 'E'
+    restrict: 'E',
     templateUrl: 'app/singleJob/singleJob.html'
   }
 })
