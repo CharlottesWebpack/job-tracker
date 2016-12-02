@@ -1,0 +1,23 @@
+#loginbox{
+	margin-top: 50px;
+}
+#login-alert{
+	display:none;
+}
+
+#form-group{
+	margin-top:10px;
+}
+.form-footer{
+	border-top: 1px solid#888; 
+	padding-top:15px; 
+	font-size:85%;
+}
+.panel-body{
+	padding-top:30px;
+}
+
+.input-group{
+	margin-bottom: 25px;
+}
+
