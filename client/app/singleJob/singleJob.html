@@ -1,10 +1,51 @@
 <div class="container-fluid">
   <div class="panel panel-default">
-  <!-- Default panel contents -->
+  <div class="panel-heading"></div>
   <!-- Table -->
-  <table class="table">
-   Table single job
-  </table>
+  <div class="row">
+    <div class="col-lg-6 ">
+      <table class="table">
+        <tr>
+          <th>Location</th>
+          <td>{{job.location}}</td>
+        </tr>
+        <tr>
+          <th>Contact person</th>
+          <td>{{job.contactPerson}}</td>
+        </tr>
+        <tr>
+          <th>Contact information</th>
+          <td>{{job.contactInfo}}</td>
+        </tr>
+        <tr>
+          <th>Link to the job posting</th>
+          <td>{{job.link}}</td>
+        </tr>
+        <tr>
+          <th>Date advertised</th>
+          <td>{{job.age}}</td>
+        </tr>
+      </table>
+
+    </div>
+    <div class="col-lg-6 ">
+      <table class="table">
+        <tr>
+          <th>Job description</th>
+          <td>Some job description and requirements</td>
+        </tr>
+        <tr>
+          <th>Additional notes</th>
+          <td>My notes about the job</td>
+        </tr>
+        <tr>
+          <th>Upload your resume and cover letter</th>
+          <td><button class="btn btn-default" type="button">Upload</button></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
 </div>
 
 </div>
