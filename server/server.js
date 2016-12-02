@@ -2,24 +2,21 @@ var express = require('express');
 var db = require('./db.js');
 var bodyParser = require('body-parser');
 var handlers = require('./handlers.js');
+var session = require('express-session');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+app.use(session({secret: 'kittyCat'}));
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-<<<<<<< HEAD
 app.use(express.static('../client'));
-=======
-app.use(express.static(__dirname + '/client'));
->>>>>>> origin/master
 
 app.get('/user', handlers.getUser);
 
 app.post('/user', handlers.postUser);
-
-
 
 
 
