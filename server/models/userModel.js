@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var jobSchema = require('./jobSchema.js');
 
 var userSchema = mongoose.Schema({
-  username: String,
+  username: {type: String, unique: true},
   password: String,
   jobList: [jobSchema]
 });

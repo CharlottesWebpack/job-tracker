@@ -1,15 +1,26 @@
-var User = require('..models/userModel.js');
+var userController = require('./userController.js');
 
-module.exports.addJobToDb = function(job, user) {
-  user.jobList.push(job);
+module.exports = {
 
-  user.save(function(err) {
-    if(err) { console.log("Error adding job to userModel!")}
-  });
-};
+  getJobsFromDb: function(username) {
+    return userController.retrieveUser(username).then(function(resp) {
+      return resp.jobList;
+    })
+  },
 
-modele.exports.removeJobFromDb = function() {
 
-};
+  addJobToDb: function(job, user) {
+    user.jobList.push(job);
 
-module.exports.updateJobInDb = function() {};
+    user.save(function(err) {
+      if(err) { console.log("Error adding job to userModel!")}
+    });
+  },
+
+  removeJobFromDb: function() {
+
+  },
+
+  updateJobInDb: function() {}
+
+}

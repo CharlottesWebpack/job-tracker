@@ -3,7 +3,12 @@
 <!-- Search bar -->
   <div class="col-lg-12">
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+
+      <div class="col-lg-2 col-lg-offset-1">
+        <button class="btn btn-default" type="button">Add a job</button>
+      </div><!-- /.col-lg-2 -->
+
+      <div class="col-lg-6">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search job list">
           <span class="input-group-btn">
@@ -27,10 +32,10 @@
        </thead>
        <tbody>
         <tr ng-repeat-start='job in data.jobs' ng-click="job.more = !job.more">
-           <td>{{job.company}}</td>
-           <td>{{job.job_title}}</td>
-           <td>{{job.interest_level}}</td>
-           <td>{{job.status}}</td>
+          <td>{{job.company}}</td>
+          <td>{{job.job_title}}</td>
+          <td>{{job.interest_level}}</td>
+          <td>{{job.status}}</td>
         </tr>
         <tr ng-if="job.more" ng-repeat-end="">
           <td colspan="4">
