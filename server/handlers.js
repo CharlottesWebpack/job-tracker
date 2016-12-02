@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var userController = require('./userController.js');
+var userController = require('./controllers/userController.js');
 
 
 var getUser = function(req, res) {
