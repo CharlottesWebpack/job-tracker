@@ -15,12 +15,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname,'../client')));
 
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> Working on login files
 app.get('/user', handlers.getUser);
 
 app.post('/user', handlers.postUser);
