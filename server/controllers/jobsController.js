@@ -22,8 +22,16 @@ module.exports = {
   },
 
   removeJobFromDb: function(job, username) {
+    var jobid = job._id
+
     return userController.retrieveUser(username).then(function(user) {
-      // user.jobList.id().remove(); need to make our own id for this to work
+      user.jobList.id(jobid).remove(); //need to error handle this!!!
+
+      user.save(function(err) {
+        if(err) { console.log("Error deleting job!", err)}
+          return('Error!')
+      });
+
     });
   },
 
