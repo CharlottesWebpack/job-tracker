@@ -20,18 +20,23 @@ var fakeUser = {
 
 module.exports = {
 
-addJobToDb: function(job, user) {
-  user.jobList.push(job);
+  getJobsFromDb: function(user) {
 
-  user.save(function(err) {
-    if(err) { console.log("Error adding job to userModel!")}
-  });
-};
+  }
 
-removeJobFromDb: function() {
 
-};
+  addJobToDb: function(job, user) {
+    user.jobList.push(job);
 
-updateJobInDb: function() {};
+    user.save(function(err) {
+      if(err) { console.log("Error adding job to userModel!")}
+    });
+  };
+
+  removeJobFromDb: function() {
+
+  };
+
+  updateJobInDb: function() {};
 
 }

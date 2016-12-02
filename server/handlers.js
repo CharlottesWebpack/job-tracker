@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var userController = require('./controllers/userController.js');
+var jobsController = require('./controllers/jobsController.js');
 
 
 var getUser = function(req, res) {
@@ -26,6 +27,13 @@ var postUser = function(req, res) {
     res.status(400).json(err);
   });
 };
+
+var getJobs = function(req, res) {
+  jobsController.getJobsFromDb(user)
+  .then(function(jobs) {
+    res.send(jobs);
+  })
+}
 
 module.exports.postUser = postUser;
 module.exports.getUser = getUser;

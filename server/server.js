@@ -29,7 +29,7 @@ app.get('/login', handlers.getUser);
 
 app.post('/signup', handlers.postUser);
 
-
+app.get('/jobs', handlers.getJobs);
 
 
 
