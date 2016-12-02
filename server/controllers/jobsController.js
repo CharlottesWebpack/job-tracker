@@ -20,8 +20,10 @@ module.exports = {
     });
   },
 
-  removeJobFromDb: function() {
-
+  removeJobFromDb: function(job, username) {
+    return userController.retrieveUser(username).then(function(user) {
+      // user.jobList.id().remove(); need to make our own id for this to work
+    });
   },
 
   updateJobInDb: function() {}
