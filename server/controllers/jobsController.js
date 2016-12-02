@@ -1,23 +1,5 @@
 var userController = require('./userController.js');
 
-var fakeUser = {
-    "_id": {
-        "$oid": "58407f433586eb49e0f38fb9"
-    },
-    "username": "Nick",
-    "password": "Nick",
-    "jobList": [
-        {
-            "company": "facebook",
-            "_id": {
-                "$oid": "58407f433586eb49e0f38fba"
-            },
-            "interest_level": 0
-        }
-    ],
-    "__v": 0
-}
-
 module.exports = {
 
   getJobsFromDb: function(username) {
