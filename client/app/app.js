@@ -26,10 +26,5 @@ angular.module('jobTracker', [
       url: '/mainList',
       templateUrl: 'app/mainList/mainList.html',
       controller: 'mainListController'
-    })
-    .state('singleJob', {
-      url: '/singleJob',
-      templateUrl: 'app/singleJob/singleJob.html',
-      controller: 'singleJobController'
     });
 });
