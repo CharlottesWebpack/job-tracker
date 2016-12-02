@@ -1,9 +1,9 @@
-angular.module('jobFactory', [])
-.factory(function($http) {
+angular.module('jobTracker.jobService', [])
+.factory('JobFactory', function($http) {
   var getAllJobs = function() {
-    
+
   };
-  
+
   var createJob = function(job) {
 
   };
@@ -17,7 +17,7 @@ angular.module('jobFactory', [])
   return {
     getAllJobs: getAllJobs,
     createJob: createJob,
-    deleteJob: deleteJob, 
+    deleteJob: deleteJob,
     updateJob: updateJob
   };
 });
