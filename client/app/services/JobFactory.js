@@ -2,11 +2,11 @@ angular.module('jobTracker.jobService', [])
 .factory('JobFactory', function($http) {
 
   var getAllJobs = function(user) {
-    var username = 'Nick'
+    var username = 'Nick' //need to actually make this work once users can log in
     return $http({
       method: 'GET',
-      url: '/jobs'
-      params: {username: username}
+      url: '/jobs',
+      params: {username: username} //does this go to the header?
     }).
     then(function(resp) {
       return resp;
@@ -14,14 +14,28 @@ angular.module('jobTracker.jobService', [])
   };
 
   var createJob = function(job) {
-
+    return $http({
+      method: 'POST',
+      url: '/jobs',
+      data: job
+    });
   };
 
-  var deleteJob = function() {
-
+  var deleteJob = function(job) {
+    return $http({
+      method: 'DELETE',
+      url: '/jobs',
+      data: job
+    });
   };
 
-  var updateJob = function() {};
+  var updateJob = function(job) {
+    return $http({
+      method: 'PUT',
+      url: '/jobs',
+      data: job
+    });
+  };
 
   return {
     getAllJobs: getAllJobs,
