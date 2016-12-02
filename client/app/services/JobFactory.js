@@ -1,7 +1,13 @@
 angular.module('jobTracker.jobService', [])
 .factory('JobFactory', function($http) {
+  
   var getAllJobs = function() {
-
+    return $http({
+      method: 'GET',
+      url: '/jobs'
+    }).then(function(resp) {
+      return resp;
+    })
   };
 
   var createJob = function(job) {
