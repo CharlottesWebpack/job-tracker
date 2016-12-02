@@ -1,6 +1,9 @@
 angular.module('jobFactory', [])
 .factory(function($http) {
-
+  var getAllJobs = function() {
+    
+  };
+  
   var createJob = function(job) {
 
   };
