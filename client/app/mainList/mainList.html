@@ -1,20 +1,20 @@
 <nav-bar></nav-bar>
-<!-- Extra navigation - search bar and add job button -->
-<div class="navbar col-lg-12">
-  <div class="container">
-    <div class="navbar-left">
-      <button type="button" class="btn btn-default navbar-btn" ng-click="">Add a job</button>
-      </div>
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
         <input type="text" class="form-control" placeholder="Search job list">
-      </div>
-      <button type="submit" class="btn btn-default">Search</button>
-    </form>
-  </div>
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Search</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
 </div>
 <!-- Add job form -->
-<div>
+<div ng-show="isAddJobFormOpen">
+  <form name="">
+  </form>
 </div>
 <!-- Job list table -->
 <div>
