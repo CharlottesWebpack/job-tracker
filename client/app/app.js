@@ -5,6 +5,7 @@ angular.module('jobTracker', [
   'jobTracker.mainList',
   'jobTracker.singleJob',
   'jobTracker.authService',
+  'jobTracker.jobService',
   'navDirective'
 ])
 .config(function($stateProvider, $urlRouterProvider) {

@@ -35,7 +35,7 @@ angular.module('jobTracker.authService', [])
 
   return {
     login: login,
-    signup: signup,
+    signup: signup
   }
 
 })
