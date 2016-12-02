@@ -11,22 +11,22 @@ angular.module('jobTracker', [
   $stateProvider
     .state('login', {
       url: '/login',
-      urlTemplate: 'app/login/login.html',
+      templateUrl: 'app/login/login.html',
       controller: 'loginController'
     })
     .state('signup', {
       url: '/signup',
-      urlTemplate: 'app/signup/signup.html',
+      templateUrl: 'app/signup/signup.html',
       controller: 'signupController'
     })
     .state('mainList', {
       url: '/mainList',
-      urlTemplate: 'app/mainlist/mainlist.html',
+      templateUrl: 'app/mainList/mainList.html',
       controller: 'mainListController'
     })
     .state('singleJob', {
       url: '/singleJob',
-      urlTemplate: 'app/singleJob/singleJob.html',
+      templateUrl: 'app/singleJob/singleJob.html',
       controller: 'singleJobController'
     });
 });
