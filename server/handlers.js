@@ -29,7 +29,8 @@ var postUser = function(req, res) {
 };
 
 var getJobs = function(req, res) {
-  jobsController.getJobsFromDb(user)
+  var username = req.headers.username;
+  jobsController.getJobsFromDb(username)
   .then(function(jobs) {
     res.send(jobs);
   })
@@ -37,3 +38,4 @@ var getJobs = function(req, res) {
 
 module.exports.postUser = postUser;
 module.exports.getUser = getUser;
+module.exports.getJobs = getJobs;

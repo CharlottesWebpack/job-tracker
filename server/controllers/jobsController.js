@@ -1,4 +1,4 @@
-var User = require('..models/userModel.js');
+var userController = require('./userController.js');
 
 var fakeUser = {
     "_id": {
@@ -21,8 +21,11 @@ var fakeUser = {
 module.exports = {
 
   getJobsFromDb: function(user) {
-
-  }
+    var un = user.username
+    userController.retrieveUser(un).then(function(resp) {
+      console.log('inside of jobsconttoller', resp);
+    })
+  },
 
 
   addJobToDb: function(job, user) {
@@ -31,12 +34,12 @@ module.exports = {
     user.save(function(err) {
       if(err) { console.log("Error adding job to userModel!")}
     });
-  };
+  },
 
   removeJobFromDb: function() {
 
-  };
+  },
 
-  updateJobInDb: function() {};
+  updateJobInDb: function() {}
 
 }
