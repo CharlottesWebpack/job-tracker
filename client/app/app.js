@@ -3,9 +3,9 @@ angular.module('jobTracker', [
   'jobTracker.login',
   'jobTracker.signup',
   'jobTracker.mainList',
-  'jobTracker.singleJob',
   'jobTracker.authService',
   'jobTracker.jobService',
+  'jobTracker.directives',
   'navDirective'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
