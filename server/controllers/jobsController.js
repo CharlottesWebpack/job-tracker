@@ -1,4 +1,5 @@
 var userController = require('./userController.js');
+var shortid = require('shortid')
 
 module.exports = {
 
@@ -10,8 +11,8 @@ module.exports = {
 
 
   addJobToDb: function(job, username) {
+    job.id = shortid.generate();
     return userController.retrieveUser(username).then(function(user) {
-
       user.jobList.push(job);
 
       user.save(function(err) {
