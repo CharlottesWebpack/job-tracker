@@ -31,7 +31,7 @@ app.post('/signup', handlers.postUser);
 
 app.get('/jobs', handlers.getJobs);
 
-
+app.post('/jobs', handlers.createJob);
 
 
 

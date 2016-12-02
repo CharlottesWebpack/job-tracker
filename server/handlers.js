@@ -35,6 +35,15 @@ getUser: function(req, res) {
     .then(function(jobs) {
       res.send(jobs);
     })
+  },
+
+  createJob: function(req, res) {
+    var username = req.headers.username;
+    var job = req.body;
+    jobsController.addJobToDb(job, username)
+    .then(function() {
+      res.send();
+    })
   }
 
 };
