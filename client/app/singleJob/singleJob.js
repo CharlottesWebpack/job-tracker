@@ -1,8 +1,5 @@
 angular.module('jobTracker.singleJob', [])
-.controller('singleJobController', function($scope) {
-
-})
-.directive('singleJobDirective', function(){
+.directive('singleJobDir', function(){
   return {
     transclude: true,
     restrict: 'E',

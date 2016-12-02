@@ -15,7 +15,7 @@
   </div>
 
   <!-- Job list table -->
-  <div>
+  <div class="container-fluid">
      <table class='table'>
        <thead >
          <tr>
@@ -26,11 +26,12 @@
          </tr>
        </thead>
        <tbody>
-         <tr ng-repeat='job in data.jobs'>
+         <tr ng-repeat='job in data.jobs' ng-click="showMore()" >
            <td>{{job.company}}</td>
            <td>{{job.job_title}}</td>
            <td>{{job.interest_level}}</td>
            <td>{{job.status}}</td>
+           <single-job-dir ng-show="jobMore"></single-job-dir>
          </tr>
       </tbody>
     </table>
