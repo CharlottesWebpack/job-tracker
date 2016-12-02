@@ -5,7 +5,7 @@ angular.module('jobTracker.jobService', [])
     var username = 'Nick'
     return $http({
       method: 'GET',
-      url: '/jobs'
+      url: '/jobs',
       params: {username: username}
     }).
     then(function(resp) {
