@@ -1,0 +1,20 @@
+<div>
+  <table class='table'>
+    <thead >
+      <tr>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Interest</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='job in data.jobs'>
+        <td>{{job.company}}</td>
+        <td>{{job.job_title}}</td>
+        <td>{{job.interest_level}}</td>
+        <td>{{job.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

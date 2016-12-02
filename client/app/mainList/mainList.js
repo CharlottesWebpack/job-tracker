@@ -1,6 +1,12 @@
 angular.module('jobTracker.mainList', [])
 .controller('mainListController', function($scope) {
-  $scope.data = {};
+  
+  $scope.data = {jobs: [{
+    company: 'fakeCompany',
+  job_title: 'fakeTitle',
+  interest_level: 3,
+  status: 'fakeStatus'
+  }]};
 
   $scope.addJob = function() {
 
@@ -10,5 +16,6 @@ angular.module('jobTracker.mainList', [])
 
   };
 
-  
+
 });
+
