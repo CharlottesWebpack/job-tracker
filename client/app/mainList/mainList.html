@@ -27,10 +27,10 @@
        </thead>
        <tbody>
         <tr ng-repeat-start='job in data.jobs' ng-click="job.more = !job.more">
-           <td>{{job.company}}</td>
-           <td>{{job.job_title}}</td>
-           <td>{{job.interest_level}}</td>
-           <td>{{job.status}}</td>
+          <td>{{job.company}}</td>
+          <td>{{job.job_title}}</td>
+          <td>{{job.interest_level}}</td>
+          <td>{{job.status}}</td>
         </tr>
         <tr ng-if="job.more" ng-repeat-end="">
           <td colspan="4">
