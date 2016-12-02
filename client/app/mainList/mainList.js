@@ -1,12 +1,19 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, $window) {
+.controller('mainListController', function($scope) {
 
   $scope.data = {jobs: [{
     company: 'fakeCompany',
     job_title: 'fakeTitle',
     interest_level: 3,
     status: 'fakeStatus'
-  }]};
+  },
+  {
+    company: 'fakeCompany2',
+    job_title: 'fakeTitle2',
+    interest_level: 4,
+    status: 'fakeStatus'
+  }
+  ]};
 
   $scope.addJob = function() {
 
@@ -15,10 +22,6 @@ angular.module('jobTracker.mainList', [])
   $scope.removeJob = function() {
 
   };
-  $scope.showMore = function() {
-
-    $scope.jobMore = !$scope.jobMore;
-  }
 
 });
 
