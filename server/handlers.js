@@ -52,6 +52,15 @@ getUser: function(req, res) {
     jobsController.removeJobFromDb(job, username)
     .then(function(resp) {
       res.send(resp);
+    });
+  }, 
+
+  updateJob: function(req, res) {
+    var username = req.headers.username;  
+    var job = req.body;  
+    jobsController.updateJobInDb(job, username)
+    .then(function(resp) {
+      res.send(resp);
     })
   }
 

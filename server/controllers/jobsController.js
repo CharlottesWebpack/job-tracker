@@ -34,7 +34,16 @@ module.exports = {
 
     });
   },
+//THIS IS WHERE I LEFT OFF!!!!!
+  updateJobInDb: function(job, username) {
+    var jobid = job._id
 
-  updateJobInDb: function() {}
+    return userController.retrieveUser(username).then(function(user) {
+      console.log(user.jobList)
+      user.findOneAndUpdate({job_id: jobid}, {company: job.company}, function(err, job) {
+        if(err) { console.log('Error updating job', err); }
+      });
+    });
+  }
 
 }
