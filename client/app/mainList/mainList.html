@@ -1,9 +1,14 @@
 <nav-bar></nav-bar>
-<div class="container-fluid">
+<div class="container-fluid" >
 <!-- Search bar -->
-  <div class="col-lg-12">
+  <div class="col-lg-12" ng-hide="openAddJobForm">
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+
+      <div class="col-lg-2 col-lg-offset-1">
+        <button class="btn btn-default" type="button" ng-click="openAddJobForm = !openAddJobForm">Add a job</button>
+      </div><!-- /.col-lg-2 -->
+
+      <div class="col-lg-6">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search job list">
           <span class="input-group-btn">
@@ -13,7 +18,8 @@
       </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
   </div>
-
+  <!-- Add job form -->
+  <add-job-dir></add-job-dir>
   <!-- Job list table -->
 
      <table class='table'>

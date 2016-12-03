@@ -5,6 +5,7 @@ angular.module('jobTracker.mainList', [])
     company: 'fakeCompany',
     job_title: 'fakeTitle',
     interest_level: 3,
+
     status: 'fakeStatus',
     location: 'San Francisco'
   },
