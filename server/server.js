@@ -33,6 +33,8 @@ app.get('/jobs', handlers.getJobs);
 
 app.post('/jobs', handlers.createJob);
 
+app.delete('/jobs', handlers.deleteJob);
+
 
 
 db.on('error', (err) => {
