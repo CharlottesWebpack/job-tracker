@@ -1,5 +1,69 @@
 <!-- Add job form -->
-<div ng-show="isAddJobFormOpen">
-  <form name="">
+<div ng-show="openAddJobForm" class="container-fluid">
+  <form name="addJobForm" class="form-group">
+    <div class="row form-row">
+      <div class="col-lg-2">
+        <label for="company-name">Company name</label>
+        <input type="text" class="form-control" id="company-name" required>
+      </div>
+      <div class="col-lg-2">
+        <label for="job-title">Job title</label>
+        <input type="text" class="form-control" id="job-title">
+      </div>
+      <div class="col-lg-2">
+        <label for="contact-person">Contact person</label>
+        <input type="text" class="form-control" id="contact-person">
+      </div>
+      <div class="col-lg-2">
+        <label for="contact-info">Contact information</label>
+        <input type="text" class="form-control" id="contact-info">
+      </div>
+      <div class="col-lg-2">
+        <label for="interest-level">Interest level</label>
+        <select class="form-control" id="interest-level">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="col-lg-2">
+        <label for="status">Application status</label>
+        <select class="form-control" id="status">
+          <option>Not applied</option>
+          <option>Applied</option>
+          <option>Responded</option>
+          <option>Phone screen</option>
+          <option>In-person interview</option>
+          <option>Offer</option>
+          <option>Application rejected</option>
+          <option>Not interested</option>
+        </select>
+      </div>
+    </div> <!-- row --> <br>
+    <div class="row form-row">
+      <div class="col-lg-2">
+        <label for="link">Link to posting</label>
+        <input type="text" class="form-control" id="link">
+      </div>
+      <div class="col-lg-2">
+        <label for="date">Date advertised</label>
+        <input type="date" class="form-control" id="date">
+      </div>
+      <div class="col-lg-4">
+        <label for="date">Job description/requirements</label>
+        <input type="text" class="form-control" id="date">
+      </div>
+      <div class="col-lg-4">
+        <label for="date">Additional notes</label>
+        <input type="text" class="form-control" id="date">
+      </div>
+    </div> <!-- row --> <br>
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-8">
+        <button class="btn btn-default" type="submit" ng-click="openAddJobForm = !openAddJobForm">Add to my job list</button>
+      </div>
+    </div> <!-- row -->
   </form>
 </div>
