@@ -38,9 +38,13 @@ app.get('/jobs', handlers.getJobs);
 
 app.post('/jobs', handlers.createJob);
 
+<<<<<<< HEAD
 app.post('/signup', handlers.postUser);
 
 app.delete('/jobs', handlers.deleteJob);
+=======
+app.post('/jobs/delete', handlers.deleteJob);
+>>>>>>> [FEATURE](CLIENT): remove job from the list functionality {IA}
 
 app.put('/jobs', handlers.updateJob);
 

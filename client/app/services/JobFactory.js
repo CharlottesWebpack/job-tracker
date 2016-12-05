@@ -28,10 +28,16 @@ angular.module('jobTracker.jobService', [])
   var deleteJob = function(job) {
     var username = 'Nick' //need to actually make this work once users can log in
     return $http({
-      method: 'DELETE',
-      url: '/jobs',
+      method: 'POST',
+      url: '/jobs/delete',
       data: job,
+      contentType: 'application/json',
       params: {username: username}
+    }).then((res) => {
+      return res.data.jobList;
+    })
+    .catch((err) => {
+      console.log("ERR", err);
     });
   };
 
@@ -42,6 +48,8 @@ angular.module('jobTracker.jobService', [])
       url: '/jobs',
       data: job,
       params: {username: username}
+    }).then((res) => {
+      return res.data.jobList;
     });
   };
 
