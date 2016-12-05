@@ -25,14 +25,19 @@ angular.module('jobTracker.mainList', [])
   };
 
   $scope.addJob = function() {
-    console.log($scope.new);
     JobFactory.createJob($scope.new)
     .then((res) => {
       $scope.jobs = res;
     });
   };
 
-  $scope.removeJob = function() {
+  $scope.removeJob = function(job) {
+    JobFactory.deleteJob(job)
+    .then((res) => {
+      $scope.jobs = res;
+    })
+  };
+  $scope.editJob = function() {
 
   };
   $scope.getJobs();

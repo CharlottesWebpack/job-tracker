@@ -40,7 +40,7 @@ app.post('/jobs', handlers.createJob);
 
 app.post('/signup', handlers.postUser);
 
-app.delete('/jobs', handlers.deleteJob);
+app.post('/jobs/delete', handlers.deleteJob);
 
 app.put('/jobs', handlers.updateJob);
 
