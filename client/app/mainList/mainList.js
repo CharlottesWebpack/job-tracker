@@ -35,6 +35,9 @@ angular.module('jobTracker.mainList', [])
   $scope.removeJob = function() {
 
   };
+  $scope.editJob = function() {
+
+  };
   $scope.getJobs();
 });
 
