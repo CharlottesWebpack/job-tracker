@@ -4,6 +4,9 @@ var bodyParser = require('body-parser');
 var handlers = require('./handlers.js');
 var path = require('path');
 var session = require('express-session');
+var passport = require('./auth/passLocal.js');
+var User = require('./models/userModel.js');
+
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -20,18 +23,22 @@ app.use(session({
   }
 }));
 
+app.use(passport.initialize());
+
+app.use(passport.session());
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname,'../client')));
 
-app.get('/login', handlers.getUser);
-
-app.post('/signup', handlers.postUser);
+app.post('/login', passport.authenticate('local'), handlers.getUser);
 
 app.get('/jobs', handlers.getJobs);
 
 app.post('/jobs', handlers.createJob);
+
+app.post('/signup', handlers.postUser);
 
 app.delete('/jobs', handlers.deleteJob);
 
