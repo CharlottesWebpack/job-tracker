@@ -2,7 +2,6 @@ angular.module('jobTracker.authService', [])
 .factory('AuthFactory', function($http, $location) {
 
   var login = function(user){
-
     return $http({
       method: 'POST',
       url: '/login',
@@ -17,7 +16,6 @@ angular.module('jobTracker.authService', [])
   };
 
   var signup = function(user){
-    console.log(user);
     return $http({
       method: 'POST',
       url: '/signup',
