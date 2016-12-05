@@ -6,7 +6,7 @@ angular.module('jobTracker.jobService', [])
     return $http({
       method: 'GET',
       url: '/jobs',
-      params: {username: username} //does this go to the header?
+      params: {username: username}
     }).
     then(function(res) {
       return res.data; //this is an array of job objects
@@ -19,7 +19,7 @@ angular.module('jobTracker.jobService', [])
       method: 'POST',
       url: '/jobs',
       data: job,
-      params: {username: username} //does this go to the header?
+      params: {username: username}
     }).then((res) => {
       return res.data.jobList;
     })
@@ -31,7 +31,7 @@ angular.module('jobTracker.jobService', [])
       method: 'DELETE',
       url: '/jobs',
       data: job,
-      params: {username: username} //does this go to the header?
+      params: {username: username}
     });
   };
 
@@ -41,7 +41,7 @@ angular.module('jobTracker.jobService', [])
       method: 'PUT',
       url: '/jobs',
       data: job,
-      params: {username: username} //does this go to the header?
+      params: {username: username}
     });
   };
 
