@@ -44,12 +44,15 @@ module.exports = {
 
   updateJobInDb: function(job, username) {
     var jobid = job._id;
-    // return userController.retrieveUser(username).then(function(user) {
-    //   console.log(user.jobList)
-      return User.findOneAndUpdate({job_id: jobid}, {$set: {company: job.company}}, function(err, job) {
-        if(err) { console.log('Error updating job', err); }
-      });
-    // });
+    return User.update(
+      {"username": username, "jobList._id": jobid}, 
+      {"$set": 
+        {"jobList.$": job}
+    })
+    .exec()
+    .then(function(resp) {
+      return resp;
+    });
   }
 
 }

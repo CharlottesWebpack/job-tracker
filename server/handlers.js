@@ -59,6 +59,7 @@ getUser: function(req, res) {
   updateJob: function(req, res) {
     var username = req.headers.username;  
     var job = req.body;  
+    // console.log('inside update job!', job, username)
     jobsController.updateJobInDb(job, username)
     .then(function(resp) {
       res.send(resp);
