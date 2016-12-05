@@ -35,6 +35,8 @@ app.post('/jobs', handlers.createJob);
 
 app.delete('/jobs', handlers.deleteJob);
 
+app.put('/jobs', handlers.updateJob);
+
 
 
 db.on('error', (err) => {

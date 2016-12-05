@@ -1,10 +1,15 @@
 var userController = require('./userController.js');
-var shortid = require('shortid')
+var User = require('../models/userModel.js');
+var mongoose = require('mongoose');
+var shortid = require('shortid');
+
+mongoose.Promise = global.Promise;
 
 module.exports = {
 
   getJobsFromDb: function(username) {
-    return userController.retrieveUser(username).then(function(user) {
+    return userController.retrieveUser(username)
+    .then(function(user) {
       return user.jobList;
     })
   },
@@ -12,11 +17,13 @@ module.exports = {
 
   addJobToDb: function(job, username) {
     job.id = shortid.generate();
-    return userController.retrieveUser(username).then(function(user) {
+    return userController.retrieveUser(username)
+    .then(function(user) {
       user.jobList.push(job);
 
-      user.save(function(err) {
-        if(err) { console.log("Error adding job to userModel!", err)}
+      return user.save()
+      .then(function(resp) {
+        return resp;
       });
     });
   },
@@ -24,17 +31,25 @@ module.exports = {
   removeJobFromDb: function(job, username) {
     var jobid = job._id
 
-    return userController.retrieveUser(username).then(function(user) {
-      user.jobList.id(jobid).remove(); //need to error handle this!!!
+    return userController.retrieveUser(username)
+    .then(function(user) {
+      user.jobList.id(jobid).remove();
 
-      user.save(function(err) {
-        if(err) { console.log("Error deleting job!", err)}
-          return('Error!')
+      return user.save()
+      .then(function(resp) {
+        return resp;
       });
-
     });
   },
 
-  updateJobInDb: function() {}
+  updateJobInDb: function(job, username) {
+    var jobid = job._id;
+    // return userController.retrieveUser(username).then(function(user) {
+    //   console.log(user.jobList)
+      return User.findOneAndUpdate({job_id: jobid}, {$set: {company: job.company}}, function(err, job) {
+        if(err) { console.log('Error updating job', err); }
+      });
+    // });
+  }
 
 }
