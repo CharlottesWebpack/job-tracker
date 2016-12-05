@@ -22,7 +22,7 @@ angular.module('jobTracker.authService', [])
       method: 'POST',
       url: '/signup',
       data: {
-        auth: authMethod,
+        //auth: authMethod,
         username: username,
         password: password
       }
