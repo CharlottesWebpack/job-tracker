@@ -11,7 +11,7 @@ module.exports = {
     return userController.retrieveUser(username)
     .then(function(user) {
       return user.jobList;
-    })
+    });
   },
 
 
@@ -20,11 +20,13 @@ module.exports = {
     return userController.retrieveUser(username)
     .then(function(user) {
       user.jobList.push(job);
-
-      return user.save()
-      .then(function(resp) {
-        return resp;
-      });
+      return user;
+    })
+    .then(function(user) {
+      return user.save();
+    })
+    .then(function(user) {
+      return user;
     });
   },
 
@@ -34,11 +36,14 @@ module.exports = {
     return userController.retrieveUser(username)
     .then(function(user) {
       user.jobList.id(jobid).remove();
-
-      return user.save()
-      .then(function(resp) {
-        return resp;
-      });
+      return user;
+    })
+    .then(function(user) {
+      user.save();
+      return user;
+    })
+    .then(function(user) {
+      return user;
     });
   },
 
