@@ -8,8 +8,9 @@ angular.module('jobTracker.jobService', [])
       url: '/jobs',
       params: {username: username} //does this go to the header?
     }).
-    then(function(resp) {
-      return resp.data; //this is an array of job objects
+    then(function(res) {
+      console.log("RESPONSE form server", res)
+      return res.data; //this is an array of job objects
     });
   };
 
@@ -21,8 +22,8 @@ angular.module('jobTracker.jobService', [])
       data: job,
       params: {username: username} //does this go to the header?
     }).then((res) => {
-      console.log("RESPONSE form server", res)
-      return res.data;
+      console.log("RESPONSE form server", res.data.jobList)
+      return res.data.jobList;
     })
   };
 

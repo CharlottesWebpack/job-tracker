@@ -29,7 +29,7 @@ angular.module('jobTracker.mainList', [])
     console.log($scope.new);
     JobFactory.createJob($scope.new)
     .then((res) => {
-      $scope.data.jobs.push(res);
+      $scope.data.jobs = res;
     });
   };
 
