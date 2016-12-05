@@ -3,12 +3,13 @@ var User = require('../models/userModel.js');
 var mongoose = require('mongoose');
 var shortid = require('shortid');
 
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 module.exports = {
 
   getJobsFromDb: function(username) {
-    return userController.retrieveUser(username).then(function(user) {
+    return userController.retrieveUser(username)
+    .then(function(user) {
       return user.jobList;
     })
   },
@@ -30,7 +31,8 @@ module.exports = {
   removeJobFromDb: function(job, username) {
     var jobid = job._id
 
-    return userController.retrieveUser(username).then(function(user) {
+    return userController.retrieveUser(username)
+    .then(function(user) {
       user.jobList.id(jobid).remove();
 
       return user.save()
@@ -44,7 +46,7 @@ module.exports = {
     var jobid = job._id;
     // return userController.retrieveUser(username).then(function(user) {
     //   console.log(user.jobList)
-      return User.findOneAndUpdate({job_id: jobid}, {company: job.company}, function(err, job) {
+      return User.findOneAndUpdate({job_id: jobid}, {$set: {company: job.company}}, function(err, job) {
         if(err) { console.log('Error updating job', err); }
       });
     // });
