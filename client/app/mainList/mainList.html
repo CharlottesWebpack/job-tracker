@@ -21,7 +21,6 @@
   <!-- Add job form -->
   <add-job-dir></add-job-dir>
   <!-- Job list table -->
-
      <table class='table'>
        <thead >
          <tr>
@@ -32,7 +31,7 @@
          </tr>
        </thead>
        <tbody>
-        <tr ng-repeat-start='job in data.jobs' ng-click="job.more = !job.more">
+        <tr ng-repeat-start='job in jobs' ng-click="job.more = !job.more">
           <td>{{job.company}}</td>
           <td>{{job.job_title}}</td>
           <td>{{job.interest_level}}</td>

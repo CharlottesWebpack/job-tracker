@@ -8,8 +8,8 @@ angular.module('jobTracker.jobService', [])
       url: '/jobs',
       params: {username: username} //does this go to the header?
     }).
-    then(function(resp) {
-      return resp; //this is an array of job objects
+    then(function(res) {
+      return res.data; //this is an array of job objects
     });
   };
 
@@ -20,7 +20,9 @@ angular.module('jobTracker.jobService', [])
       url: '/jobs',
       data: job,
       params: {username: username} //does this go to the header?
-    });
+    }).then((res) => {
+      return res.data.jobList;
+    })
   };
 
   var deleteJob = function(job) {
