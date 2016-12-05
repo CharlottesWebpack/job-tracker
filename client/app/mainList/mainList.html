@@ -1,0 +1,48 @@
+<nav-bar></nav-bar>
+<div class="container-fluid" >
+<!-- Search bar -->
+  <div class="col-lg-12" ng-hide="openAddJobForm">
+    <div class="row">
+
+      <div class="col-lg-2 col-lg-offset-1">
+        <button class="btn btn-default" type="button" ng-click="openAddJobForm = !openAddJobForm">Add a job</button>
+      </div><!-- /.col-lg-2 -->
+
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search job list">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Search</button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+  </div>
+  <!-- Add job form -->
+  <add-job-dir></add-job-dir>
+  <!-- Job list table -->
+     <table class='table'>
+       <thead >
+         <tr>
+           <th>Company</th>
+           <th>Title</th>
+           <th>Interest</th>
+           <th>Status</th>
+         </tr>
+       </thead>
+       <tbody>
+        <tr ng-repeat-start='job in jobs' ng-click="job.more = !job.more">
+          <td>{{job.company}}</td>
+          <td>{{job.job_title}}</td>
+          <td>{{job.interest_level}}</td>
+          <td>{{job.status}}</td>
+        </tr>
+        <tr ng-if="job.more" ng-repeat-end="">
+          <td colspan="4">
+            <single-job-dir></single-job-dir>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>
