@@ -1,22 +1,34 @@
 var User = require('../models/userModel.js');
 
+// var updateUser = function(userObj) {
+//   var user = new Promise(function(resolve, reject) {
+//     User.findOne({'username': username}, function(err, user) {
+//       if(err) {
+//         reject(err);
+//       }else {
+//         resolve(user);
+//       }
+//     });
+//   });
+//
+//   user.then(function(user) {
+//     user.save(function(err, user) {
+//       if(err) {
+//         reject(err);
+//       }else {
+//         resolve(user);
+//       }
+//     });
+//   });
+// };
+
 var addUser = function(userObj) {
-  var user = new User({
-    username: userObj.username,
-    password: userObj.password,
-    jobList: [{
-      company: userObj.company,
-      job_title: userObj.job_title,
-      interest_level: userObj.interest_level,
-      status: userObj.status
-    }]
-  });
   return new Promise(function(resolve, reject) {
-    user.save(function(err, user) {
+    User.register(new User({'username': userObj.username}), userObj.password, function(err, newUser) {
       if(err) {
         reject(err);
       }else {
-        resolve(user);
+        resolve(newUser);
       }
     });
   });
@@ -35,4 +47,5 @@ var retrieveUser = function(username) {
 };
 
 module.exports.addUser = addUser;
+// module.exports.updateUser = updateUser;
 module.exports.retrieveUser = retrieveUser;
