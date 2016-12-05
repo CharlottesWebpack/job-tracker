@@ -1,7 +1,7 @@
 angular.module('jobTracker.mainList', [])
 .controller('mainListController', function($scope, JobFactory) {
   $scope.new = {}
-  $scope.data = {jobs: [{
+  $scope.jobs = [{
     company: 'fakeCompany',
     job_title: 'fakeTitle',
     interest_level: 3,
@@ -15,13 +15,12 @@ angular.module('jobTracker.mainList', [])
     interest_level: 4,
     status: 'fakeStatus',
     location: 'Palo Alto'
-  }
-  ]};
+  }];
 
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
-      $scope.data.jobs = res;
+      $scope.jobs = res;
     })
   };
 
@@ -29,7 +28,7 @@ angular.module('jobTracker.mainList', [])
     console.log($scope.new);
     JobFactory.createJob($scope.new)
     .then((res) => {
-      $scope.data.jobs = res;
+      $scope.jobs = res;
     });
   };
 
