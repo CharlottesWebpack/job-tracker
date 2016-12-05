@@ -12,6 +12,9 @@ module.exports = {
     .then(function(user) {
       return user.jobList;
     })
+    .catch(function(err) {
+      return ('Error getting jobs from db' + err);
+    });
   },
 
 
@@ -20,11 +23,16 @@ module.exports = {
     return userController.retrieveUser(username)
     .then(function(user) {
       user.jobList.push(job);
-
-      return user.save()
-      .then(function(resp) {
-        return resp;
-      });
+      return user;
+    })
+    .then(function(user) {
+      return user.save();
+    })
+    .then(function(user) {
+      return user;
+    })
+    .catch(function(err) {
+      return ('Error adding job to db' + err);
     });
   },
 
@@ -34,11 +42,17 @@ module.exports = {
     return userController.retrieveUser(username)
     .then(function(user) {
       user.jobList.id(jobid).remove();
-
-      return user.save()
-      .then(function(resp) {
-        return resp;
-      });
+      return user;
+    })
+    .then(function(user) {
+      user.save();
+      return user;
+    })
+    .then(function(user) {
+      return user;
+    })
+    .catch(function(err) {
+      return('Job does not exist' + err);
     });
   },
 
@@ -52,7 +66,12 @@ module.exports = {
     .exec()
     .then(function(resp) {
       return resp;
-    });
+    })
+    .catch(function(err) {
+      return ('Error updating job in db' + err);
+    })
+
+
   }
 
 }
