@@ -41,8 +41,9 @@ getUser: function(req, res) {
     var username = req.headers.username;
     var job = req.body;
     jobsController.addJobToDb(job, username)
-    .then(function() {
-      res.send();
+    .then(function(resp) {
+      console.log('resp in createJob', resp);
+      res.send(resp);
     })
   },
 
@@ -61,7 +62,7 @@ getUser: function(req, res) {
     jobsController.updateJobInDb(job, username)
     .then(function(resp) {
       res.send(resp);
-    })
+    });
   }
 
 };
