@@ -34,6 +34,13 @@ getUser: function(req, res) {
     jobsController.getJobsFromDb(username)
     .then(function(jobs) {
       res.send(jobs);
+<<<<<<< HEAD
+=======
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(500);
+>>>>>>> dev
     });
   },
 
@@ -44,6 +51,13 @@ getUser: function(req, res) {
     .then(function(resp) {
       console.log('resp in createJob', resp);
       res.send(resp);
+<<<<<<< HEAD
+=======
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(500);
+>>>>>>> dev
     });
   },
 
@@ -53,6 +67,10 @@ getUser: function(req, res) {
     jobsController.removeJobFromDb(job, username)
     .then(function(resp) {
       res.send(resp);
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(204);
     });
   },
 
@@ -62,7 +80,11 @@ getUser: function(req, res) {
     jobsController.updateJobInDb(job, username)
     .then(function(resp) {
       res.send(resp);
-    });
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(204);
+    });    
   }
 
 };
