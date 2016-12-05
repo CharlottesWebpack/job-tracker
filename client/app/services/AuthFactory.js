@@ -1,17 +1,13 @@
 angular.module('jobTracker.authService', [])
 .factory('AuthFactory', function($http, $location) {
 
-  var login = function(username, password, authMethod){
+  var login = function(user){
 
     return $http({
       method: 'POST',
       url: '/login',
-      contentType : "Application/JSON",
-      data: {
-        //auth: authMethod,
-        username: username,
-        password: password
-      }
+      contentType : "application/json",
+      data: user
     }).then((res) => {
       console.log(res.data);
       return res.data;
@@ -25,7 +21,7 @@ angular.module('jobTracker.authService', [])
     return $http({
       method: 'POST',
       url: '/signup',
-      contentType : "Application/JSON",
+      contentType : "application/json",
       data: user
     }).then((res) => {
       return res.data;

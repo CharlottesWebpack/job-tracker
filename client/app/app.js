@@ -9,11 +9,11 @@ angular.module('jobTracker', [
   'navDirective'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/mainList');
 
   $stateProvider
     .state('login', {
-      url: '/',
+      url: '/login',
       templateUrl: 'app/login/login.html',
       controller: 'loginController'
     })
