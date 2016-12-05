@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
 var userController = require('./controllers/userController.js');
 var jobsController = require('./controllers/jobsController.js');
 
+<<<<<<< HEAD
 module.exports = {
 
 getUser: function(req, res) {
@@ -34,7 +34,7 @@ getUser: function(req, res) {
     jobsController.getJobsFromDb(username)
     .then(function(jobs) {
       res.send(jobs);
-    })
+    });
   },
 
   createJob: function(req, res) {
@@ -44,21 +44,21 @@ getUser: function(req, res) {
     .then(function(resp) {
       console.log('resp in createJob', resp);
       res.send(resp);
-    })
+    });
   },
 
   deleteJob: function(req, res) {
-    var username = req.headers.username;  
-    var job = req.body;  
+    var username = req.headers.username;
+    var job = req.body;
     jobsController.removeJobFromDb(job, username)
     .then(function(resp) {
       res.send(resp);
     });
-  }, 
+  },
 
   updateJob: function(req, res) {
-    var username = req.headers.username;  
-    var job = req.body;  
+    var username = req.headers.username;
+    var job = req.body;
     jobsController.updateJobInDb(job, username)
     .then(function(resp) {
       res.send(resp);
@@ -66,4 +66,3 @@ getUser: function(req, res) {
   }
 
 };
-
