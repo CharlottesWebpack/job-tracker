@@ -1,6 +1,7 @@
 var userController = require('./controllers/userController.js');
 var jobsController = require('./controllers/jobsController.js');
 
+
 module.exports = {
 
 getUser: function(req, res) {
