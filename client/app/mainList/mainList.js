@@ -1,5 +1,5 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, JobFactory) {
+.controller('mainListController', function($scope, JobFactory, AuthFactory) {
   $scope.new = {}
   $scope.jobs = [{
     company: 'fakeCompany',
@@ -16,6 +16,10 @@ angular.module('jobTracker.mainList', [])
     status: 'fakeStatus',
     location: 'Palo Alto'
   }];
+
+  $scope.logout = function() {
+
+  }
 
   $scope.getJobs = function() {
     JobFactory.getAllJobs()

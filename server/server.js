@@ -34,11 +34,13 @@ app.use(express.static(path.join(__dirname,'../client')));
 
 app.post('/login', passport.authenticate('local'), handlers.getUser);
 
+app.post('/signup', handlers.postUser);
+
+app.get('/logout', handlers.logout);
+
 app.get('/jobs', handlers.getJobs);
 
 app.post('/jobs', handlers.createJob);
-
-app.post('/signup', handlers.postUser);
 
 app.post('/jobs/delete', handlers.deleteJob);
 

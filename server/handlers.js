@@ -29,6 +29,10 @@ getUser: function(req, res) {
     });
   },
 
+  logout: function(req, res) {
+    
+  },
+
   getJobs: function(req, res) {
     var username = req.query.username;
     jobsController.getJobsFromDb(username)

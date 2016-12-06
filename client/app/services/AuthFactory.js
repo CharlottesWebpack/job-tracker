@@ -28,6 +28,14 @@ angular.module('jobTracker.authService', [])
     });
   };
 
+  var logout = function() {
+    return $http({
+      method: 'GET',
+      url: '/logout',
+      params: username: username
+    })
+  }
+
   return {
     login: login,
     signup: signup
