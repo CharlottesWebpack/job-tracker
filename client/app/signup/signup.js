@@ -3,7 +3,7 @@ angular.module('jobTracker.signup', [])
   	$scope.signUp = function() {
   		console.log($scope.user);
   		AuthFactory.signup($scope.user).then(function(data){
-  			$location.path('/mainList');
+  			$location.path('/login');
   		});
   	};
 });

@@ -9,7 +9,6 @@ angular.module('jobTracker', [
   'navDirective'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/mainList');
 
   $stateProvider
     .state('login', {
@@ -27,4 +26,8 @@ angular.module('jobTracker', [
       templateUrl: 'app/mainList/mainList.html',
       controller: 'mainListController'
     });
+
+  $urlRouterProvider.otherwise('/login'); 
+  //something weird happens when you try to login if this is 
+  //anything other than /login. It renders that page first for a second. - VE
 });

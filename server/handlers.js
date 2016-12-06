@@ -41,7 +41,7 @@ getUser: function(req, res) {
       var username = 'Nick';
     } else {
       //this will be what we want to keep
-      username = req.user.username;
+      var username = req.user.username;
     }
 
     jobsController.getJobsFromDb(username)
