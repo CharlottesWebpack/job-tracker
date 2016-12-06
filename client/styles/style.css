@@ -1,10 +1,6 @@
 #loginbox{
 	margin-top: 50px;
 }
-#login-alert{
-	display:none;
-}
-
 #form-group{
 	margin-top:10px;
 }
@@ -19,5 +15,8 @@
 
 .input-group{
 	margin-bottom: 25px;
+}
+#signupbox{
+	margin-top: 50px;
 }
 

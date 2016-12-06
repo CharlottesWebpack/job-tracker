@@ -5,23 +5,18 @@
     </div>
     <div class="panel-body">
       <form id="signupform" class="form-horizontal" role="form" name="signinForm">
-        <div class="form-group">
-          <label for="firstname" class="col-md-3 control-label">Username</label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" name="name" placeholder="Name" ng-model="user.username">
-          </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input id="signup-username" type="text" ng-model='user.username' class="form-control" name="username" value="" placeholder="Username">
         </div>
-        <div class="form-group">
-          <label for="password" class="col-md-3 control-label">Password</label>
-          <div class="col-md-9">
-            <input type="password" class="form-control" name="passwd" placeholder="Password" ng-model="user.password">
-          </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input id="signup-password" type="password" ng-model='user.password' class="form-control" name="password" placeholder="Password">
         </div>
-        <div class="form-group">
-          <label for="icode" class="col-md-3 control-label">Confirm Password</label>
-          <div class="col-md-9">
-            <input type="password" class="form-control" name="icode" placeholder="Confirm Password">
-          </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input id="signup-confirm password" type="password" class="form-control" name="password" 
+          placeholder="Confirm Password">
         </div>
         <div class="form-group">
           <div class="col-sm-12 controls">
