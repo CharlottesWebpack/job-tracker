@@ -1,7 +1,11 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, JobFactory) {
+.controller('mainListController', function($scope, JobFactory, AuthFactory) {
   $scope.new = {}
   $scope.jobs = [];
+
+  $scope.logout = function() {
+    AuthFactory.logout();
+  }
 
   $scope.getJobs = function() {
     JobFactory.getAllJobs()

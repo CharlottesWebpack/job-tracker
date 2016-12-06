@@ -6,10 +6,13 @@ var path = require('path');
 var session = require('express-session');
 var passport = require('./auth/passLocal.js');
 var User = require('./models/userModel.js');
+var cookieParser = require('cookie-parser');
 
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+app.use(cookieParser());
 
 app.use(session({
   secret: 'kittyCat',
@@ -19,7 +22,7 @@ app.use(session({
     path:'/',
     httpOnly: true,
     secure: false,
-    maxAge: 360000
+    maxAge: 600000,
   }
 }));
 
@@ -34,11 +37,13 @@ app.use(express.static(path.join(__dirname,'../client')));
 
 app.post('/login', passport.authenticate('local'), handlers.getUser);
 
+app.post('/signup', handlers.postUser);
+
+app.get('/logout', handlers.logout);
+
 app.get('/jobs', handlers.getJobs);
 
 app.post('/jobs', handlers.createJob);
-
-app.post('/signup', handlers.postUser);
 
 app.post('/jobs/delete', handlers.deleteJob);
 
