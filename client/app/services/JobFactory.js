@@ -9,6 +9,7 @@ angular.module('jobTracker.jobService', [])
       params: {username: username}
     }).
     then(function(res) {
+      console.log("bid res obj",res);
       return res.data; //this is an array of job objects
     });
   };

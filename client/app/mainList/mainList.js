@@ -14,6 +14,7 @@ angular.module('jobTracker.mainList', [])
     JobFactory.createJob($scope.new)
     .then((res) => {
       $scope.jobs = res;
+      $scope.new = '';
     });
   };
 
@@ -23,8 +24,11 @@ angular.module('jobTracker.mainList', [])
       $scope.jobs = res;
     })
   };
-  $scope.editJob = function() {
-
+  $scope.editJob = function(job) {
+    JobFactory.updateJob(job)
+    .then((res) => {
+      console.log(res);
+    })
   };
   $scope.getJobs();
 });

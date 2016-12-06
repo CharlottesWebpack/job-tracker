@@ -9,7 +9,7 @@ var jobSchema = mongoose.Schema({
   location: String,
   contactPerson: String,
   contactInfo: String,
-  link: String,
+  jobLink: String,
   age: Date,
   description: String,
   notes: String
