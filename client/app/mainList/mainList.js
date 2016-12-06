@@ -20,6 +20,10 @@ angular.module('jobTracker.mainList', [])
     {value: "Application rejected"},
     {value: "Not interested"}
   ];
+
+  $scope.sortHeader = 'company';
+  $scope.sortReverse = false;
+  
   $scope.logout = function() {
     AuthFactory.logout();
   }

@@ -24,16 +24,16 @@
      <table class='table'>
        <thead>
          <tr>
-           <th class="col-sm-3">Company</th>
-           <th class="col-sm-3">Title</th>
-           <th class="col-sm-2">Interest</th>
-           <th class="col-sm-2">Status</th>
-           <th class="col-sm-1">Show more</th>
+           <th class="col-sm-3" ng-click="sortHeader = 'company'; sortReverse = !sortReverse">Company</th>
+           <th class="col-sm-3" ng-click="sortHeader = 'title'; sortReverse = !sortReverse">Title</th>
+           <th class="col-sm-2" ng-click="sortHeader = 'interest'; sortReverse = !sortReverse">Interest</th>
+           <th class="col-sm-2" ng-click="sortHeader = 'status'; sortReverse = !sortReverse">Status</th>
+           <th class="col-sm-1" >Show more</th>
            <th classs="col-sm-1">Remove job</th>
          </tr>
        </thead>
        <tbody>
-        <tr ng-repeat-start='job in jobs | filter: search'>
+        <tr ng-repeat-start='job in jobs | filter: search | orderBy: sortHeader: sortReverse'>
           <td editable-text="job.company" onaftersave="editJob(job)">{{ job.company || "--" }}</td>
           <td editable-text="job.jobTitle" onaftersave="editJob(job)">{{job.jobTitle || "--" }}</td>
           <td editable-select="job.interestLevel" e-ng-options="s.value for s in interestLevels"
