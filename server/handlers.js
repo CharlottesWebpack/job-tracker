@@ -5,26 +5,25 @@ var jobsController = require('./controllers/jobsController.js');
 module.exports = {
 
 getUser: function(req, res) {
-    userController.retrieveUser(req.query.username).then(function(user) {
+    userController.retrieveUser(req.user.username)
+    .then(function(user) {
       if(user === null) {
-        console.log('user not found');
         res.sendStatus(204);
-      }else {
-        console.log(user);
+      } else {
         res.status(200).json(user);
       }
     }).catch(function(err) {
-      console.log(err);
+      console.error(err);
       res.status(500).json(err);
     });
   },
 
   postUser: function(req, res) {
-    userController.addUser(req.body).then(function(user) {
-      console.log('a user was added to the database :): ', user);
+    userController.addUser(req.body)
+    .then(function(user) {
       res.status(201).json(user);
     }).catch(function(err) {
-      console.log(err);
+      console.error(err);
       res.status(400).json(err);
     });
   },
@@ -67,7 +66,6 @@ getUser: function(req, res) {
     var job = req.body;
     jobsController.addJobToDb(job, username)
     .then(function(resp) {
-      console.log('resp in createJob', resp);
       res.send(resp);
     })
     .catch(function(err) {
@@ -113,7 +111,6 @@ getUser: function(req, res) {
     .catch(function(err) {
       console.error(err);
       res.sendStatus(204);
-    });    
+    });
   }
-
 };
