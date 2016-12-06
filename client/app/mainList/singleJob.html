@@ -7,23 +7,23 @@
       <table class="table">
         <tr>
           <th>Location</th>
-          <td>{{job.location}}</td>
+          <td editable-text="job.location" onaftersave="editJob(job)">{{ job.location || "--" }}</td>
         </tr>
         <tr>
           <th>Contact person</th>
-          <td>{{job.contactPerson}}</td>
+          <td editable-text="job.contactPerson" onaftersave="editJob(job)">{{ job.contactPerson || "--" }}</td>
         </tr>
         <tr>
           <th>Contact information</th>
-          <td>{{job.contactInfo}}</td>
+          <td editable-text="job.contactInfo" onaftersave="editJob(job)">{{ job.contactInfo || "--" }}</td>
         </tr>
         <tr>
           <th>Link to the job posting</th>
-          <td>{{job.jobLink}}</td>
+          <td editable-text="job.jobLink" onaftersave="editJob(job)">{{ job.jobLink || "--" }}</td>
         </tr>
         <tr>
           <th>Date advertised</th>
-          <td>{{job.age.substring(0, 10)}}</td>
+          <td editable-date="job.age" onbeforesave="formatDate(job, $data)" onaftersave="showDate(job); editJob(job)">{{ job.niceDateString }}</td>
         </tr>
       </table>
 
@@ -32,11 +32,11 @@
       <table class="table">
         <tr>
           <th>Job description</th>
-          <td>{{job.description}}</td>
+          <td editable-text="job.description" onaftersave="editJob(job)">{{ job.description || "--" }}</td>
         </tr>
         <tr>
           <th>Additional notes</th>
-          <td>{{job.notes}}</td>
+          <td editable-text="job.notes" onaftersave="editJob(job)">{{ job.notes || "--" }}</td>
         </tr>
         <tr>
           <th>Upload your resume and cover letter</th>

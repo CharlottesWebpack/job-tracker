@@ -1,4 +1,5 @@
 angular.module('jobTracker', [
+  'xeditable',
   'ui.router',
   'jobTracker.login',
   'jobTracker.signup',
@@ -26,8 +27,10 @@ angular.module('jobTracker', [
       templateUrl: 'app/mainList/mainList.html',
       controller: 'mainListController'
     });
-
-  $urlRouterProvider.otherwise('/login'); 
-  //something weird happens when you try to login if this is 
+  $urlRouterProvider.otherwise('/login');
+  //something weird happens when you try to login if this is
   //anything other than /login. It renders that page first for a second. - VE
-});
+})
+.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+})

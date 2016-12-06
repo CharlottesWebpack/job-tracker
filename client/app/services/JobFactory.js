@@ -7,7 +7,6 @@ angular.module('jobTracker.jobService', [])
       url: '/jobs'
     }).
     then(function(res) {
-      console.log("bid res obj",res);
       return res.data; //this is an array of job objects
     });
   };
@@ -42,7 +41,7 @@ angular.module('jobTracker.jobService', [])
       url: '/jobs',
       data: job
     }).then((res) => {
-      return res.data.jobList;
+      return res;
     });
   };
 
