@@ -34,7 +34,6 @@ angular.module('jobTracker.mainList', [])
   $scope.addJob = function() {
     JobFactory.createJob($scope.new)
     .then((res) => {
-      console.log("Res from server", res)
       $scope.jobs = res;
       $scope.new = '';
     });
