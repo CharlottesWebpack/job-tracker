@@ -30,11 +30,12 @@ getUser: function(req, res) {
   },
 
   logout: function(req, res) {
-    
+
   },
 
   getJobs: function(req, res) {
-    var username = req.query.username;
+    console.log('Inside get jobs', req.user)
+    var username = req.user.username || 'Nick';
     jobsController.getJobsFromDb(username)
     .then(function(jobs) {
       res.send(jobs);
@@ -46,7 +47,7 @@ getUser: function(req, res) {
   },
 
   createJob: function(req, res) {
-    var username = req.query.username;
+    var username = req.user.username || 'Nick';
     var job = req.body;
     jobsController.addJobToDb(job, username)
     .then(function(resp) {
@@ -60,7 +61,7 @@ getUser: function(req, res) {
   },
 
   deleteJob: function(req, res) {
-    var username = req.query.username;
+    var username = req.user.username || 'Nick';
     var job = req.body;
     jobsController.removeJobFromDb(job, username)
     .then(function(resp) {
@@ -73,7 +74,7 @@ getUser: function(req, res) {
   },
 
   updateJob: function(req, res) {
-    var username = req.query.username;
+    var username = req.user.username || 'Nick';
     var job = req.body;
     jobsController.updateJobInDb(job, username)
     .then(function(resp) {

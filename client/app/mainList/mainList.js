@@ -18,7 +18,7 @@ angular.module('jobTracker.mainList', [])
   }];
 
   $scope.logout = function() {
-
+    AuthFactory.logout();
   }
 
   $scope.getJobs = function() {

@@ -29,15 +29,17 @@ angular.module('jobTracker.authService', [])
   };
 
   var logout = function() {
+    var username = 'Nick' //make this work!
     return $http({
       method: 'GET',
       url: '/logout',
-      params: username: username
+      params: {username: username}
     })
   }
 
   return {
     login: login,
+    logout: logout,
     signup: signup
   }
 
