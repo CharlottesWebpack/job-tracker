@@ -8,8 +8,7 @@ angular.module('jobTracker.authService', [])
       contentType : "application/json",
       data: user
     }).then((res) => {
-      console.log(res.data);
-      return res.data;
+      return $location.path('/mainList');
     }, (err) => {
       console.error("ERROR:", err);
     });
@@ -22,7 +21,7 @@ angular.module('jobTracker.authService', [])
       contentType : "application/json",
       data: user
     }).then((res) => {
-      return res.data;
+      return $location.path('/login'); 
     }, (err) => {
       console.error("ERROR:", err);
     });
