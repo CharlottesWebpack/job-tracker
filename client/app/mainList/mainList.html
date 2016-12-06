@@ -1,0 +1,54 @@
+<nav-bar></nav-bar>
+<div class="container-fluid" >
+<!-- Search bar -->
+  <div class="col-sm-12" ng-hide="openAddJobForm">
+    <div class="row">
+
+      <div class="col-sm-2 col-sm-offset-1">
+        <button class="btn btn-default" type="button" ng-click="openAddJobForm = !openAddJobForm">Add a job</button>
+      </div><!-- /.col-sm-2 -->
+
+      <div class="col-sm-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search job list">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Search</button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-sm-6 -->
+    </div><!-- /.row -->
+  </div>
+  <!-- Add job form -->
+  <add-job-dir></add-job-dir>
+  <!-- Job list table -->
+     <table class='table'>
+       <thead>
+         <tr>
+           <th class="col-sm-3">Company</th>
+           <th class="col-sm-3">Title</th>
+           <th class="col-sm-2">Interest</th>
+           <th class="col-sm-2">Status</th>
+           <th class="col-sm-1">Show more</th>
+           <th classs="col-sm-1">Remove job</th>
+         </tr>
+       </thead>
+       <tbody>
+        <tr ng-repeat-start='job in jobs'>
+          <td editable-text="job.company" onaftersave="editJob(job)">{{ job.company || "--" }}</td>
+          <td editable-text="job.jobTitle" onaftersave="editJob(job)">{{job.jobTitle || "--" }}</td>
+          <td editable-select="job.interestLevel" e-ng-options="s.value for s in interestLevels"
+            onaftersave="editJob(job, $data, 'interestLevel')">{{ showInterestLevel(job) }}</td>
+          <td editable-select="job.status" e-ng-options="s.value for s in statuses"
+            onaftersave="editJob(job, $data, 'status')">{{ showStatus(job) }}</td>
+          <td><span class="glyphicon glyphicon-eye-open" aria-hidden="true" ng-click="job.more = !job.more; showDate(job)"></span></td>
+          <td><span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="removeJob(job)"></span></td>
+        </tr>
+        <tr ng-if="job.more" ng-repeat-end="">
+          <td colspan="6">
+            <single-job-dir></single-job-dir>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>

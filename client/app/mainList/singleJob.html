@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+  <div class="panel-heading"></div>
+  <!-- Table -->
+  <div class="row">
+    <div class="col-lg-6 ">
+      <table class="table">
+        <tr>
+          <th>Location</th>
+          <td editable-text="job.location" onaftersave="editJob(job)">{{ job.location || "--" }}</td>
+        </tr>
+        <tr>
+          <th>Contact person</th>
+          <td editable-text="job.contactPerson" onaftersave="editJob(job)">{{ job.contactPerson || "--" }}</td>
+        </tr>
+        <tr>
+          <th>Contact information</th>
+          <td editable-text="job.contactInfo" onaftersave="editJob(job)">{{ job.contactInfo || "--" }}</td>
+        </tr>
+        <tr>
+          <th>Link to the job posting</th>
+          <td editable-text="job.jobLink" onaftersave="editJob(job)">{{ job.jobLink || "--" }}</td>
+        </tr>
+        <tr>
+          <th>Date advertised</th>
+          <td editable-date="job.age" onaftersave="showDate(job); editJob(job)">{{ job.niceDateString }}</td>
+        </tr>
+      </table>
+
+    </div>
+    <div class="col-lg-6 ">
+      <table class="table">
+        <tr>
+          <th>Job description</th>
+          <td editable-textarea="job.description" onaftersave="editJob(job)">{{ job.description || "--" }}</td>
+        </tr>
+        <tr>
+          <th>Additional notes</th>
+          <td editable-textarea="job.notes" onaftersave="editJob(job)">{{ job.notes || "--" }}</td>
+        </tr>
+        <tr>
+          <th>Upload your resume and cover letter</th>
+          <td><button class="btn btn-default" type="button">Upload</button></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+</div>
