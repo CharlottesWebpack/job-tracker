@@ -1,8 +1,6 @@
 angular.module('jobTracker.login', [])
 .controller('loginController', function($scope, AuthFactory, $location) {
   $scope.login = function () {
-    AuthFactory.login($scope.user).then((data)=> {
-      data;
-    });
+    AuthFactory.login($scope.user);
   };
 });
