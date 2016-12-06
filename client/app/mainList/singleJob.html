@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <th>Date advertised</th>
-          <td>{{job.age}}</td>
+          <td>{{job.age.substring(0, 10)}}</td>
         </tr>
       </table>
 
@@ -32,11 +32,11 @@
       <table class="table">
         <tr>
           <th>Job description</th>
-          <td>Some job description and requirements</td>
+          <td>{{job.description}}</td>
         </tr>
         <tr>
           <th>Additional notes</th>
-          <td>My notes about the job</td>
+          <td>{{job.notes}}</td>
         </tr>
         <tr>
           <th>Upload your resume and cover letter</th>
