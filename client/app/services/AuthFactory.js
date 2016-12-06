@@ -32,7 +32,7 @@ angular.module('jobTracker.authService', [])
     return $http({
       method: 'GET',
       url: '/logout'
-    })
+    });
   }
 
   return {
