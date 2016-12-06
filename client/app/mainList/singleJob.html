@@ -32,11 +32,11 @@
       <table class="table">
         <tr>
           <th>Job description</th>
-          <td editable-text="job.description" onaftersave="editJob(job)">{{ job.description || "--" }}</td>
+          <td editable-textarea="job.description" onaftersave="editJob(job)">{{ job.description || "--" }}</td>
         </tr>
         <tr>
           <th>Additional notes</th>
-          <td editable-text="job.notes" onaftersave="editJob(job)">{{ job.notes || "--" }}</td>
+          <td editable-textarea="job.notes" onaftersave="editJob(job)">{{ job.notes || "--" }}</td>
         </tr>
         <tr>
           <th>Upload your resume and cover letter</th>
