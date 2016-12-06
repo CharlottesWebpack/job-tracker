@@ -8,20 +8,20 @@
       </div>
       <div class="col-lg-2">
         <label for="job-title">Job title</label>
-        <input type="text" class="form-control" id="job-title" ng-model="new.title">
+        <input type="text" class="form-control" id="job-title" ng-model="new.jobTitle">
       </div>
       <div class="col-lg-2">
-        <label for="contact-person">Contact person</label>
-        <input type="text" class="form-control" id="contact-person" ng-model="new.contact_person">
+        <label for="job-location">Location</label>
+        <input type="text" class="form-control" id="job-location" ng-model="new.location">
       </div>
       <div class="col-lg-2">
-        <label for="contact-info">Contact information</label>
-        <input type="text" class="form-control" id="contact-info" ng-model="new.contact_info">
+        <label for="link">Link to posting</label>
+        <input type="text" class="form-control" id="link" ng-model="new.link">
       </div>
       <div class="col-lg-2">
         <label for="interest-level">Interest level</label>
-        <select class="form-control" id="interest-level" ng-model="new.interest_level">
-          <option>1</option>
+        <select class="form-control" id="interest-level" ng-model="new.interestLevel">
+          <option ng-selected="true">1</option>
           <option>2</option>
           <option>3</option>
           <option>4</option>
@@ -31,7 +31,7 @@
       <div class="col-lg-2">
         <label for="status">Application status</label>
         <select class="form-control" id="status" ng-model="new.status">
-          <option>Not applied</option>
+          <option ng-selected="true">Not applied</option>
           <option>Applied</option>
           <option>Responded</option>
           <option>Phone screen</option>
@@ -44,18 +44,22 @@
     </div> <!-- row --> <br>
     <div class="row form-row">
       <div class="col-lg-2">
-        <label for="link">Link to posting</label>
-        <input type="text" class="form-control" id="link" ng-model="new.link">
+        <label for="contact-person">Contact person</label>
+        <input type="text" class="form-control" id="contact-person" ng-model="new.contactPerson">
+      </div>
+      <div class="col-lg-2">
+        <label for="contact-info">Contact information</label>
+        <input type="text" class="form-control" id="contact-info" ng-model="new.contactInfo">
       </div>
       <div class="col-lg-2">
         <label for="date">Date advertised</label>
         <input type="date" class="form-control" id="date" ng-model="new.age">
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <label for="date">Job description/requirements</label>
         <input type="text" class="form-control" id="date" ng-model="new.description">
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <label for="date">Additional notes</label>
         <input type="text" class="form-control" id="date" ng-model="new.notes">
       </div>
