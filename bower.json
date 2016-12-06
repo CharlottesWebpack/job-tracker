@@ -12,6 +12,7 @@
     "angular": "^1.5.9",
     "angular-animate": "^1.5.9",
     "angular-touch": "^1.5.9",
-    "bootstrap-css": "^3.3.6"
+    "bootstrap-css": "^3.3.6",
+    "angular-xeditable": "^0.5.0"
   }
 }
