@@ -32,6 +32,10 @@ angular.module('jobTracker.authService', [])
     return $http({
       method: 'GET',
       url: '/logout'
+    }).then((res) => {
+      $location.path('/login')
+    }, (err) => {
+      console.error("ERROR:", err);
     });
   }
 

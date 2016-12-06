@@ -29,10 +29,9 @@ getUser: function(req, res) {
   },
 
   logout: function(req, res) {
-    req.session.destroy(function(err) {
-      res.send();
-    });
-  },
+    req.session.destroy();
+    res.send();
+  }, //all of the docs say that this is not async....
 
   getJobs: function(req, res) {
 //need to get rid of this once we are actually authenitcating
