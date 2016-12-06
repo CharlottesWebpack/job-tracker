@@ -10,7 +10,7 @@
 
       <div class="col-sm-6">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search job list">
+          <input ng-model='search' type="text" class="form-control" placeholder="Search job list">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button">Search</button>
           </span>
@@ -33,7 +33,7 @@
          </tr>
        </thead>
        <tbody>
-        <tr ng-repeat-start='job in jobs'>
+        <tr ng-repeat-start='job in jobs | filter: search'>
           <td editable-text="job.company" onaftersave="editJob(job)">{{ job.company || "--" }}</td>
           <td editable-text="job.jobTitle" onaftersave="editJob(job)">{{job.jobTitle || "--" }}</td>
           <td editable-select="job.interestLevel" e-ng-options="s.value for s in interestLevels"
