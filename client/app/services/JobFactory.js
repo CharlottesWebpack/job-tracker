@@ -4,7 +4,7 @@ angular.module('jobTracker.jobService', [])
   var getAllJobs = function() {
     return $http({
       method: 'GET',
-      url: '/jobs',
+      url: '/jobs'
     }).
     then(function(res) {
       return res.data; //this is an array of job objects
@@ -15,7 +15,7 @@ angular.module('jobTracker.jobService', [])
     return $http({
       method: 'POST',
       url: '/jobs',
-      data: job,
+      data: job
     }).then((res) => {
       return res.data.jobList;
     })
@@ -26,7 +26,7 @@ angular.module('jobTracker.jobService', [])
       method: 'POST',
       url: '/jobs/delete',
       data: job,
-      contentType: 'application/json',
+      contentType: 'application/json'
     }).then((res) => {
       return res.data.jobList;
     })
@@ -39,7 +39,7 @@ angular.module('jobTracker.jobService', [])
     return $http({
       method: 'PUT',
       url: '/jobs',
-      data: job,
+      data: job
     }).then((res) => {
       return res.data.jobList;
     });
