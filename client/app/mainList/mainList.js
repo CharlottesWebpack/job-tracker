@@ -60,8 +60,11 @@ angular.module('jobTracker.mainList', [])
     if (typeof job.age === "string") {
       job.age = new Date(job.age);
     }
-    var date = job.age.toString().substring(0,15);
-    job.niceDateString = date;
+    if (!job.age) {
+      job.niceDateString = "--";
+    } else {
+      job.niceDateString = job.age.toString().substring(0,15);
+    }
   };
 
   $scope.showInterestLevel = function(job) {

@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <th>Date advertised</th>
-          <td editable-date="job.age" onbeforesave="formatDate(job, $data)" onaftersave="showDate(job); editJob(job)">{{ job.niceDateString }}</td>
+          <td editable-date="job.age" onaftersave="showDate(job); editJob(job)">{{ job.niceDateString }}</td>
         </tr>
       </table>
 
