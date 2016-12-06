@@ -18,6 +18,7 @@ app.use(session({
   secret: 'kittyCat',
   resave: false,
   name: 'Nick_is_Awesome!!',
+  rolling: true,
   cookie: {
     path:'/',
     httpOnly: true,
