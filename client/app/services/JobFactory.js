@@ -15,14 +15,12 @@ angular.module('jobTracker.jobService', [])
 
   var createJob = function(job) {
     var username = 'Nick' //need to actually make this work once users can log in
-    console.log("JOB to be added", job)
     return $http({
       method: 'POST',
       url: '/jobs',
       data: job,
       params: {username: username}
     }).then((res) => {
-      console.log("JOBS returned from server", res)
       return res.data.jobList;
     })
   };
