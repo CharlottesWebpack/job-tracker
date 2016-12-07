@@ -16,12 +16,12 @@ angular.module('jobTracker', [
   $stateProvider
     .state('login', {
       url: '/login',
-      templateUrl: 'app/login/login.html',
+      templateUrl: 'app/auth/login/login.html',
       controller: 'loginController'
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: 'app/signup/signup.html',
+      templateUrl: 'app/auth/signup/signup.html',
       controller: 'signupController'
     })
     .state('mainList', {

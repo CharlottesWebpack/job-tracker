@@ -1,11 +1,11 @@
-<div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
   <div class="panel panel-info">
     <div class="panel-heading">
       <div class="panel-title">Sign Up</div>
     </div>
     <div class="panel-body">
       <div ng-show="error" class="alert alert-danger col-sm-12">{{error}}</div>
-      <form class="form-horizontal" role="form" name="signupForm">
+      <form class="form-horizontal" role="form" name="signupForm" ng-submit="signUp()">
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
           <input id="signup-username" type="text" ng-model='user.username' class="form-control" name="username" placeholder="Username">
@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-12 controls">
-            <a id="btn-login" ng-click="signUp()" href='#' class="btn btn-success">Sign Up </a>
+            <button class="btn btn-success" type="submit" ng-submit="signUp()">Sign Up</button>
           </div>
         </div>
         <div class="form-group">
