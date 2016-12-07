@@ -4,6 +4,7 @@
       <div class="panel-title">Sign Up</div>
     </div>
     <div class="panel-body">
+      <div ng-show="error" class="alert alert-danger col-sm-12">{{error}}</div>
       <form id="signupform" class="form-horizontal" role="form" name="signinForm">
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -15,7 +16,7 @@
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input id="signup-confirm password" type="password" class="form-control" name="password" 
+          <input id="signup-confirm password" type="password" class="form-control" name="password"
           placeholder="Confirm Password">
         </div>
         <div class="form-group">
@@ -26,8 +27,8 @@
         <div class="form-group">
           <div class="col-md-12 control">
             <div class="form-footer">
-              Do have an account!
-              <a href="#">Sign In Here</a>
+              Do you have an account?
+              <a href="#/login">Sign In Here</a>
             </div>
           </div>
         </div>
