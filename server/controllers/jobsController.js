@@ -16,9 +16,9 @@ module.exports = {
   },
 
 
-  addJobToDb: function(job, username) {
+  addJobToDb: function(job, userId) {
     job.id = shortid.generate();
-    return userController.retrieveUser(username)
+    return userController.retrieveUser(userId)
     .then(function(user) {
       user.jobList.push(job);
       return user;
@@ -31,10 +31,10 @@ module.exports = {
     });
   },
 
-  removeJobFromDb: function(job, username) {
+  removeJobFromDb: function(job, userId) {
     var jobid = job._id
 
-    return userController.retrieveUser(username)
+    return userController.retrieveUser(userId)
     .then(function(user) {
       user.jobList.id(jobid).remove();
       return user;
@@ -48,10 +48,10 @@ module.exports = {
     });
   },
 
-  updateJobInDb: function(job, username) {
+  updateJobInDb: function(job, userId) {
     var jobid = job._id;
     return User.update(
-      {"username": username, "jobList._id": jobid}, 
+      {"_id": userId, "jobList._id": jobid}, 
       {"$set": 
         {"jobList.$": job}
     })

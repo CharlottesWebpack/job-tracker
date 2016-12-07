@@ -6,7 +6,6 @@ module.exports = {
 
 getUser: function(req, res) {
   var userId = req.user._id;
-  console.log('user id in get user' , userId);
   userController.retrieveUser(userId)
   .then(function(user) {
     if(user === null) {
@@ -45,7 +44,6 @@ getUser: function(req, res) {
 
   getJobs: function(req, res) {
     var userId = req.user._id;
-
     jobsController.getJobsFromDb(userId)
     .then(function(jobs) {
       res.send(jobs);
@@ -57,17 +55,9 @@ getUser: function(req, res) {
   },
 
   createJob: function(req, res) {
-    //need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
-
-
+    var userId = req.user._id;
     var job = req.body;
-    jobsController.addJobToDb(job, username)
+    jobsController.addJobToDb(job, userId)
     .then(function(resp) {
       res.send(resp);
     })
@@ -78,16 +68,9 @@ getUser: function(req, res) {
   },
 
   deleteJob: function(req, res) {
-    //need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
-
+    var userId = req.user._id;
     var job = req.body;
-    jobsController.removeJobFromDb(job, username)
+    jobsController.removeJobFromDb(job, userId)
     .then(function(resp) {
       res.send(resp);
     })
@@ -98,16 +81,9 @@ getUser: function(req, res) {
   },
 
   updateJob: function(req, res) {
-    //need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
-
+    var userId = req.user._id;
     var job = req.body;
-    jobsController.updateJobInDb(job, username)
+    jobsController.updateJobInDb(job, userId)
     .then(function(resp) {
       res.send(resp);
     })

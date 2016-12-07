@@ -15,7 +15,6 @@ module.exports = {
 
   retrieveUser: function(userId) {
     return new Promise(function(resolve, reject) {
-      console.log('userid in retrive', userId)
       User.findOne({'_id': userId}, function(err, user) {
         if(err) {
           console.log('err', err)
