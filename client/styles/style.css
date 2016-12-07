@@ -1,8 +1,3 @@
-.form-footer{
-	border-top: 1px solid#888; 
-	padding-top:15px; 
-	font-size:85%;
-}
 .panel-body{
 	padding-top:30px;
 }
@@ -18,7 +13,6 @@
 .panel-info{
   border-color: #0097A7;
 }
-
 .panel-info .panel-heading{
   background: #00BCD4;
   border-color: #0097A7;
@@ -26,9 +20,6 @@
 }
 .panel-info .panel-body{
   color: #212121;
-}
-.form-control{
-  color:#757575
 }
 
 .btn{
@@ -44,16 +35,29 @@
   background: #FF8A80;
   border-color: #FF5252; 
 }
+
+.form-control{
+  color:#757575
+}
 .form-footer{
   border-top: 1px solid #0097A7;
   font-size: 100%;
+  padding-top:15px; 
   color: #757575;
 }
+
 .link{
   color: #FF5252;
 }
 .link:hover{
   color: #FF8A80;;
+}
+
+.alert{
+  background-color: #FF8A80;
+  border-color: #FF5252;
+  color: #212121;
+  padding:10px 15px;
 }
 
 
