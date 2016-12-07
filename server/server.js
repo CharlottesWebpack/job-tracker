@@ -7,10 +7,12 @@ var session = require('express-session');
 var passport = require('./auth/passLocal.js');
 var User = require('./models/userModel.js');
 var cookieParser = require('cookie-parser');
-
+var flash = require('connect-flash');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+app.use(flash());
 
 app.use(cookieParser());
 
