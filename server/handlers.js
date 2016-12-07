@@ -33,6 +33,14 @@ getUser: function(req, res) {
     res.send();
   }, //all of the docs say that this is not async....
 
+  auth: function(req, res) {
+    if(req.user) {
+      res.send(true);
+    } else {
+      res.send(false);
+    }
+  },
+
   getJobs: function(req, res) {
 //need to get rid of this once we are actually authenitcating
     if(!req.user) {
