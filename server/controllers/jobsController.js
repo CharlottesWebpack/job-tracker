@@ -8,7 +8,6 @@ mongoose.Promise = global.Promise;
 module.exports = {
 
   getJobsFromDb: function(userId) {
-    console.log('userid in get jobs from db', userId)
     return userController.retrieveUser(userId)
     .then(function(user) {
       return user.jobList;
