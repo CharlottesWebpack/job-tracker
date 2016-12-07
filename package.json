@@ -19,6 +19,7 @@
   "homepage": "https://github.com/CharlottesWebpack/job-tracker#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bower": "^1.8.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
