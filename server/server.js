@@ -38,7 +38,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname,'../client')));
 
-app.post('/login', passport.authenticate('local', {message: "Wrong password or username"}), handlers.getUser);
+app.post('/login', passport.authenticate('local'), handlers.getUser);
 
 app.post('/signup', handlers.postUser);
 
