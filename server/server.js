@@ -53,7 +53,6 @@ app.put('/jobs', handlers.updateJob);
 
 
 
-
 db.on('error', (err) => {
   console.error("DB CONNECTION ERROR", err);
 });
