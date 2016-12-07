@@ -13,12 +13,15 @@ module.exports = {
     });
   },
 
-  retrieveUser: function(username) {
+  retrieveUser: function(userId) {
     return new Promise(function(resolve, reject) {
-      User.findOne({'username': username}, function(err, user) {
+      console.log('userid in retrive', userId)
+      User.findOne({'_id': userId}, function(err, user) {
         if(err) {
+          console.log('err', err)
           reject(err);
         }else {
+          console.log('user',user)
           resolve(user);
         }
       });

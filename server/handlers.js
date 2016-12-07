@@ -5,17 +5,19 @@ var jobsController = require('./controllers/jobsController.js');
 module.exports = {
 
 getUser: function(req, res) {
-    userController.retrieveUser(req.user.username)
-    .then(function(user) {
-      if(user === null) {
-        res.sendStatus(204);
-      } else {
-        res.status(200).json(user);
-      }
-    }).catch(function(err) {
-      console.error(err);
-      res.status(500).json(err);
-    });
+  var userId = req.user._id;
+  console.log('user id in get user' , userId);
+  userController.retrieveUser(userId)
+  .then(function(user) {
+    if(user === null) {
+      res.sendStatus(204);
+    } else {
+      res.status(200).json(user);
+    }
+  }).catch(function(err) {
+    console.error(err);
+    res.status(500).json(err);
+  });
   },
 
   postUser: function(req, res) {
@@ -42,15 +44,9 @@ getUser: function(req, res) {
   },
 
   getJobs: function(req, res) {
-//need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
+    var userId = req.user._id;
 
-    jobsController.getJobsFromDb(username)
+    jobsController.getJobsFromDb(userId)
     .then(function(jobs) {
       res.send(jobs);
     })
