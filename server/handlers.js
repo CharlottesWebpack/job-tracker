@@ -42,13 +42,7 @@ getUser: function(req, res) {
   },
 
   getJobs: function(req, res) {
-//need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
+    var username = req.user.username;
 
     jobsController.getJobsFromDb(username)
     .then(function(jobs) {
@@ -61,13 +55,7 @@ getUser: function(req, res) {
   },
 
   createJob: function(req, res) {
-    //need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
+    var username = req.user.username;
 
 
     var job = req.body;
@@ -82,13 +70,7 @@ getUser: function(req, res) {
   },
 
   deleteJob: function(req, res) {
-    //need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
+    var username = req.user.username;
 
     var job = req.body;
     jobsController.removeJobFromDb(job, username)
@@ -102,13 +84,7 @@ getUser: function(req, res) {
   },
 
   updateJob: function(req, res) {
-    //need to get rid of this once we are actually authenitcating
-    if(!req.user) {
-      var username = 'Nick';
-    } else {
-      //this will be what we want to keep
-      username = req.user.username;
-    }
+    var username = req.user.username;
 
     var job = req.body;
     jobsController.updateJobInDb(job, username)
