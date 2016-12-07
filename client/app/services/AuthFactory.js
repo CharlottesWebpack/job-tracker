@@ -1,16 +1,12 @@
 angular.module('jobTracker.authService', [])
 .factory('AuthFactory', function($http, $location) {
-
+  var errorMessage = "";
   var login = function(user){
     return $http({
       method: 'POST',
       url: '/login',
       contentType : "application/json",
       data: user
-    }).then((res) => {
-       $location.path('/mainList');
-    }, (err) => {
-      console.error("ERROR:", err);
     });
   };
 
@@ -20,10 +16,6 @@ angular.module('jobTracker.authService', [])
       url: '/signup',
       contentType : "application/json",
       data: user
-    }).then((res) => {
-        $location.path('/login'); 
-    }, (err) => {
-      console.error("ERROR:", err);
     });
   };
 
@@ -32,16 +24,16 @@ angular.module('jobTracker.authService', [])
       method: 'GET',
       url: '/logout'
     }).then((res) => {
-      $location.path('/login')
+      $location.path('/login');
     }, (err) => {
       console.error("ERROR:", err);
     });
-  }
+  };
 
   return {
     login: login,
     logout: logout,
     signup: signup
-  }
+  };
 
-})
+});
