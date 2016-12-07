@@ -7,13 +7,9 @@ angular.module('jobTracker', [
   'jobTracker.authService',
   'jobTracker.jobService',
   'jobTracker.directives',
-<<<<<<< HEAD
-  'navDirective',
-  'validation.match'
-=======
+  'validation.match',
   'jobTracker.stats',
   'navDirective'
->>>>>>> [FEATURE](Client): created files and function definitions {IA}
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -31,8 +27,8 @@ angular.module('jobTracker', [
     .state('mainList', {
       url: '/mainList',
       templateUrl: 'app/mainList/mainList.html',
-      controller: 'mainListController',
       authRequired : true
+      controller: 'mainListController'
     })
     .state('stats', {
       url: '/stats',
