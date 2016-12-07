@@ -59,7 +59,7 @@ db.on('error', (err) => {
 
 db.once('open', () => {
   console.log('MongoDB connected');
-  app.listen(PORT, process.env.IP, () => {
+  app.listen(PORT, () => {
     console.log("Server listening on port", PORT);
   });
 });
