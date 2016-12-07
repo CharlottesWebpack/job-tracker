@@ -27,12 +27,12 @@ angular.module('jobTracker', [
     .state('mainList', {
       url: '/mainList',
       templateUrl: 'app/mainList/mainList.html',
-      authRequired : true
+      authRequired : true,
       controller: 'mainListController'
     })
     .state('stats', {
       url: '/stats',
-      templateUrl: 'app/stats/stats.html',
+      templateUrl: 'app/stats/statsInProgress.html',
       constroller: 'StatsController'
     });
   $urlRouterProvider.otherwise('/mainList');
