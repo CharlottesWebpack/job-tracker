@@ -42,6 +42,8 @@ app.post('/signup', handlers.postUser);
 
 app.get('/logout', handlers.logout);
 
+app.get('/auth', handlers.auth);
+
 app.get('/jobs', handlers.getJobs);
 
 app.post('/jobs', handlers.createJob);

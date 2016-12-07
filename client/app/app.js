@@ -34,3 +34,10 @@ angular.module('jobTracker', [
 .run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 })
+.run(function($rootScope, $location, AuthFactory) {
+  console.log('does this work?')
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+     console.log('event',event, 'toState', toState, 'toParams', toParams, 'fromState', fromState, 'fromParams', fromParams);
+     AuthFactory.isAuth();
+  })
+})

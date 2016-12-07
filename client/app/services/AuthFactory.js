@@ -36,12 +36,22 @@ angular.module('jobTracker.authService', [])
     }, (err) => {
       console.error("ERROR:", err);
     });
-  }
+  };
+
+  var isAuth = function() {
+    return $http({
+      method: 'GET',
+      url: '/auth'
+    }).then((res) => {
+      console.log(res);
+    })
+  };
 
   return {
     login: login,
     logout: logout,
-    signup: signup
+    signup: signup,
+    isAuth: isAuth
   }
 
 })
