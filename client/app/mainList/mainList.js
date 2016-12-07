@@ -23,7 +23,7 @@ angular.module('jobTracker.mainList', [])
 
   $scope.sortHeader = 'company';
   $scope.sortReverse = false;
-  
+
   $scope.logout = function() {
     AuthFactory.logout();
   }
@@ -31,6 +31,7 @@ angular.module('jobTracker.mainList', [])
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
+      console.log(res);
       $scope.jobs = res;
     })
   };
@@ -60,23 +61,14 @@ angular.module('jobTracker.mainList', [])
   };
 
   $scope.showDate = function(job) {
-    if (typeof job.age === "string") {
-      job.age = new Date(job.age);
-    }
-    if (!job.age) {
-      job.niceDateString = "--";
-    } else {
-      job.niceDateString = job.age.toString().substring(0,15);
-    }
+    JobFactory.formatDate(job);
   };
 
   $scope.showInterestLevel = function(job) {
-    var selected = $filter('filter')($scope.interestLevels, {value: job.interestLevel});
-    return (job.interestLevel && selected.length) ? selected[0].value : '--';
+    return JobFactory.formatInterestLevel($scope, job);
   };
   $scope.showStatus = function(job) {
-    var selected = $filter('filter')($scope.statuses, {value: job.status});
-    return (job.status && selected.length) ? selected[0].value : '--';
+    return JobFactory.formatStatus($scope, job);
   };
   $scope.getJobs();
 });

@@ -9,11 +9,16 @@ angular.module('jobTracker', [
   'jobTracker.directives',
   'validation.match',
   'jobTracker.stats',
-  'navDirective'
+  'navDirective',
+  'jobTracker.demo'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
+    .state('main', {
+      url: '/',
+      templateUrl: 'app/main/main.html'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'app/auth/login/login.html',
@@ -23,6 +28,11 @@ angular.module('jobTracker', [
       url: '/signup',
       templateUrl: 'app/auth/signup/signup.html',
       controller: 'signupController'
+    })
+    .state('demo', {
+      url: '/demo',
+      templateUrl: 'app/mainList/mainList.html',
+      controller: 'demoController'
     })
     .state('mainList', {
       url: '/mainList',

@@ -1,5 +1,5 @@
 angular.module('jobTracker.jobService', [])
-.factory('JobFactory', function($http) {
+.factory('JobFactory', function($http, $filter) {
 
   var getAllJobs = function() {
     return $http({
@@ -45,10 +45,35 @@ angular.module('jobTracker.jobService', [])
     });
   };
 
+  var formatDate = function(job) {
+    if (typeof job.age === "string") {
+      job.age = new Date(job.age);
+    }
+    if (!job.age) {
+      job.niceDateString = "--";
+    } else {
+      job.niceDateString = job.age.toString().substring(0,15);
+    }
+  };
+
+  var formatInterestLevel = function(scope, job) {
+    var selected = $filter('filter')(scope.interestLevels, {value: job.interestLevel});
+    console.log("filtered interest level", selected)
+    return (job.interestLevel && selected.length) ? selected[0].value : '--';
+  };
+
+  var formatStatus = function(scope, job) {
+    var selected = $filter('filter')(scope.statuses, {value: job.status});
+    return (job.status && selected.length) ? selected[0].value : '--';
+  };
+
   return {
     getAllJobs: getAllJobs,
     createJob: createJob,
     deleteJob: deleteJob,
-    updateJob: updateJob
+    updateJob: updateJob,
+    formatDate: formatDate,
+    formatInterestLevel: formatInterestLevel,
+    formatStatus: formatStatus
   };
 });
