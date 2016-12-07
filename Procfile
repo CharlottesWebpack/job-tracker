@@ -1,1 +1,1 @@
-web: node server/server.js, bower install
+web: node server/server.js
