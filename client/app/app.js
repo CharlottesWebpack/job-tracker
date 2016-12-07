@@ -25,7 +25,8 @@ angular.module('jobTracker', [
     .state('mainList', {
       url: '/mainList',
       templateUrl: 'app/mainList/mainList.html',
-      controller: 'mainListController'
+      controller: 'mainListController',
+      authRequired : true
     });
   $urlRouterProvider.otherwise('/login');
   //something weird happens when you try to login if this is
@@ -35,9 +36,12 @@ angular.module('jobTracker', [
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 })
 .run(function($rootScope, $location, AuthFactory) {
-  console.log('does this work?')
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-     console.log('event',event, 'toState', toState, 'toParams', toParams, 'fromState', fromState, 'fromParams', fromParams);
-     AuthFactory.isAuth();
-  })
-})
+    AuthFactory.isAuth()
+    .then(function(authenticated) {
+      if(toState.authRequired && !authenticated) {
+        $location.path('/login');
+      }
+    });
+  });
+});

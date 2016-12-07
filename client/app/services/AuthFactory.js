@@ -43,8 +43,10 @@ angular.module('jobTracker.authService', [])
       method: 'GET',
       url: '/auth'
     }).then((res) => {
-      console.log(res);
-    })
+      return res.data;
+    }, (err) => {
+      console.error("ERROR:", err);
+    });
   };
 
   return {
