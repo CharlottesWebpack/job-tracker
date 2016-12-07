@@ -76,3 +76,5 @@ angular.module('jobTracker.jobService', [])
     formatStatus: formatStatus
   };
 });
+
+

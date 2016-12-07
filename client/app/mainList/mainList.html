@@ -1,7 +1,7 @@
 <nav-bar></nav-bar>
 <div class="container-fluid" >
 <!-- Search bar -->
-  <div class="col-sm-12" ng-hide="openAddJobForm">
+  <div class="col-sm-12" ng-hide="!openAddJobForm">
     <div class="row">
 
       <div class="col-sm-2 col-sm-offset-1">
@@ -78,5 +78,6 @@
         </tr>
       </tbody>
     </table>
-
+    <button id="next" class="btn btn-default" ng-disabled="pageButtonDisabled(1)" ng-click="paginate(1)">Next</button>
+    <button  id="previous"class = "btn btn-default" ng-disabled="pageButtonDisabled(-1)" ng-click="paginate(-1)">Previous</button>&nbsp;&nbsp;
 </div>

@@ -37,6 +37,7 @@ angular.module('jobTracker.mainList', [])
     JobFactory.getAllJobs()
     .then((res) => {
       $scope.jobs = res;
+      jobslength = res.length;
     })
   };
 
@@ -75,5 +76,6 @@ angular.module('jobTracker.mainList', [])
     return JobFactory.formatStatus($scope, job);
   };
   $scope.getJobs();
+
 });
 
