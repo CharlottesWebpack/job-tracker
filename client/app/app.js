@@ -7,7 +7,8 @@ angular.module('jobTracker', [
   'jobTracker.authService',
   'jobTracker.jobService',
   'jobTracker.directives',
-  'navDirective'
+  'navDirective',
+  'validation.match'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
