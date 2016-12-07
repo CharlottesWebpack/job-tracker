@@ -5,19 +5,22 @@
     </div>
     <div class="panel-body">
       <div ng-show="error" class="alert alert-danger col-sm-12">{{error}}</div>
-      <form id="signupform" class="form-horizontal" role="form" name="signinForm">
+      <form class="form-horizontal" role="form" name="signupForm">
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="signup-username" type="text" ng-model='user.username' class="form-control" name="username" value="" placeholder="Username">
+          <input id="signup-username" type="text" ng-model='user.username' class="form-control" name="username" placeholder="Username">
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input id="signup-password" type="password" ng-model='user.password' class="form-control" name="password" placeholder="Password">
+          <input id="signup-password" type="password" ng-model='user.password' class="form-control" placeholder="Password">
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input id="signup-confirm password" type="password" class="form-control" name="password"
-          placeholder="Confirm Password">
+          <input id="signup-confirm password" type="password" class="form-control" ng-model='user.confirmPassword'
+          name="confirmPassword" match="user.password" placeholder="Confirm Password" match-ignore-empty="true">
+        </div>
+        <div ng-show="signupForm.confirmPassword.$error.match" class="alert alert-danger col-sm-12">
+          Passwords do not match
         </div>
         <div class="form-group">
           <div class="col-sm-12 controls">

@@ -1,4 +1,5 @@
 angular.module('jobTracker', [
+  'validation.match',
   'xeditable',
   'ui.router',
   'jobTracker.login',
