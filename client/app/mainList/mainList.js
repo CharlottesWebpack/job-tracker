@@ -1,5 +1,5 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location) {
+.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location, externalApiFactory) {
   $scope.navButton = "Sign out";
   $scope.new = {}
   $scope.jobs = [];
@@ -45,6 +45,10 @@ angular.module('jobTracker.mainList', [])
   $scope.editJob = function(job) {
     JobFactory.updateJob(job);
   };
+
+  $scope.getNews = function() {
+    externalApiFactory.searchGoogle();
+  }
 
   $scope.showDate = function(job) {
     JobFactory.formatDate(job);
