@@ -37,6 +37,7 @@ angular.module('jobTracker.mainList', [])
     JobFactory.getAllJobs()
     .then((res) => {
       $scope.jobs = res;
+      initPagination();
     })
   };
 
@@ -44,6 +45,7 @@ angular.module('jobTracker.mainList', [])
     JobFactory.createJob($scope.new)
     .then((res) => {
       $scope.jobs = res;
+      initPagination();
       $scope.new = '';
     });
   };
@@ -52,6 +54,7 @@ angular.module('jobTracker.mainList', [])
     JobFactory.deleteJob(job)
     .then((res) => {
       $scope.jobs = res;
+      initPagination();
     })
   };
   $scope.editJob = function(job, data, field) {
@@ -74,6 +77,41 @@ angular.module('jobTracker.mainList', [])
   $scope.showStatus = function(job) {
     return JobFactory.formatStatus($scope, job);
   };
-  $scope.getJobs();
-});
 
+  //Pagination 
+  $scope.currentPage = 1;
+  $scope.pageSize = 10;
+  $scope.totalPages = 0;
+  $scope.pagedData = [];
+  $scope.pageButtonDisabled = function(dir) {
+    if (dir == -1) {
+      return $scope.currentPage == 1;
+    }
+    return $scope.currentPage == $scope.totalPages;
+  }
+
+
+  $scope.paginate = function(nextPrevMultiplier) {
+    $scope.currentPage += nextPrevMultiplier;
+    $scope.pagedData = $scope.jobs.slice(
+      (($scope.currentPage - 1) * $scope.pageSize), $scope.currentPage * $scope.pageSize);
+  }
+
+  $scope.first = function() {
+    $scope.currentPage = 1;
+    $scope.pagedData = $scope.jobs.slice((($scope.currentPage - 1) * $scope.pageSize), $scope.currentPage * $scope.pageSize);
+  };
+
+  $scope.last = function() {
+    $scope.currentPage = $scope.totalPages;
+    $scope.pagedData = $scope.jobs.slice((($scope.currentPage - 1) * $scope.pageSize), $scope.currentPage * $scope.pageSize);
+  };
+
+  function initPagination() {
+    $scope.totalPages = Math.ceil($scope.jobs.length / $scope.pageSize);
+    $scope.pagedData = $scope.jobs.slice(0, $scope.currentPage * $scope.pageSize);
+  };
+
+  $scope.getJobs();
+
+  });
