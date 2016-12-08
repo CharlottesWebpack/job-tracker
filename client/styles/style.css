@@ -21,6 +21,11 @@
 .panel-info .panel-body{
   color: #212121;
 }
+.panel-default .panel-heading{
+  background: #00BCD4;
+  border-color: #0097A7;
+  color: #FFFFFF;
+}
 
 .btn{
   background: #FF5252;
@@ -64,6 +69,9 @@
   background: #00BCD4;
   color: #212121;
 }
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+  color: #FFFFFF;
+}
 .navbar-default .navbar-brand{
   color: #212121;
 }
@@ -83,8 +91,25 @@
   color: #212121;
 }
 
-/*.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover*/
+table .table .table-striped{
+  border-color: #BDBDBD;
+  border-bottom: 14px solid #BDBDBD;
+}
+thead {
+  color: #0097A7;
+  font-size: 105%;
+}
+#entry{
+  color: #212121;
+  border-bottom: none;
+}
 
+
+
+
+/*.table-striped tbody tr:nth-of-type(odd){
+  background-color: #B2EBF2;
+}*/
 
 /*THIS IS OUR COLOR PALETTE*/
 /*.dark-primary-color    { background: #0097A7; }
