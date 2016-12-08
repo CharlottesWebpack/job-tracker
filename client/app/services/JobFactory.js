@@ -74,7 +74,7 @@ angular.module('jobTracker.jobService', [])
 
   var formatInterestLevel = function(scope, job) {
     var selected = $filter('filter')(interestLevels, {value: job.interestLevel});
-    return (job.interestLevel && selected.length) ? selected[0].value : '--';
+    return selected[0].value;
   };
 
   var formatStatus = function(scope, job) {

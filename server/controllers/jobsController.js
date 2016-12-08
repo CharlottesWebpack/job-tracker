@@ -49,11 +49,20 @@ module.exports = {
 
   updateJobInDb: function(job, userId) {
     var jobid = job._id;
-    return User.update(
-      {"_id": userId, "jobList._id": jobid}, 
-      {"$set": 
+    var update = User.update(
+      {"_id": userId, "jobList._id": jobid},
+      {"$set":
         {"jobList.$": job}
-    })
+    });
+
+    if(!job.status.progress) {
+      update = User.update(
+        {"_id": userId, "jobList._id": jobid},
+        {"$set":
+          {"jobList.$.status.rejected": job.status.rejected}
+      });
+    }
+    return update
     .exec()
     .then(function(resp) {
       return resp;
