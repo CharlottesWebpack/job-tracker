@@ -80,7 +80,7 @@ angular.module('jobTracker.mainList', [])
 
   //Pagination 
   $scope.currentPage = 1;
-  $scope.pageSize = 2;
+  $scope.pageSize = 10;
   $scope.totalPages = 0;
   $scope.pagedData = [];
   $scope.pageButtonDisabled = function(dir) {
