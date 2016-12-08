@@ -31,7 +31,6 @@ angular.module('jobTracker.mainList', [])
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
-      console.log(res);
       $scope.jobs = res;
     })
   };
