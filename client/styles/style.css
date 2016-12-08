@@ -60,6 +60,17 @@
   padding:10px 15px;
 }
 
+.navbar-default{
+  background: #00BCD4;
+  color: #212121;
+}
+.navbar-default .navbar-brand{
+  color: #212121;
+}
+.navbar-default .navbar-nav li a{
+  color: #212121;
+}
+
 
 /*THIS IS OUR COLOR PALETTE*/
 /*.dark-primary-color    { background: #0097A7; }
