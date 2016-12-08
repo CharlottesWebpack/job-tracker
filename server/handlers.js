@@ -91,5 +91,9 @@ getUser: function(req, res) {
       console.error(err);
       res.sendStatus(204);
     });
+  },
+
+  getUserFB: function(req, res) {
+    res.status(200).json(req.user);
   }
 };

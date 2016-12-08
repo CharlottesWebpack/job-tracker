@@ -7,6 +7,7 @@ var session = require('express-session');
 var passport = require('./auth/passLocal.js');
 var User = require('./models/userModel.js');
 var cookieParser = require('cookie-parser');
+const passportFacebook = require('./auth/passFb.js');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -34,6 +35,10 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname,'../client')));
+
+app.get('/facebook', passport.authenticate('facebook'));
+
+app.get('/facebook/authorized', passport.authenticate('facebook'), handlers.getUserFB);
 
 app.post('/login', passport.authenticate('local'), handlers.getUser);
 
