@@ -1,22 +1,83 @@
-#loginbox{
-	margin-top: 50px;
-}
-#form-group{
-	margin-top:10px;
-}
-.form-footer{
-	border-top: 1px solid#888; 
-	padding-top:15px; 
-	font-size:85%;
-}
 .panel-body{
 	padding-top:30px;
 }
-
 .input-group{
 	margin-bottom: 25px;
 }
-#signupbox{
-	margin-top: 50px;
+
+/*VE styling start*/
+.mainbox{
+  padding-top: 50px;
 }
 
+.panel-info{
+  border-color: #0097A7;
+}
+.panel-info .panel-heading{
+  background: #00BCD4;
+  border-color: #0097A7;
+  color: #FFFFFF;
+}
+.panel-info .panel-body{
+  color: #212121;
+}
+
+.btn{
+  background: #FF5252;
+  border-color: #FF5252;  
+  color: #FFFFFF;
+}
+.btn:hover, .btn:focus, .btn:active .btn:active:hover{
+  background: #FF8A80;
+  border-color: #FF5252; 
+}
+.btn-success:active:hover, .btn-success:active{
+  background: #FF8A80;
+  border-color: #FF5252; 
+}
+
+.form-control{
+  color:#757575
+}
+.form-footer{
+  border-top: 1px solid #0097A7;
+  font-size: 100%;
+  padding-top:15px; 
+  color: #757575;
+}
+
+.link{
+  color: #FF5252;
+}
+.link:hover{
+  color: #FF8A80;;
+}
+
+.alert{
+  background-color: #FF8A80;
+  border-color: #FF5252;
+  color: #212121;
+  padding:10px 15px;
+}
+
+.navbar-default{
+  background: #00BCD4;
+  color: #212121;
+}
+.navbar-default .navbar-brand{
+  color: #212121;
+}
+.navbar-default .navbar-nav li a{
+  color: #212121;
+}
+
+
+/*THIS IS OUR COLOR PALETTE*/
+/*.dark-primary-color    { background: #0097A7; }
+.default-primary-color { background: #00BCD4; }
+.light-primary-color   { background: #B2EBF2; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #FF5252; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }*/
