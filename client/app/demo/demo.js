@@ -1,6 +1,6 @@
 angular.module('jobTracker.demo', [])
-.controller('demoController', function($scope, $filter, JobFactory) {
-
+.controller('demoController', function($scope, $filter, JobFactory, $location) {
+  $scope.navButton = "Back to Homepage";
   $scope.new = {}
   $scope.jobs = [
     {"company":"khan academy",
@@ -32,7 +32,8 @@ angular.module('jobTracker.demo', [])
     {"company":"twitter",
       "jobTitle":"junior developer",
       "location":"san francisco",
-      "age":null,"id":"B12H8zIXx",
+      "age":null,
+      "id":"B12H8zIXx",
       "_id":"584896440eafb92a54f449f9",
       "status":"Not applied",
       "interestLevel":5}];
@@ -59,19 +60,20 @@ angular.module('jobTracker.demo', [])
   $scope.sortReverse = false;
 
   $scope.logout = function() {
+    $location.path("/");
   }
 
-  $scope.getJobs = function() {
-
-  };
-
   $scope.addJob = function() {
-
+    var newJob = $scope.new;
+    $scope.jobs.push(newJob);
+    $scope.new = '';
   };
 
   $scope.removeJob = function(job) {
-
+    $scope.jobs = $scope.jobs
+      .filter((item) => {return item.id !== job.id;})
   };
+
   $scope.editJob = function(job, data, field) {
     if (arguments.length > 1) {
       job[field] = data.value;
