@@ -38,26 +38,11 @@ angular.module('jobTracker.demo', [])
       "status":"Not applied",
       "interestLevel":5}];
 
-  $scope.interestLevels = [
-    {value: 1, text: "1"},
-    {value: 2},
-    {value: 3},
-    {value: 4},
-    {value: 5}
-  ];
-  $scope.statuses = [
-    {value: "Not applied"},
-    {value: "Applied"},
-    {value: "Responded"},
-    {value: "Phone screen"},
-    {value: "In-person interview"},
-    {value: "Offer"},
-    {value: "Application rejected"},
-    {value: "Not interested"}
-  ];
-
   $scope.sortHeader = 'company';
   $scope.sortReverse = false;
+
+  $scope.statuses = JobFactory.statuses;
+  $scope.interestLevels = JobFactory.interestLevels;
 
   $scope.logout = function() {
     $location.path("/");

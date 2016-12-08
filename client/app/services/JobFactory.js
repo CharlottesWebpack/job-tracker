@@ -55,16 +55,31 @@ angular.module('jobTracker.jobService', [])
       job.niceDateString = job.age.toString().substring(0,15);
     }
   };
+  var interestLevels = [
+    {value: 1},
+    {value: 2},
+    {value: 3},
+    {value: 4},
+    {value: 5}
+  ];
+  var statuses = [
+    {value: {progress: 1}, text: "Not applied"},
+    {value: {progress: 2}, text: "Applied"},
+    {value: {progress: 3}, text: "Responded"},
+    {value: {progress: 4}, text: "Phone screen"},
+    {value: {progress: 5}, text: "In-person interview"},
+    {value: {progress: 6}, text: "Offer"},
+    {value: {rejected: true}, text: "Application rejected"},
+    {value: {ignored: true}, text: "Not interested anymore"},
+  ];
 
   var formatInterestLevel = function(scope, job) {
-    var selected = $filter('filter')(scope.interestLevels, {value: job.interestLevel});
+    var selected = $filter('filter')(interestLevels, {value: job.interestLevel});
     return (job.interestLevel && selected.length) ? selected[0].value : '--';
   };
 
   var formatStatus = function(scope, job) {
-    var selected = $filter('filter')(scope.statuses, {value: job.status});
-    console.log("scope statuses", scope.statuses, "job status", job.status)
-    console.log("filtered result", selected);
+    var selected = $filter('filter')(statuses, {value: job.status});
     return (job.status && selected.length) ? selected[0].value : '--';
   };
 
@@ -75,7 +90,9 @@ angular.module('jobTracker.jobService', [])
     updateJob: updateJob,
     formatDate: formatDate,
     formatInterestLevel: formatInterestLevel,
-    formatStatus: formatStatus
+    formatStatus: formatStatus,
+    statuses: statuses,
+    interestLevels: interestLevels
   };
 });
 

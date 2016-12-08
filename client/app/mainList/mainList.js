@@ -4,22 +4,8 @@ angular.module('jobTracker.mainList', [])
   $scope.new = {}
   $scope.jobs = [];
 
-  $scope.interestLevels = [
-    {value: 1},
-    {value: 2},
-    {value: 3},
-    {value: 4},
-    {value: 5}
-  ];
-  $scope.statuses = [
-    {value: "Application not submitted"},
-    {value: "Applied"},
-    {value: "Responded"},
-    {value: "Phone screen"},
-    {value: "In-person interview"},
-    {value: "Offer"},
-    {value: "Application rejected"},
-  ];
+  $scope.statuses = JobFactory.statuses;
+  $scope.interestLevels = JobFactory.interestLevels;
 
   $scope.sortHeader = 'company';
   $scope.sortReverse = false;
@@ -57,12 +43,16 @@ angular.module('jobTracker.mainList', [])
     })
   };
   $scope.editJob = function(job, data, field) {
+    console.log("JOB",job, "Data", data)
+    if (field === "status"){
+
+    }
     if (arguments.length > 1) {
       job[field] = data.value;
     }
     JobFactory.updateJob(job)
     .then((res) => {
-      console.log(res);
+      console.log("Server responded", res);
     })
   };
 
