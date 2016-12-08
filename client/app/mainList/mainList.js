@@ -1,5 +1,5 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, $location, JobFactory, $filter, AuthFactory) {
+.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location) {
   $scope.new = {}
   $scope.jobs = [];
 
