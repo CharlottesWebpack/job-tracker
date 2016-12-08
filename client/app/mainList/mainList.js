@@ -27,7 +27,11 @@ angular.module('jobTracker.mainList', [])
 
   $scope.logout = function() {
     AuthFactory.logout();
-  }
+  };
+
+  $scope.isActive = function(viewLocation) {
+    return viewLocation === $location.path();
+  };
 
   $scope.getJobs = function() {
     JobFactory.getAllJobs()

@@ -68,8 +68,22 @@
   color: #212121;
 }
 .navbar-default .navbar-nav li a{
+  color: #FFFFFF;
+}
+.navbar-default .navbar-nav li a:hover{
+  background: #B2EBF2;
   color: #212121;
 }
+.navbar-default .navbar-nav .active a, .navbar-default .navbar-nav .active a:focus{
+  background: #0097A7;
+  color: #FFFFFF;
+}
+.navbar-default .navbar-nav .active a:hover{
+  background: #B2EBF2;
+  color: #212121;
+}
+
+/*.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover*/
 
 
 /*THIS IS OUR COLOR PALETTE*/
