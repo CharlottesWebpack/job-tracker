@@ -22,28 +22,14 @@
         <label for="interest-level">Interest level</label>
         <select class="form-control" id="interest-level" ng-init="new.interestLevel = new.interestLevel || interestLevels[0].value"
           ng-model="new.interestLevel" ng-options="level.value as level.value for level in interestLevels">
-          <!-- <option ng-selected="true">1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option> -->
         </select>
       </div>
       <div class="col-lg-2">
         <label for="status">Application status</label>
         <select class="form-control" id="status" ng-model="new.status" ng-init="new.status = new.status || statuses[0].value"
         ng-options="status.value as status.text for status in statuses">
-       <!--    <option ng-selected="true" value="{progress: 1}">Not applied</option>
-          <option value="{progress:2}">Applied</option>
-          <option value="{progress:3}">Responded</option>
-          <option value="{progress:4}">Phone screen</option>
-          <option value="{progress:5}">In-person interview</option>
-          <option value="{progress:6}">Offer</option>
-          <option value="{rejected: true}">Application rejected</option>
-          <option value="{ignored: true}">Not interested anymore</option> -->
         </select>
       </div>
-      {{new}}
     </div> <!-- row --> <br>
     <div class="row form-row">
       <div class="col-lg-2">

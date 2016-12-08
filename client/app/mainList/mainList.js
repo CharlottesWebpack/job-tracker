@@ -21,6 +21,7 @@ angular.module('jobTracker.mainList', [])
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
+      console.log(res)
       $scope.jobs = res;
       initPagination();
     })
@@ -47,13 +48,13 @@ angular.module('jobTracker.mainList', [])
     if (field === "status"){
 
     }
-    if (arguments.length > 1) {
-      job[field] = data.value;
-    }
-    JobFactory.updateJob(job)
-    .then((res) => {
-      console.log("Server responded", res);
-    })
+    // if (arguments.length > 1) {
+    //   job[field] = data.value;
+    // }
+    // JobFactory.updateJob(job)
+    // .then((res) => {
+    //   console.log("Server responded", res);
+    // })
   };
 
   $scope.showDate = function(job) {

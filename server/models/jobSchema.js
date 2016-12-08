@@ -7,8 +7,7 @@ var jobSchema = mongoose.Schema({
   interestLevel: {type: Number, default: 1},
   status: {
     progress: {type: Number, default: 1},
-    rejected: {type: Boolean, default: false},
-    ignored: {type: Boolean, default: false}
+    rejected: {type: Boolean, default: false}
   },
   location: String,
   contactPerson: String,

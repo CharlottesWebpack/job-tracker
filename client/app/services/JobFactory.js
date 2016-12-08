@@ -69,8 +69,7 @@ angular.module('jobTracker.jobService', [])
     {value: {progress: 4}, text: "Phone screen"},
     {value: {progress: 5}, text: "In-person interview"},
     {value: {progress: 6}, text: "Offer"},
-    {value: {rejected: true}, text: "Application rejected"},
-    {value: {ignored: true}, text: "Not interested anymore"},
+    {value: {rejected: true}, text: "Application rejected"}
   ];
 
   var formatInterestLevel = function(scope, job) {
@@ -79,8 +78,13 @@ angular.module('jobTracker.jobService', [])
   };
 
   var formatStatus = function(scope, job) {
-    var selected = $filter('filter')(statuses, {value: job.status});
-    return (job.status && selected.length) ? selected[0].value : '--';
+    var selected = statuses.filter((status) => {
+      if (job.status.rejected){
+        return  status.value.rejected
+      }
+      return status.value.progress === job.status.progress;
+    })
+    return selected[0].text;
   };
 
   return {
