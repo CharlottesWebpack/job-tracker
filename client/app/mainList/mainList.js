@@ -5,21 +5,20 @@ angular.module('jobTracker.mainList', [])
   $scope.jobs = [];
 
   $scope.interestLevels = [
-    {value: 1, text: "1"},
+    {value: 1},
     {value: 2},
     {value: 3},
     {value: 4},
     {value: 5}
   ];
   $scope.statuses = [
-    {value: "Not applied"},
+    {value: "Application not submitted"},
     {value: "Applied"},
     {value: "Responded"},
     {value: "Phone screen"},
     {value: "In-person interview"},
     {value: "Offer"},
     {value: "Application rejected"},
-    {value: "Not interested"}
   ];
 
   $scope.sortHeader = 'company';

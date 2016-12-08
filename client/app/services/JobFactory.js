@@ -63,6 +63,8 @@ angular.module('jobTracker.jobService', [])
 
   var formatStatus = function(scope, job) {
     var selected = $filter('filter')(scope.statuses, {value: job.status});
+    console.log("scope statuses", scope.statuses, "job status", job.status)
+    console.log("filtered result", selected);
     return (job.status && selected.length) ? selected[0].value : '--';
   };
 
