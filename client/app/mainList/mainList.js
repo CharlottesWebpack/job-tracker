@@ -1,5 +1,6 @@
 angular.module('jobTracker.mainList', [])
 .controller('mainListController', function($scope, JobFactory, $filter, AuthFactory) {
+  $scope.navButton = "Sign out";
   $scope.new = {}
   $scope.jobs = [];
 
