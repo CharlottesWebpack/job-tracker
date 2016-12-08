@@ -1,12 +1,10 @@
 angular.module('jobTracker.stats', [])
-<<<<<<< HEAD
-.controller('StatsController', function($scope, $location) {
+.controller('statsController', function($scope, JobFactory, $filter, AuthFactory, $location) {
 
   $scope.isActive = function(viewLocation) {
     return viewLocation === $location.path();
   };
-=======
-.controller('statsController', function($scope, JobFactory, $filter, AuthFactory) {
+
   $scope.navButton = "Sign out";
   $scope.jobs = [];
   $scope.stats = {};
@@ -64,6 +62,5 @@ angular.module('jobTracker.stats', [])
     });
   }
   $scope.getJobs();
->>>>>>> [STATS](Client): started to redo the status format on JobSchema {IA}
 
 });
