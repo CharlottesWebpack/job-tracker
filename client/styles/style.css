@@ -29,16 +29,16 @@
 
 .btn{
   background: #FF5252;
-  border-color: #FF5252;  
+  border-color: #FF5252;
   color: #FFFFFF;
 }
 .btn:hover, .btn:focus, .btn:active .btn:active:hover{
   background: #FF8A80;
-  border-color: #FF5252; 
+  border-color: #FF5252;
 }
 .btn-success:active:hover, .btn-success:active{
   background: #FF8A80;
-  border-color: #FF5252; 
+  border-color: #FF5252;
 }
 
 .form-control{
@@ -47,7 +47,7 @@
 .form-footer{
   border-top: 1px solid #0097A7;
   font-size: 100%;
-  padding-top:15px; 
+  padding-top:15px;
   color: #757575;
 }
 
@@ -105,8 +105,13 @@ thead {
   border-bottom: none;
 }
 
+.progress-bar-danger {
+  background-color: #FF5252;
+}
 
-
+.progress-bar-info {
+  background-color: #00BCD4;
+}
 
 /*.table-striped tbody tr:nth-of-type(odd){
   background-color: #B2EBF2;
