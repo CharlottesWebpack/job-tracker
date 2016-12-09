@@ -21,7 +21,7 @@ app.use(session({
   name: 'Nick_is_Awesome!!',
   rolling: true,
   cookie: {
-    path:'/',
+    path: '/',
     httpOnly: true,
     secure: false,
     maxAge: 600000,
@@ -32,24 +32,26 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 var storage = multer.diskStorage({
-  destination: path.join(__dirname,'./uploads'),
-  filename: function (req, file, cb) {
-    crypto.pseudoRandomBytes(16, function (err, raw) {
-      if (err){
+  destination: path.join(__dirname, './uploads'),
+  filename: function(req, file, cb) {
+    crypto.pseudoRandomBytes(16, function(err, raw) {
+      if (err) {
         return cb(err)
-      }else {
+      } else {
         cb(null, raw.toString('hex') + path.extname(file.originalname));
-      }      
+      }
     })
   }
 });
-app.use(multer({ storage: storage}).any());
+app.use(multer({
+  storage: storage
+}).any());
 
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname,'../client')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.post('/login', passport.authenticate('local'), handlers.getUser);
 
@@ -61,7 +63,7 @@ app.get('/auth', handlers.auth);
 
 app.get('/jobs', handlers.getJobs);
 
-app.post('/jobs',  handlers.createJob);
+app.post('/jobs', handlers.createJob);
 
 app.post('/jobs/delete', handlers.deleteJob);
 
