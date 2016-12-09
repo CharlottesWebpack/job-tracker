@@ -112,12 +112,6 @@ thead {
 .progress-bar-info {
   background-color: #00BCD4;
 }
-.progress-bar-response {
-  background-color: #0097A7;
-}
-.progress-bar-silent {
-  background-color: #757575;
-}
 
 /*.table-striped tbody tr:nth-of-type(odd){
   background-color: #B2EBF2;
