@@ -1,5 +1,5 @@
  angular.module('jobTracker.singlejobdir', [])
- .directive('fileModel', function($parse){
+ .directive('fileModel', function($parse) {
   return {
     restrict: 'A',
     link: function(scope,element,attrs) {
@@ -13,5 +13,4 @@
       })
     }
   }
-
- });
+});
