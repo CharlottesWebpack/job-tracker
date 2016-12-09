@@ -47,9 +47,6 @@ app.use(multer({
   storage: storage
 }).any());
 
-
-app.use(multer({dest:path.join(__dirname,'./uploads')}).any('Nik'));
-
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
