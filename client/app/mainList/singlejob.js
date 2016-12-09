@@ -1,3 +1,4 @@
+angular.module('jobTracker.singlejob', [])
   .controller('singlejob', function($scope, uploadfileservice) {
     $scope.addFile = function() {
       var file = $scope.myfile
