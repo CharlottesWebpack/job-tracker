@@ -43,11 +43,7 @@ angular.module('jobTracker.mainList', [])
     })
   };
   $scope.editJob = function(job) {
-    console.log(job);
-    JobFactory.updateJob(job)
-    .then((res) => {
-      console.log("Server responded", res);
-    })
+    JobFactory.updateJob(job);
   };
 
   $scope.showDate = function(job) {
