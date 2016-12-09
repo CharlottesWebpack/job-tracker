@@ -1,6 +1,7 @@
 var express = require('express');
 var db = require('./db.js');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 var handlers = require('./handlers.js');
 var path = require('path');
 var session = require('express-session');
@@ -10,6 +11,7 @@ var cookieParser = require('cookie-parser');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+
 
 app.use(cookieParser());
 
@@ -30,6 +32,8 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 
+app.use(multer({dest:path.join(__dirname,'./uploads')}).any('Nik'));
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
@@ -48,6 +52,8 @@ app.get('/jobs', handlers.getJobs);
 app.post('/jobs', handlers.createJob);
 
 app.post('/jobs/delete', handlers.deleteJob);
+
+app.post('/upload', handlers.uploadFile);
 
 app.put('/jobs', handlers.updateJob);
 
