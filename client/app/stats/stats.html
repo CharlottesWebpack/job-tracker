@@ -1,20 +1,50 @@
 <nav-bar></nav-bar>
 <div class="container-fluid">
-<ul>
-  <li>Jobs Total:{{stats.total}}</li>
-  <li>Jobs Applied: {{stats.applied.length}}</li>
-  <li>Jobs Not Applied: {{stats.notApplied}}</li>
-  <li>Jobs Active:{{stats.active.length}}</li>
-  <li>Jobs Responded: {{stats.responded.length}}</li>
-  <li>Jobs PhoneScreen: {{stats.phone.length}}</li>
-  <li>Jobs Interview: {{stats.interview.length}}</li>
-  <li ng-show="stats.offer.length">Jobs Offer: {{stats.offer.length}}</li>
-  <li>Jobs Rejected: {{stats.rejected.length}}</li>
-  <!-- <li>Jobs </li> -->
-</ul>
-<div class="row">
-
-</div>
-
-
+  <div class="row col-sm-10 col-sm-offset-1">
+      <h4>Current state of your active applications</h4>
+      <uib-progress class="progress-striped active" max="stats.active">
+        <uib-bar  animate="true" ng-repeat="stat in currentStage" value="stat.value"  title="stat.text" type="{{stat.type}}">
+          <label>{{stat.text}}</label>
+          <span>: {{stat.value}}</span>
+        </uib-bar>
+      </uib-progress>
+  </div>
+  <div class="row col-sm-10 col-sm-offset-1 well">
+    <div class="col-sm-6">
+      <label>Jobs applied to out of total saved jobs</label>
+      <uib-progressbar max="stats.total" value="stats.applied" type="success">
+        <span>{{stats.applied}} / {{stats.total}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-6">
+      <label>Response rate</label>
+      <uib-progressbar max="stats.applied" value="stats.responded" type="info">
+        <span>{{stats.responded}} / {{stats.applied}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-6">
+      <label>Reached phone screen</label>
+      <uib-progressbar max="stats.applied" value="stats.phone" type="info">
+        <span>{{stats.phone}} / {{stats.applied}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-6">
+      <label>Reached interview stage</label>
+      <uib-progressbar max="stats.applied" value="stats.interview" type="success">
+        <span>{{stats.interview}} / {{stats.applied}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-6">
+      <label>Applications without response</label>
+      <uib-progressbar max="stats.applied" value="stats.noresponse" type="warning">
+        <span>{{stats.noresponse}} / {{stats.applied}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-6">
+      <label>Applications rejected</label>
+      <uib-progressbar max="stats.applied" value="stats.rejected" type="danger">
+        <span>{{stats.rejected}} / {{stats.applied}}</span>
+      </uib-progressbar>
+    </div>
+  </div>
 </div>
