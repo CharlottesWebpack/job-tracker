@@ -3,6 +3,7 @@ angular.module('jobTracker.mainList', [])
   $scope.navButton = "Sign out";
   $scope.new = {}
   $scope.jobs = [];
+  $scope.news = [];
 
   $scope.statuses = JobFactory.statuses;
   $scope.interestLevels = JobFactory.interestLevels;
@@ -46,8 +47,13 @@ angular.module('jobTracker.mainList', [])
     JobFactory.updateJob(job);
   };
 
-  $scope.getNews = function() {
-    externalApiFactory.searchGoogle();
+  $scope.getNews = function(job) {
+    externalApiFactory.searchGoogle(job.company)
+    .then(function(data) { 
+      //data.items is array of news story objects
+      console.log(data);
+      $scope.news.stories = data;
+    }) 
   }
 
   $scope.showDate = function(job) {

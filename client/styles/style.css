@@ -41,6 +41,11 @@
   border-color: #FF5252;
 }
 
+.media-object{
+  max-height: 150px;
+  max-width: 150px
+}
+
 .form-control{
   color:#757575
 }
