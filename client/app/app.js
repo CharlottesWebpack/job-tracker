@@ -11,7 +11,6 @@ angular.module('jobTracker', [
   'jobTracker.singlejobservice',
   'validation.match',
   'jobTracker.stats',
-  'jobTracker.singlejobdir',
   'navDirective',
   'jobTracker.demo',
   'ui.bootstrap'
