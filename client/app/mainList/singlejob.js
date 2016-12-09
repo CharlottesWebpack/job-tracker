@@ -8,4 +8,4 @@ angular.module('jobTracker.singlejob', [])
       uploadfileservice.upload(uploadUrl, file);
       angular.element("input[type= 'file']").val(null);
     };
-  });
+});

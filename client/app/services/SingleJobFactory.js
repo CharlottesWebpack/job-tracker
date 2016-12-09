@@ -1,6 +1,5 @@
  angular.module('jobTracker.singlejobservice', [])
    .factory('uploadfileservice', function($http) {
-
      var upload = function(uploadUrl, file) {
        console.log(file);
        var fd = new FormData();
