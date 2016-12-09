@@ -1,4 +1,5 @@
  angular.module('jobTracker.singlejobservice', [])
+
    .factory('uploadfileservice', function($http) {
 
      var upload = function(uploadUrl, file) {
@@ -19,3 +20,4 @@
        upload: upload
      }
    });
+
