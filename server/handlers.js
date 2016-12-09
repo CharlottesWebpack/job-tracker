@@ -94,7 +94,7 @@ getUser: function(req, res) {
   },
 
   uploadFile: function(req, res) {
-    console.log(req.files);
+    console.log(req);
     res.json({success : true});
   }
 };
