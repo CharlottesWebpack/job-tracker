@@ -1,15 +1,20 @@
 <nav-bar></nav-bar>
-<div>
+<div class="container-fluid">
 <ul>
   <li>Jobs Total:{{stats.total}}</li>
-  <li>Jobs Active:{{stats.active}}</li>
-  <li>Jobs Interested:{{stats.interested}}</li>
-  <li>Jobs Applied: {{stats.applied}}</li>
-  <li>Jobs Responded: {{stats.responded}}</li>
-  <li>Jobs PhoneScreen: {{stats.phone}}</li>
-  <li>Jobs Interview: {{stats.interview}}</li>
-  <li>Jobs Offer: {{stats.offer}}</li>
-  <li>Jobs Rejected: {{stats.rejected}}</li>
+  <li>Jobs Applied: {{stats.applied.length}}</li>
+  <li>Jobs Not Applied: {{stats.notApplied}}</li>
+  <li>Jobs Active:{{stats.active.length}}</li>
+  <li>Jobs Responded: {{stats.responded.length}}</li>
+  <li>Jobs PhoneScreen: {{stats.phone.length}}</li>
+  <li>Jobs Interview: {{stats.interview.length}}</li>
+  <li ng-show="stats.offer.length">Jobs Offer: {{stats.offer.length}}</li>
+  <li>Jobs Rejected: {{stats.rejected.length}}</li>
+  <!-- <li>Jobs </li> -->
 </ul>
+<div class="row">
+
 </div>
 
+
+</div>

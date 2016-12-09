@@ -10,7 +10,8 @@ angular.module('jobTracker', [
   'validation.match',
   'jobTracker.stats',
   'navDirective',
-  'jobTracker.demo'
+  'jobTracker.demo',
+  'ui.bootstrap'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
