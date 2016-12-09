@@ -5,5 +5,6 @@ angular.module('jobTracker.singlejob', [])
     console.log(file)
     var uploadUrl  = '/upload';
     uploadfileservice.upload(uploadUrl, file);
+    angular.element("input[type= 'file']").val(null);
   };
 });
