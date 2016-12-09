@@ -1,0 +1,12 @@
+<div class="media" ng-repeat='story in news.stories.items'>
+  <div class=" media-left media-middle">
+    <a href="#">
+      <img class="media-object" src="{{story.pagemap.cse_thumbnail[0].src}}">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{story.title}}</h4>
+    <a href="{{story.displayLink}}">{{story.displayLink}}</a>
+    <p>{{story.snippet}}</p>
+  </div>
+</div>
