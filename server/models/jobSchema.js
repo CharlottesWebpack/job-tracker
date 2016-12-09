@@ -5,7 +5,10 @@ var jobSchema = mongoose.Schema({
   company: String,
   jobTitle: String,
   interestLevel: {type: Number, default: 1},
-  status: {type: String, default: "Not applied"},
+  status: {
+    progress: {type: Number, default: 1},
+    rejected: {type: Boolean, default: false}
+  },
   location: String,
   contactPerson: String,
   contactInfo: String,
@@ -16,3 +19,17 @@ var jobSchema = mongoose.Schema({
 });
 
 module.exports = jobSchema;
+
+//job status explained:
+  //Progress:
+    // 1 - "Not applied"
+    // 2 - "Applied",
+    // 3 - "Responded",
+    // 4 - "Phone screen",
+    // 5 - "In-person interview",
+    // 6 - "Offer",
+    // 7 -"Application rejected"
+  //rejected:
+    //true or false;
+  //ingored (i'm not interested anymore):
+    //true or false;
