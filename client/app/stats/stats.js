@@ -9,25 +9,6 @@ angular.module('jobTracker.stats', [])
   $scope.jobs = [];
   $scope.stats = {};
 
-//   <li>Jobs Total:{{stats.total}}</li>
-//   <li>Jobs Active:{{stats.active}}</li>
-//   <li>Jobs Interested:{{stats.interested}}</li>
-//   <li>Jobs Applied: {{stats.applied}}</li>
-//   <li>Jobs Responded: {{stats.responded}}</li>
-//   <li>Jobs PhoneScreen: {{stats.phone}}</li>
-//   <li>Jobs Interview: {{stats.interview}}</li>
-//   <li>Jobs Offer: {{stats.offer}}</li>
-//   <li>Jobs Rejected: {{stats.rejected}}</li>
-
-    // {value: "Not applied"},
-    // {value: "Applied"},
-    // {value: "Responded"},
-    // {value: "Phone screen"},
-    // {value: "In-person interview"},
-    // {value: "Offer"},
-    // {value: "Application rejected"},
-
-
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
@@ -35,29 +16,34 @@ angular.module('jobTracker.stats', [])
       $scope.stats.total = $scope.jobs.length;
 
       $scope.stats.applied = $scope.jobs.filter((job) => {
-        return job.status !== "Not applied"
+        return job.status.progress > 1;
       });
 
-      $scope.stats.active = $scope.jobs.applied.filter((job) => {
-        return job.status !== "Application rejected"
+      $scope.stats.notApplied = $scope.stats.total - $scope.stats.applied.length
+
+      $scope.stats.active = $scope.jobs.filter((job) => {
+        return !job.status.rejected && job.status.progress > 1;
       });
 
-      $scope.stats.responded = $scope.jobs.applied.filter((job) => {
-        return job.status !== "Applied"
-      }).length;
+      $scope.stats.responded = $scope.jobs.filter((job) => {
+        return job.status.progress > 2;
+      });
 
-      $scope.stats.phone = $scope.jobs.responded.filter((job) => {
-        return job.status !== "Responded";
-      }).length;
+      $scope.stats.phone = $scope.jobs.filter((job) => {
+        return job.status.progress > 3;
+      })
 
-      $scope.stats.interview = $scope.jobs.filter((job) => {
-      }).length;
+       $scope.stats.interview = $scope.jobs.filter((job) => {
+        return job.status.progress > 4;
+      })
 
-      $scope.stats.offer = $scope.jobs.filter((job) => {
-      }).length;
+       $scope.stats.offer = $scope.jobs.filter((job) => {
+        return job.status.progress > 5;
+      })
 
       $scope.stats.rejected = $scope.jobs.filter((job) => {
-      }).length;
+        return job.status.rejected;
+      })
 
     });
   }
