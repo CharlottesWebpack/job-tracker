@@ -92,5 +92,13 @@ angular.module('jobTracker.mainList', [])
   };
 
   $scope.getJobs();
+    
+  $scope.addFile = function() {
+      var file = $scope.myfile
+      console.log(file)
+      var uploadUrl = '/upload';
+      'JobFactory'.upload(uploadUrl, file);
+      angular.element("input[type= 'file']").val(null);
+  };
 
   });
