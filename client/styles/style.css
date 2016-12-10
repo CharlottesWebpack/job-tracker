@@ -105,9 +105,17 @@ thead {
   color: #0097A7;
   font-size: 105%;
 }
-#entry{
+
+.editable-click, a.editable-click{
   color: #212121;
   border-bottom: none;
+}
+.editable-click:hover, a.editable-click:hover{
+  color: #0097A7;
+}
+
+.glyphicon:hover {
+  color: #0097A7;
 }
 
 .progress-bar-danger {
@@ -208,9 +216,6 @@ a.navbar-brand {
   background-color: #00BCD4;
 }
 
-/*.table-striped tbody tr:nth-of-type(odd){
-  background-color: #B2EBF2;
-}*/
 
 /*THIS IS OUR COLOR PALETTE*/
 /*.dark-primary-color    { background: #0097A7; }
