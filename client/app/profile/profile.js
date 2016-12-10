@@ -9,8 +9,10 @@ angular.module('jobTracker.profile', [])
             $location.path('/changePassword');
         }
 
-        $scope.exportJobList = function() {
-            $location.path('');
+        $scope.deleteProfile = function() {
+            AuthFactory.deleteProfile($scope.userDetails)
         }
+
+
 
     });
