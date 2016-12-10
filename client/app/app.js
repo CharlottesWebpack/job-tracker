@@ -51,7 +51,7 @@ angular.module('jobTracker', [
     })
     .state('stats', {
       url: '/stats',
-      templateUrl: 'app/stats/statsInProgress.html',
+      templateUrl: 'app/stats/stats.html',
       controller: 'StatsController',
       authRequired: true
     });
