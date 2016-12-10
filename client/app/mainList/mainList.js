@@ -1,8 +1,9 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location) {
+.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location, externalApiFactory, $uibModal) {
   $scope.navButton = "Sign out";
   $scope.new = {}
   $scope.jobs = [];
+  $scope.news = [];
 
   $scope.statuses = JobFactory.statuses;
   $scope.interestLevels = JobFactory.interestLevels;
@@ -45,6 +46,27 @@ angular.module('jobTracker.mainList', [])
   $scope.editJob = function(job) {
     JobFactory.updateJob(job);
   };
+
+  $scope.getNews = function(job) {
+    externalApiFactory.searchGoogle(job.company)
+    .then(function(data) { 
+      //data.items is array of news story objects
+      console.log(data);
+      $scope.news.stories = data;
+    })
+    .then(function(){
+      $uibModal.open({
+        templateUrl: 'app/mainList/getNews.html',
+        controller: 'getNewsController',
+        controllerAs: '$ctrl',
+        resolve: {
+          news: function() {
+            return $scope.news;
+          }
+        }
+      })
+    })
+  }
 
   $scope.showDate = function(job) {
     JobFactory.formatDate(job);

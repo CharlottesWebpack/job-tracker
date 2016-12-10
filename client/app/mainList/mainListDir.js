@@ -7,9 +7,9 @@ angular.module('jobTracker.directives', [])
   }
 })
 .directive('addJobDir', function(){
-    return {
-      transclude: true,
-      restrict: 'E',
-      templateUrl: 'app/mainList/addJob.html'
-    }
-});
+  return {
+    transclude: true,
+    restrict: 'E',
+    templateUrl: 'app/mainList/addJob.html'
+  }
+})
