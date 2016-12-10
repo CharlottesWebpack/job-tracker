@@ -1,16 +1,14 @@
 angular.module('jobTracker.removeModal', [])
-.controller('removeModalController', function($uibModalInstance, JobFactory, job, jobList, getJobs) {
+.controller('removeModalController', function($uibModalInstance, JobFactory, job, getJobs) {
   var $remove = this;
   $remove.ok = function(){
     JobFactory.deleteJob(job)
     .then((res) => {
-      jobList = res;
-      $uibModalInstance.close();
       getJobs();
+      $uibModalInstance.close();
     });
-  }
+  };
   $remove.cancel = function () {
-    console.log("called")
     $uibModalInstance.dismiss('cancel');
   };
 });

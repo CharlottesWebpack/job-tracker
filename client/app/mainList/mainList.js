@@ -48,19 +48,11 @@ angular.module('jobTracker.mainList', [])
         job: function () {
           return $scope.jobToRemove;
         },
-        jobList: function () {
-          return $scope.jobs;
-        },
         getJobs: function () {
           return $scope.getJobs;
         }
       }
-    })
-    // JobFactory.deleteJob(job)
-    // .then((res) => {
-    //   $scope.jobs = res;
-      initPagination();
-    // })
+    });
   };
   $scope.editJob = function(job, data) {
     if (data) {
