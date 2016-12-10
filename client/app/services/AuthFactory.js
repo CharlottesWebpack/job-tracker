@@ -41,11 +41,25 @@ angular.module('jobTracker.authService', [])
     });
   };
 
+  var updateAccount = function(infoPeople) {
+    
+    return $http({
+      method: 'PUT',
+      url: '/user',
+      data: infoPeople
+    }).then((res) => {
+      console.log(res);
+      $location.path('/profile');
+      
+    });
+  };
+
   return {
     login: login,
     logout: logout,
     signup: signup,
-    isAuth: isAuth
+    isAuth: isAuth,
+    updateAccount: updateAccount
   };
 
 });

@@ -23,5 +23,23 @@ module.exports = {
         }
       });
     });
+  },
+  updateUserInDb: function(user, username) {
+    
+    return User.update(
+      {"username": username}, 
+      {"$set": 
+        {"firstname": user.firstname , 
+        "lastname" : user.lastname,
+        "emailid":user.emailid,
+        "dob":user.dob,
+        "jobstatus":user.jobstatus
+      }
+
+    })
+    .exec()
+    .then(function(resp) {
+      return resp;
+    });
   }
 };

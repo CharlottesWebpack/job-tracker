@@ -4,6 +4,9 @@ angular.module('jobTracker', [
   'jobTracker.login',
   'jobTracker.signup',
   'jobTracker.mainList',
+  'jobTracker.profile',
+  'jobTracker.editProfile',
+  'jobTracker.changePassword',
   'jobTracker.authService',
   'jobTracker.jobService',
   'jobTracker.directives',
@@ -47,6 +50,24 @@ angular.module('jobTracker', [
       url: '/stats',
       templateUrl: 'app/stats/stats.html',
       controller: 'statsController',
+      authRequired : true
+    })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'app/profile/profile.html',
+      controller: 'profileController',
+      authRequired : true
+    })
+    .state('editProfile', {
+      url: '/editProfile',
+      templateUrl: 'app/profile/editProfile.html',
+      controller: 'editProfileController',
+      authRequired : true
+    })
+    .state('changePassword', {
+      url: '/changePassword',
+      templateUrl: 'app/profile/changePassword.html',
+      controller: 'changePasswordController',
       authRequired : true
     });
   $urlRouterProvider.otherwise('/');
