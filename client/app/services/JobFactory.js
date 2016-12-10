@@ -86,6 +86,20 @@ angular.module('jobTracker.jobService', [])
     })
     return selected[0].text;
   };
+  var upload = function(uploadUrl, file) {
+   console.log(file);
+       var fd = new FormData();
+       fd.append('file', file);
+
+    return $http.post(uploadUrl, fd, {
+      transformRequest: angular.identity,
+          headers: {
+           'Content-type': undefined
+          }
+    }).then((res) => {
+         return res.data;
+      })
+  };
 
   return {
     getAllJobs: getAllJobs,
@@ -95,6 +109,7 @@ angular.module('jobTracker.jobService', [])
     formatDate: formatDate,
     formatInterestLevel: formatInterestLevel,
     formatStatus: formatStatus,
+    upload:upload,
     statuses: statuses,
     interestLevels: interestLevels
   };
