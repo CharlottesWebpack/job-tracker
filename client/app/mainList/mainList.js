@@ -39,11 +39,20 @@ angular.module('jobTracker.mainList', [])
   };
 
   $scope.removeJob = function(job) {
-    JobFactory.deleteJob(job)
-    .then((res) => {
-      $scope.jobs = res;
-      initPagination();
-    })
+    $scope.jobToRemove = job;
+    $uibModal.open({
+      templateUrl: 'app/mainList/removeModal.html',
+      controller: 'removeModalController',
+      controllerAs: '$remove',
+      resolve: {
+        job: function () {
+          return $scope.jobToRemove;
+        },
+        getJobs: function () {
+          return $scope.getJobs;
+        }
+      }
+    });
   };
   $scope.editJob = function(job, data) {
     if (data) {
@@ -54,7 +63,7 @@ angular.module('jobTracker.mainList', [])
 
   $scope.getNews = function(job) {
     externalApiFactory.searchGoogle(job.company)
-    .then(function(data) { 
+    .then(function(data) {
       //data.items is array of news story objects
       console.log(data);
       $scope.news.stories = data;
