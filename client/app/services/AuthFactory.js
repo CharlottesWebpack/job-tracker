@@ -41,11 +41,52 @@ angular.module('jobTracker.authService', [])
     });
   };
 
+  var updateAccount = function(infoPeople) {
+    
+    return $http({
+      method: 'PUT',
+      url: '/user',
+      data: infoPeople
+    }).then((res) => {
+      console.log(res);
+      $location.path('/profile');
+      
+    });
+  };
+
+  var updatePassword = function(infoPeople) {
+    
+    return $http({
+      method: 'PUT',
+      url: '/changepassword',
+      data: infoPeople
+    }).then((res) => {
+      console.log(res);
+      $location.path('/profile');
+      
+    });
+  };
+  var deleteProfile = function(infoPeople) {
+    
+    return $http({
+      method: 'DELETE',
+      url: '/user',
+      data: infoPeople
+    }).then((res) => {
+      console.log(res);
+      $location.path('/login');
+      
+    });
+  };
+
   return {
     login: login,
     logout: logout,
     signup: signup,
-    isAuth: isAuth
+    isAuth: isAuth,
+    updateAccount: updateAccount,
+    updatePassword: updatePassword,
+    deleteProfile:deleteProfile
   };
 
 });
