@@ -65,7 +65,6 @@ angular.module('jobTracker.mainList', [])
     externalApiFactory.searchGoogle(job.company)
     .then(function(data) {
       //data.items is array of news story objects
-      console.log(data);
       $scope.news.stories = data;
     })
     .then(function(){

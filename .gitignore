@@ -1,4 +1,5 @@
 node_modules/
 client/lib/
 config.js
-client/env.js
+config.json
+client/app/config.js
