@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var jobSchema = mongoose.Schema({
   id: String,
   company: String,
+  createdAt: {type: Date, default: new Date()},
   jobTitle: String,
   interestLevel: {type: Number, default: 1},
   status: {

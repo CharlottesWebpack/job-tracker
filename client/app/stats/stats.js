@@ -20,6 +20,7 @@ angular.module('jobTracker.stats', [])
 
   $scope.stateNow = {
     applied: 0,
+    responded: 0,
     phone: 0,
     interview: 0,
     offer: 0
@@ -36,7 +37,7 @@ angular.module('jobTracker.stats', [])
 
       $scope.stats.total = $scope.jobs.length;
       $scope.stats.active = $scope.jobs.filter((job) => {
-        return !job.status.rejected && job.status.progress > 1 && job.status.progress < 6;
+        return !job.status.rejected && job.status.progress > 1;
       }).length;
 
       ///////////////////
@@ -72,6 +73,7 @@ angular.module('jobTracker.stats', [])
       ////CURRENT STATE///
       ////////////////////
       $scope.stateNow.applied = $scope.jobs.filter((job) => {return job.status.progress === 2}).length;
+      $scope.stateNow.responded = $scope.jobs.filter((job) => {return job.status.progress === 3}).length;
       $scope.stateNow.phone = $scope.jobs.filter((job) => {return job.status.progress === 4}).length;
       $scope.stateNow.interview = $scope.jobs.filter((job) => {return job.status.progress === 5}).length;
       $scope.stateNow.offer = $scope.jobs.filter((job) => {return job.status.progress === 6}).length;
@@ -79,6 +81,7 @@ angular.module('jobTracker.stats', [])
 
       $scope.currentStage = [
         {value: $scope.stateNow.applied, text: "Awaiting response", type: 'danger'},
+        {value: $scope.stateNow.responded, text: "Got a response", type: 'info'},
         {value: $scope.stateNow.phone, text: "Phone screen stage", type: 'warning'},
         {value: $scope.stateNow.interview, text: "Interviewing", type: 'info'},
         {value: $scope.stateNow.offer, text: "Offer", type: "success"}
