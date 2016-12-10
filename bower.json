@@ -14,7 +14,6 @@
     "bootstrap-css": "^3.3.6",
     "angular-xeditable": "^0.5.0",
     "angular-validation-match": "^1.9.0",
-    "angular-bootstrap": "^2.3.0",
-    "ui-bootstrap": "^2.3.1"
+    "angular-bootstrap": "^2.3.0"
   }
 }
