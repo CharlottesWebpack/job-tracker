@@ -2,7 +2,7 @@ angular.module('jobTracker.demo', [])
 .controller('demoController', function($scope, $filter, JobFactory, $location) {
   $scope.navButton = "Back to Homepage";
   $scope.new = {}
-  $scope.jobs = [
+  $scope.pagedData = [
     {"company":"khan academy",
       "jobTitle":"dev",
       "location":"montain view",
@@ -50,12 +50,12 @@ angular.module('jobTracker.demo', [])
 
   $scope.addJob = function() {
     var newJob = $scope.new;
-    $scope.jobs.push(newJob);
+    $scope.pagedData.push(newJob);
     $scope.new = '';
   };
 
   $scope.removeJob = function(job) {
-    $scope.jobs = $scope.jobs
+    $scope.pagedData = $scope.pagedData
       .filter((item) => {return item.id !== job.id;})
   };
 
