@@ -1,10 +1,9 @@
 angular.module('jobTracker.externalApiService', [])
 .factory('externalApiFactory', function($http) {
 
-  var APIKEY = 'AIzaSyAhdTaZTpo7M_oOAOAzQtq2F07UbVGsCxM'
-  //GET RID OF THAT BEFORE PUSHING!
-  var SEARCHENGINEID = '017195158329288148085:4koogor1o1w'
-  var googleUrl = 'https://www.googleapis.com/customsearch/v1'
+  var APIKEY = '';
+  var SEARCHENGINEID = '';
+  var googleUrl =  '';
 
 
   var searchGoogle = function(company) {
