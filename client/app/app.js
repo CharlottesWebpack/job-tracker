@@ -52,7 +52,7 @@ angular.module('jobTracker', [
     .state('stats', {
       url: '/stats',
       templateUrl: 'app/stats/stats.html',
-      controller: 'StatsController',
+      controller: 'statsController',
       authRequired: true
     });
   $urlRouterProvider.otherwise('/landing');
