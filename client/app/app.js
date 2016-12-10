@@ -7,9 +7,9 @@ angular.module('jobTracker', [
   'jobTracker.authService',
   'jobTracker.jobService',
   'jobTracker.directives',
-  'jobTracker.externalApiService',
   'validation.match',
   'jobTracker.stats',
+  'jobTracker.externalApiService',
   'navDirective',
   'jobTracker.demo',
   'jobTracker.getNews',
@@ -34,6 +34,10 @@ angular.module('jobTracker', [
       templateUrl: 'app/auth/signup/signup.html',
       controller: 'signupController'
     })
+    .state('landing', {
+      url: '/landing',
+      templateUrl: 'app/demo/landing.html'
+    })
     .state('demo', {
       url: '/demo',
       templateUrl: 'app/mainList/mainList.html',
@@ -49,9 +53,9 @@ angular.module('jobTracker', [
       url: '/stats',
       templateUrl: 'app/stats/stats.html',
       controller: 'statsController',
-      authRequired : true
+      authRequired: true
     });
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/landing');
   //this being set to /login is causing the auto redirect to login on a bad singup request - NWF
   //something weird happens when you try to login if this is
   //anything other than /login. It renders that page first for a second. - VE

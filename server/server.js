@@ -9,7 +9,6 @@ var User = require('./models/userModel.js');
 var cookieParser = require('cookie-parser');
 var multer = require('multer');
 var crypto = require('crypto');
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -24,7 +23,7 @@ app.use(session({
     path:'/',
     httpOnly: true,
     secure: false,
-    maxAge: 600000,
+    maxAge: 6000000,
   }
 }));
 
@@ -79,7 +78,7 @@ db.on('error', (err) => {
 
 db.once('open', () => {
   console.log('MongoDB connected');
-  app.listen(PORT, process.env.IP, () => {
+  app.listen(PORT, () => {
     console.log("Server listening on port", PORT);
   });
 });
