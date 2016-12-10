@@ -7,8 +7,6 @@ angular.module('jobTracker', [
   'jobTracker.authService',
   'jobTracker.jobService',
   'jobTracker.directives',
-  'jobTracker.singlejob',
-  'jobTracker.singlejobservice',
   'validation.match',
   'jobTracker.stats',
   'navDirective',
