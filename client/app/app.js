@@ -9,6 +9,7 @@ angular.module('jobTracker', [
   'jobTracker.directives',
   'validation.match',
   'jobTracker.stats',
+  'jobTracker.externalApiService',
   'navDirective',
   'jobTracker.demo',
   'jobTracker.getNews',
