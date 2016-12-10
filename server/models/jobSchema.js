@@ -3,12 +3,13 @@ var mongoose = require('mongoose');
 var jobSchema = mongoose.Schema({
   id: String,
   company: String,
-  createdAt: {type: Date, default: new Date()},
+  createdAt: {type: Date},
+  updatedAt: {type: Date},
   jobTitle: String,
   interestLevel: {type: Number, default: 1},
   status: {
     progress: {type: Number, default: 1},
-    rejected: {type: Boolean, default: false}
+    rejected: {type: Boolean, default: false},
   },
   location: String,
   contactPerson: String,

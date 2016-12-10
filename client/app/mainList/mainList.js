@@ -22,12 +22,14 @@ angular.module('jobTracker.mainList', [])
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
+      console.log(res)
       $scope.jobs = res;
       initPagination();
     })
   };
 
   $scope.addJob = function() {
+    $scope.new.createdAt = new Date();
     JobFactory.createJob($scope.new)
     .then((res) => {
       $scope.jobs = res;
@@ -43,7 +45,10 @@ angular.module('jobTracker.mainList', [])
       initPagination();
     })
   };
-  $scope.editJob = function(job) {
+  $scope.editJob = function(job, data) {
+    if (data) {
+      job.updatedAt = new Date();
+    }
     JobFactory.updateJob(job);
   };
 
