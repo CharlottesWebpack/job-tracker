@@ -23,7 +23,7 @@ app.use(session({
     path:'/',
     httpOnly: true,
     secure: false,
-    maxAge: 600000,
+    maxAge: 6000000,
   }
 }));
 
@@ -35,10 +35,6 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname,'../client')));
-
-app.get('/facebook', passport.authenticate('facebook'));
-
-app.get('/facebook/authorized', passport.authenticate('facebook'), handlers.getUserFB);
 
 app.post('/login', passport.authenticate('local'), handlers.getUser);
 

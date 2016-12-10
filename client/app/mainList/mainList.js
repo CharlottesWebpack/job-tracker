@@ -1,7 +1,7 @@
 angular.module('jobTracker.mainList', [])
 .controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location) {
   $scope.navButton = "Sign out";
-  $scope.new = {}
+  $scope.new = {};
   $scope.jobs = [];
 
   $scope.interestLevels = [
@@ -78,7 +78,7 @@ angular.module('jobTracker.mainList', [])
     return JobFactory.formatStatus($scope, job);
   };
 
-  //Pagination 
+  //Pagination
   $scope.currentPage = 1;
   $scope.pageSize = 10;
   $scope.totalPages = 0;

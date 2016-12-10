@@ -29,25 +29,26 @@
 
 .btn{
   background: #FF5252;
-  border-color: #FF5252;  
+  border-color: #FF5252;
   color: #FFFFFF;
 }
 .btn:hover, .btn:focus, .btn:active .btn:active:hover{
   background: #FF8A80;
-  border-color: #FF5252; 
+  border-color: #FF5252;
 }
 .btn-success:active:hover, .btn-success:active{
   background: #FF8A80;
-  border-color: #FF5252; 
+  border-color: #FF5252;
 }
 
 .form-control{
   color:#757575
 }
+
 .form-footer{
   border-top: 1px solid #0097A7;
   font-size: 100%;
-  padding-top:15px; 
+  padding-top:15px;
   color: #757575;
 }
 
@@ -105,6 +106,95 @@ thead {
   border-bottom: none;
 }
 
+body {
+	font-family: "Helvetica Neue", Helvetica , Arial, sans-serif;
+}
+
+#firstDemoDiv {
+	position: relative;
+	margin-top: 5%;
+	background-color: blue;
+	height: 50%;
+	box-shadow: 5px 10px 5px lightgrey;
+}
+*/
+/*img {
+	height: 100%;
+	width: 100%;
+}*/
+
+.nav {
+	margin: 0;
+	background-color: #00BCD4
+}
+
+.aNav {
+	color: #FFFFFF;;
+	/*background-color: white;*/
+}
+
+a.navbar-brand {
+	color: #ff5252;
+	font-family: 'Nixie One', cursive;
+	font-size: 50px;
+}
+
+#carouselBody {
+	background-color: #00BCD4;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: white;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #ffffff;
+}
+
+.mainDemoImg {
+	box-shadow: 0px 0px 30px grey;
+}
+
+.mainDemo {
+	background-image: url("../media/captainJager1.png");
+	width: 100%;
+	height: 100%;
+	background-size: 50vh 50vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 0;
+}
+
+.navbarDemo {
+	margin-bottom: 0;
+}
+
+.demoDiv {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.demoP {
+	height: 100%;
+	display:flex;
+	align-items: center;
+}
+
+.demoPCtr {
+	height: 77%;
+	padding-top: 10%;
+	display: flex;
+}
+
+ .signUpBtn {
+	 margin-right:10%;
+	 margin-left: 10%;
+ }
+
+ .divCtr {
+	 height: 100%;
+ }
 
 
 
