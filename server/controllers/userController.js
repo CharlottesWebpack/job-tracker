@@ -41,5 +41,28 @@ module.exports = {
     .then(function(resp) {
       return resp;
     });
+  },
+  updateUserPasswordInDb: function(user, username) {
+    
+    return User.update(
+      {"username": username}, 
+      {"$set": 
+        {"password": user.password}
+    })
+    .exec()
+    .then(function(resp) {
+      return resp;
+    });
+  },
+  deleteProfile: function(username) {
+    
+    return User.remove(
+      {"username": username} 
+      )
+    .exec()
+    .then(function(resp) {
+      return resp;
+    });
   }
+
 };

@@ -34,6 +34,7 @@ module.exports = {
     var jobid = job._id
 
     return userController.retrieveUser(userId)
+    
     .then(function(user) {
       user.jobList.id(jobid).remove();
       return user;
