@@ -1,0 +1,75 @@
+<div class="container">
+    <h1>Profile</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="text-center">
+                <br>
+                <br>
+                <br>
+                <br>
+                <button type="button" class="btn btn-default" ng-click="editProfile()">Edit Profile</button>
+                <br>
+                <br>
+                <button type="button" class="btn btn-default" ng-click="changePassword()">Change Password</button>
+                <br>
+                <br>
+                <button type="button" class="btn btn-default" ng-click="deleteProfile()">Delete Account</button>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="col-md-9 personal-info">
+            <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+            </div>
+            <h3>Personal info</h3>
+            <table class='table'>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>First Name</din>
+                        </td>
+                        <td>
+                            <div>{{userDetails.firstname}}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Last Name</din>
+                        </td>
+                        <td>
+                            <div>{{userDetails.lastname}}</din>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Email_Id</din>
+                        </td>
+                        <td>
+                            <div>{{userDetails.emailid}}</din>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Date Of Birth</din>
+                        </td>
+                        <td>
+                            <div>{{userDetails.dob}}</din>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Job Status</din>
+                        </td>
+                        <td>
+                            <div>{{userDetails.jobstatus}}</din>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+</div>

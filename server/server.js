@@ -70,6 +70,8 @@ app.post('/jobs/delete', handlers.deleteJob);
 
 app.put('/jobs', handlers.updateJob);
 
+app.put('/user', handlers.updateUser);
+
 
 
 db.on('error', (err) => {
