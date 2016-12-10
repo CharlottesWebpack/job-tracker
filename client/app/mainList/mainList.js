@@ -1,7 +1,7 @@
 angular.module('jobTracker.mainList', [])
 .controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location, externalApiFactory, $uibModal) {
   $scope.navButton = "Sign out";
-  $scope.new = {}
+  $scope.new = {};
   $scope.jobs = [];
   $scope.news = [];
 
@@ -128,7 +128,7 @@ angular.module('jobTracker.mainList', [])
   };
   $scope.getJobs();
   $scope.addFile = function() {
-      
+
       var file = this.myfile;
       console.log(file);
       var uploadUrl = '/upload';
@@ -137,3 +137,4 @@ angular.module('jobTracker.mainList', [])
   };
 
 });
+  
