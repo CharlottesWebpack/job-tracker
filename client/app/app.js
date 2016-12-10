@@ -10,7 +10,11 @@ angular.module('jobTracker', [
   'validation.match',
   'jobTracker.stats',
   'navDirective',
-  'jobTracker.demo'
+  'jobTracker.demo',
+  'jobTracker.getNews',
+  'ui.bootstrap',
+  'jobTracker.removeModal',
+  'jobTracker.config'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -47,7 +51,8 @@ angular.module('jobTracker', [
     .state('stats', {
       url: '/stats',
       templateUrl: 'app/stats/statsInProgress.html',
-      controller: 'StatsController'
+      controller: 'StatsController',
+      authRequired: true
     });
   $urlRouterProvider.otherwise('/landing');
   //this being set to /login is causing the auto redirect to login on a bad singup request - NWF
