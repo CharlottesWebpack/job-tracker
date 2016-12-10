@@ -91,14 +91,15 @@ angular.module('jobTracker.mainList', [])
     $scope.pagedData = $scope.jobs.slice(0, $scope.currentPage * $scope.pageSize);
   };
 
-  $scope.getJobs();
-    
   $scope.addFile = function() {
-      var file = $scope.myfile
-      console.log(file)
+      
+      var file = this.myfile;
+      console.log(file);
       var uploadUrl = '/upload';
-      'JobFactory'.upload(uploadUrl, file);
+      JobFactory.upload(uploadUrl, file);
       angular.element("input[type= 'file']").val(null);
   };
+
+  $scope.getJobs();
 
   });

@@ -31,6 +31,7 @@ app.use(session({
 app.use(passport.initialize());
 
 app.use(passport.session());
+
 var storage = multer.diskStorage({
   destination: path.join(__dirname, './uploads'),
   filename: function(req, file, cb) {
