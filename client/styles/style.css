@@ -1,22 +1,229 @@
-#loginbox{
-	margin-top: 50px;
-}
-#form-group{
-	margin-top:10px;
-}
-.form-footer{
-	border-top: 1px solid#888; 
-	padding-top:15px; 
-	font-size:85%;
-}
 .panel-body{
 	padding-top:30px;
 }
-
 .input-group{
 	margin-bottom: 25px;
 }
-#signupbox{
-	margin-top: 50px;
+
+/*VE styling start*/
+.mainbox{
+  padding-top: 50px;
 }
 
+.panel-info{
+  border-color: #0097A7;
+}
+.panel-info .panel-heading{
+  background: #00BCD4;
+  border-color: #0097A7;
+  color: #FFFFFF;
+}
+.panel-info .panel-body{
+  color: #212121;
+}
+.panel-default .panel-heading{
+  background: #00BCD4;
+  border-color: #0097A7;
+  color: #FFFFFF;
+}
+
+.btn{
+  background: #FF5252;
+  border-color: #FF5252;
+  color: #FFFFFF;
+}
+.btn:hover, .btn:focus, .btn:active .btn:active:hover{
+  background: #FF8A80;
+  border-color: #FF5252;
+}
+.btn-success:active:hover, .btn-success:active{
+  background: #FF8A80;
+  border-color: #FF5252;
+}
+
+.media-object{
+  max-height: 80px;
+  max-width: 80px
+}
+
+.form-control{
+  color:#757575
+}
+
+.form-footer{
+  border-top: 1px solid #0097A7;
+  font-size: 100%;
+  padding-top:15px;
+  color: #757575;
+}
+
+.link{
+  color: #FF5252;
+}
+.link:hover{
+  color: #FF8A80;;
+}
+
+.alert{
+  background-color: #FF8A80;
+  border-color: #FF5252;
+  color: #212121;
+  padding:10px 15px;
+}
+
+.navbar-default{
+  background: #00BCD4;
+  color: #212121;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+  color: #FFFFFF;
+}
+.navbar-default .navbar-brand{
+  color: #212121;
+}
+.navbar-default .navbar-nav li a{
+  color: #FFFFFF;
+}
+.navbar-default .navbar-nav li a:hover{
+  background: #B2EBF2;
+  color: #212121;
+}
+.navbar-default .navbar-nav .active a, .navbar-default .navbar-nav .active a:focus{
+  background: #0097A7;
+  color: #FFFFFF;
+}
+.navbar-default .navbar-nav .active a:hover{
+  background: #B2EBF2;
+  color: #212121;
+}
+
+table .table .table-striped{
+  border-color: #BDBDBD;
+}
+thead {
+  color: #0097A7;
+  font-size: 105%;
+}
+
+.editable-click, a.editable-click{
+  color: #212121;
+  border-bottom: none;
+}
+.editable-click:hover, a.editable-click:hover{
+  color: #0097A7;
+}
+
+.glyphicon:hover {
+  color: #0097A7;
+}
+
+.progress-bar-danger {
+  background-color: #FF5252;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica , Arial, sans-serif;
+}
+
+#firstDemoDiv {
+	position: relative;
+	margin-top: 5%;
+	background-color: blue;
+	height: 50%;
+	box-shadow: 5px 10px 5px lightgrey;
+}
+*/
+/*img {
+	height: 100%;
+	width: 100%;
+}*/
+
+.nav {
+	margin: 0;
+	background-color: #00BCD4
+}
+
+.aNav {
+	color: #FFFFFF;;
+	/*background-color: white;*/
+}
+
+a.navbar-brand {
+	color: #ff5252;
+	font-family: 'Nixie One', cursive;
+	font-size: 50px;
+}
+
+#carouselBody {
+	background-color: #00BCD4;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: white;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #ffffff;
+}
+
+.mainDemoImg {
+	box-shadow: 0px 0px 30px grey;
+}
+
+.mainDemo {
+	background-image: url("../media/captainJager1.png");
+	width: 100%;
+	height: 100%;
+	background-size: 50vh 50vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 0;
+}
+
+.navbarDemo {
+	margin-bottom: 0;
+}
+
+.demoDiv {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.demoP {
+	height: 100%;
+	display:flex;
+	align-items: center;
+}
+
+.demoPCtr {
+	height: 77%;
+	padding-top: 10%;
+	display: flex;
+}
+
+ .signUpBtn {
+	 margin-right:10%;
+	 margin-left: 10%;
+ }
+
+ .divCtr {
+	 height: 100%;
+ }
+
+.progress-bar-info {
+  background-color: #00BCD4;
+}
+
+
+/*THIS IS OUR COLOR PALETTE*/
+/*.dark-primary-color    { background: #0097A7; }
+.default-primary-color { background: #00BCD4; }
+.light-primary-color   { background: #B2EBF2; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #FF5252; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }*/

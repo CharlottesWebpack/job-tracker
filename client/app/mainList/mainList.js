@@ -1,83 +1,139 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory) {
-  $scope.new = {}
+.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location, externalApiFactory, $uibModal) {
+  $scope.navButton = "Sign out";
+  $scope.new = {};
   $scope.jobs = [];
+  $scope.news = [];
 
-  $scope.interestLevels = [
-    {value: 1, text: "1"},
-    {value: 2},
-    {value: 3},
-    {value: 4},
-    {value: 5}
-  ];
-  $scope.statuses = [
-    {value: "Not applied"},
-    {value: "Applied"},
-    {value: "Responded"},
-    {value: "Phone screen"},
-    {value: "In-person interview"},
-    {value: "Offer"},
-    {value: "Application rejected"},
-    {value: "Not interested"}
-  ];
+  $scope.statuses = JobFactory.statuses;
+  $scope.interestLevels = JobFactory.interestLevels;
 
-  $scope.sortHeader = 'company';
+  $scope.sortHeader = 'interestLevel';
   $scope.sortReverse = false;
-  
+
   $scope.logout = function() {
     AuthFactory.logout();
-  }
+  };
+
+  $scope.isActive = function(viewLocation) {
+    return viewLocation === $location.path();
+  };
 
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
+      console.log(res)
       $scope.jobs = res;
+      initPagination();
     })
   };
 
   $scope.addJob = function() {
+    $scope.new.createdAt = new Date();
     JobFactory.createJob($scope.new)
     .then((res) => {
       $scope.jobs = res;
+      initPagination();
       $scope.new = '';
     });
   };
 
   $scope.removeJob = function(job) {
-    JobFactory.deleteJob(job)
-    .then((res) => {
-      $scope.jobs = res;
-    })
+    $scope.jobToRemove = job;
+    $uibModal.open({
+      templateUrl: 'app/mainList/removeModal.html',
+      controller: 'removeModalController',
+      controllerAs: '$remove',
+      resolve: {
+        job: function () {
+          return $scope.jobToRemove;
+        },
+        getJobs: function () {
+          return $scope.getJobs;
+        }
+      }
+    });
   };
-  $scope.editJob = function(job, data, field) {
-    if (arguments.length > 1) {
-      job[field] = data.value;
+  $scope.editJob = function(job, data) {
+    if (data) {
+      job.updatedAt = new Date();
     }
-    JobFactory.updateJob(job)
-    .then((res) => {
-      console.log(res);
-    })
+    JobFactory.updateJob(job);
   };
 
+  $scope.getNews = function(job) {
+    externalApiFactory.searchGoogle(job.company)
+    .then(function(data) {
+      //data.items is array of news story objects
+      $scope.news.stories = data;
+    })
+    .then(function(){
+      $uibModal.open({
+        templateUrl: 'app/mainList/getNews.html',
+        controller: 'getNewsController',
+        controllerAs: '$ctrl',
+        resolve: {
+          news: function() {
+            return $scope.news;
+          }
+        }
+      })
+    })
+  }
+
   $scope.showDate = function(job) {
-    if (typeof job.age === "string") {
-      job.age = new Date(job.age);
-    }
-    if (!job.age) {
-      job.niceDateString = "--";
-    } else {
-      job.niceDateString = job.age.toString().substring(0,15);
-    }
+    JobFactory.formatDate(job);
   };
 
   $scope.showInterestLevel = function(job) {
-    var selected = $filter('filter')($scope.interestLevels, {value: job.interestLevel});
-    return (job.interestLevel && selected.length) ? selected[0].value : '--';
+    return JobFactory.formatInterestLevel($scope, job);
   };
   $scope.showStatus = function(job) {
-    var selected = $filter('filter')($scope.statuses, {value: job.status});
-    return (job.status && selected.length) ? selected[0].value : '--';
+    return JobFactory.formatStatus($scope, job);
+  };
+
+  //Pagination
+  $scope.currentPage = 1;
+  $scope.pageSize = 10;
+  $scope.totalPages = 0;
+  $scope.pagedData = [];
+  $scope.pageButtonDisabled = function(dir) {
+    if (dir == -1) {
+      return $scope.currentPage == 1;
+    }
+    return $scope.currentPage == $scope.totalPages;
+  }
+
+
+  $scope.paginate = function(nextPrevMultiplier) {
+    $scope.currentPage += nextPrevMultiplier;
+    $scope.pagedData = $scope.jobs.slice(
+      (($scope.currentPage - 1) * $scope.pageSize), $scope.currentPage * $scope.pageSize);
+  }
+
+  $scope.first = function() {
+    $scope.currentPage = 1;
+    $scope.pagedData = $scope.jobs.slice((($scope.currentPage - 1) * $scope.pageSize), $scope.currentPage * $scope.pageSize);
+  };
+
+  $scope.last = function() {
+    $scope.currentPage = $scope.totalPages;
+    $scope.pagedData = $scope.jobs.slice((($scope.currentPage - 1) * $scope.pageSize), $scope.currentPage * $scope.pageSize);
+  };
+
+  function initPagination() {
+    $scope.totalPages = Math.ceil($scope.jobs.length / $scope.pageSize);
+    $scope.pagedData = $scope.jobs.slice(0, $scope.currentPage * $scope.pageSize);
   };
   $scope.getJobs();
-});
+  $scope.addFile = function() {
 
+      var file = this.myfile;
+      console.log(file);
+      var uploadUrl = '/upload';
+      JobFactory.upload(uploadUrl, file);
+      angular.element("input[type= 'file']").val(null);
+  };
+
+});
+  

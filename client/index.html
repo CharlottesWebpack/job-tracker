@@ -3,28 +3,44 @@
   <head>
     <meta charset="utf-8" />
     <title>Job-Tracker</title>
+    
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Armata|Comfortaa|Nixie+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+
+    <link href="lib/angular-xeditable/dist/css/xeditable.css" rel="stylesheet"/>
+    <script src="lib/angular-xeditable/dist/js/xeditable.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+    <script src="lib/angular-validation-match/dist/angular-validation-match.js"></script>
+
   </head>
   <body>
     <div ui-view></div>
 
-    <script src="lib/angular/angular.min.js"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-
-    <link href="lib/angular-xeditable/dist/css/xeditable.css" rel="stylesheet"/>
-    <script src="lib/angular-xeditable/dist/js/xeditable.js"></script>
-    <script src="lib/angular-validation-match/dist/angular-validation-match.js"></script>
+    <script src="app/config.js"></script>
 
     <script src="app/navbar/navbar.js"></script>
-    <script src="app/login/login.js"></script>
+    <script src="app/auth/login/login.js"></script>
     <script src="app/mainList/mainListDir.js"></script>
     <script src="app/mainList/mainList.js"></script>
-    <script src="app/signup/signup.js"></script>
+    <script src="app/auth/signup/signup.js"></script>
+    <script src="app/stats/stats.js"></script>
+    <script src="app/demo/demo.js"></script>
+    <script src="app/mainList/getNews.js"></script>
+    <script src="app/mainList/removeModal.js"></script>
 
-
+    <script src="app/services/externalApiFactory.js"></script>
     <script src="app/services/AuthFactory.js"></script>
     <script src="app/services/JobFactory.js"></script>
 

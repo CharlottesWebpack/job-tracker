@@ -13,9 +13,9 @@ module.exports = {
     });
   },
 
-  retrieveUser: function(username) {
+  retrieveUser: function(userId) {
     return new Promise(function(resolve, reject) {
-      User.findOne({'username': username}, function(err, user) {
+      User.findOne({'_id': userId}, function(err, user) {
         if(err) {
           reject(err);
         }else {

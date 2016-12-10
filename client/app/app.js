@@ -7,29 +7,55 @@ angular.module('jobTracker', [
   'jobTracker.authService',
   'jobTracker.jobService',
   'jobTracker.directives',
+  'validation.match',
+  'jobTracker.stats',
+  'jobTracker.externalApiService',
   'navDirective',
-  'validation.match'
+  'jobTracker.demo',
+  'jobTracker.getNews',
+  'ui.bootstrap',
+  'jobTracker.removeModal',
+  'jobTracker.config'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
+    .state('main', {
+      url: '/',
+      templateUrl: 'app/main/main.html'
+    })
     .state('login', {
       url: '/login',
-      templateUrl: 'app/login/login.html',
+      templateUrl: 'app/auth/login/login.html',
       controller: 'loginController'
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: 'app/signup/signup.html',
+      templateUrl: 'app/auth/signup/signup.html',
       controller: 'signupController'
+    })
+    .state('landing', {
+      url: '/landing',
+      templateUrl: 'app/demo/landing.html'
+    })
+    .state('demo', {
+      url: '/demo',
+      templateUrl: 'app/mainList/mainList.html',
+      controller: 'demoController'
     })
     .state('mainList', {
       url: '/mainList',
       templateUrl: 'app/mainList/mainList.html',
-      controller: 'mainListController',
-      authRequired : true
+      authRequired : true,
+      controller: 'mainListController'
+    })
+    .state('stats', {
+      url: '/stats',
+      templateUrl: 'app/stats/stats.html',
+      controller: 'statsController',
+      authRequired: true
     });
-  $urlRouterProvider.otherwise('/mainList');
+  $urlRouterProvider.otherwise('/landing');
   //this being set to /login is causing the auto redirect to login on a bad singup request - NWF
   //something weird happens when you try to login if this is
   //anything other than /login. It renders that page first for a second. - VE
@@ -38,12 +64,12 @@ angular.module('jobTracker', [
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 })
 .run(function($rootScope, $location, AuthFactory) {
-  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-    AuthFactory.isAuth()
-    .then(function(authenticated) {
-      if(toState.authRequired && !authenticated) {
-        $location.path('/login');
-      }
-    });
-  });
+ $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+   AuthFactory.isAuth()
+   .then(function(authenticated) {
+     if(toState.authRequired && !authenticated) {
+       $location.path('/login');
+     }
+   });
+ });
 });
