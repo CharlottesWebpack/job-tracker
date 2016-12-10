@@ -13,10 +13,3 @@ angular.module('jobTracker.directives', [])
     templateUrl: 'app/mainList/addJob.html'
   }
 })
-.directive('showNewsDir', function(){
-  return {
-      transclude: true,
-      restrict: 'E',
-      templateUrl: 'app/mainList/getNews.html'
-  }
-});

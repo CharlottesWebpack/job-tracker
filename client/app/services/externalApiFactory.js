@@ -2,7 +2,7 @@ angular.module('jobTracker.externalApiService', [])
 .factory('externalApiFactory', function($http) {
 
   var APIKEY = '';
-  var SEARCHENGINEID = ''
+  var SEARCHENGINEID = '';
   var googleUrl =  '';
 
 
