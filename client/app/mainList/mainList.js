@@ -1,28 +1,14 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location) {
+.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location, externalApiFactory, $uibModal) {
   $scope.navButton = "Sign out";
   $scope.new = {}
   $scope.jobs = [];
+  $scope.news = [];
 
-  $scope.interestLevels = [
-    {value: 1, text: "1"},
-    {value: 2},
-    {value: 3},
-    {value: 4},
-    {value: 5}
-  ];
-  $scope.statuses = [
-    {value: "Not applied"},
-    {value: "Applied"},
-    {value: "Responded"},
-    {value: "Phone screen"},
-    {value: "In-person interview"},
-    {value: "Offer"},
-    {value: "Application rejected"},
-    {value: "Not interested"}
-  ];
+  $scope.statuses = JobFactory.statuses;
+  $scope.interestLevels = JobFactory.interestLevels;
 
-  $scope.sortHeader = 'company';
+  $scope.sortHeader = 'interestLevel';
   $scope.sortReverse = false;
 
   $scope.logout = function() {
@@ -36,12 +22,14 @@ angular.module('jobTracker.mainList', [])
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
+      console.log(res)
       $scope.jobs = res;
       initPagination();
     })
   };
 
   $scope.addJob = function() {
+    $scope.new.createdAt = new Date();
     JobFactory.createJob($scope.new)
     .then((res) => {
       $scope.jobs = res;
@@ -51,21 +39,48 @@ angular.module('jobTracker.mainList', [])
   };
 
   $scope.removeJob = function(job) {
-    JobFactory.deleteJob(job)
-    .then((res) => {
-      $scope.jobs = res;
-      initPagination();
-    })
+    $scope.jobToRemove = job;
+    $uibModal.open({
+      templateUrl: 'app/mainList/removeModal.html',
+      controller: 'removeModalController',
+      controllerAs: '$remove',
+      resolve: {
+        job: function () {
+          return $scope.jobToRemove;
+        },
+        getJobs: function () {
+          return $scope.getJobs;
+        }
+      }
+    });
   };
-  $scope.editJob = function(job, data, field) {
-    if (arguments.length > 1) {
-      job[field] = data.value;
+  $scope.editJob = function(job, data) {
+    if (data) {
+      job.updatedAt = new Date();
     }
-    JobFactory.updateJob(job)
-    .then((res) => {
-      console.log(res);
-    })
+    JobFactory.updateJob(job);
   };
+
+  $scope.getNews = function(job) {
+    externalApiFactory.searchGoogle(job.company)
+    .then(function(data) {
+      //data.items is array of news story objects
+      console.log(data);
+      $scope.news.stories = data;
+    })
+    .then(function(){
+      $uibModal.open({
+        templateUrl: 'app/mainList/getNews.html',
+        controller: 'getNewsController',
+        controllerAs: '$ctrl',
+        resolve: {
+          news: function() {
+            return $scope.news;
+          }
+        }
+      })
+    })
+  }
 
   $scope.showDate = function(job) {
     JobFactory.formatDate(job);
@@ -78,7 +93,7 @@ angular.module('jobTracker.mainList', [])
     return JobFactory.formatStatus($scope, job);
   };
 
-  //Pagination 
+  //Pagination
   $scope.currentPage = 1;
   $scope.pageSize = 10;
   $scope.totalPages = 0;
@@ -111,7 +126,14 @@ angular.module('jobTracker.mainList', [])
     $scope.totalPages = Math.ceil($scope.jobs.length / $scope.pageSize);
     $scope.pagedData = $scope.jobs.slice(0, $scope.currentPage * $scope.pageSize);
   };
-
   $scope.getJobs();
+  $scope.addFile = function() {
+      
+      var file = this.myfile;
+      console.log(file);
+      var uploadUrl = '/upload';
+      JobFactory.upload(uploadUrl, file);
+      angular.element("input[type= 'file']").val(null);
+  };
 
-  });
+});

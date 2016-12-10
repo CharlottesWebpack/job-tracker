@@ -20,25 +20,14 @@
       </div>
       <div class="col-lg-2">
         <label for="interest-level">Interest level</label>
-        <select class="form-control" id="interest-level" ng-model="new.interestLevel">
-          <option ng-selected="true">1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <select class="form-control" id="interest-level" ng-init="new.interestLevel = new.interestLevel || interestLevels[0].value"
+          ng-model="new.interestLevel" ng-options="level.value as level.value for level in interestLevels">
         </select>
       </div>
       <div class="col-lg-2">
         <label for="status">Application status</label>
-        <select class="form-control" id="status" ng-model="new.status">
-          <option ng-selected="true">Not applied</option>
-          <option>Applied</option>
-          <option>Responded</option>
-          <option>Phone screen</option>
-          <option>In-person interview</option>
-          <option>Offer</option>
-          <option>Application rejected</option>
-          <option>Not interested</option>
+        <select class="form-control" id="status" ng-model="new.status" ng-init="new.status = new.status || statuses[0].value"
+        ng-options="status.value as status.text for status in statuses">
         </select>
       </div>
     </div> <!-- row --> <br>

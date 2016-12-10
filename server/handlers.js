@@ -93,7 +93,8 @@ getUser: function(req, res) {
     });
   },
 
-  getUserFB: function(req, res) {
-    res.status(200).json(req.user);
+  uploadFile: function(req, res) {
+    res.json({success : true});
   }
+
 };

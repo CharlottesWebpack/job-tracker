@@ -17,10 +17,8 @@ module.exports = {
     return new Promise(function(resolve, reject) {
       User.findOne({'_id': userId}, function(err, user) {
         if(err) {
-          console.log('err', err)
           reject(err);
         }else {
-          console.log('user',user)
           resolve(user);
         }
       });

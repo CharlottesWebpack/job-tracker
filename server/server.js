@@ -7,8 +7,8 @@ var session = require('express-session');
 var passport = require('./auth/passLocal.js');
 var User = require('./models/userModel.js');
 var cookieParser = require('cookie-parser');
-const passportFacebook = require('./auth/passFb.js');
-
+var multer = require('multer');
+var crypto = require('crypto');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -31,6 +31,22 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 
+var storage = multer.diskStorage({
+  destination: path.join(__dirname, './uploads'),
+  filename: function(req, file, cb) {
+    crypto.pseudoRandomBytes(16, function(err, raw) {
+      if (err) {
+        return cb(err)
+      } else {
+        cb(null, raw.toString('hex') + path.extname(file.originalname));
+      }
+    })
+  }
+});
+app.use(multer({
+  storage: storage
+}).any());
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
@@ -51,6 +67,8 @@ app.get('/auth', handlers.auth);
 app.get('/jobs', handlers.getJobs);
 
 app.post('/jobs', handlers.createJob);
+
+app.post('/upload', handlers.uploadFile);
 
 app.post('/jobs/delete', handlers.deleteJob);
 

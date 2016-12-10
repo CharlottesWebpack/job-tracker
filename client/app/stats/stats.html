@@ -1,16 +1,53 @@
-
 <nav-bar></nav-bar>
-
-<ul>
-  <li>{{jobs.total}}</li>
-  <li>{{jobs.active}}</li>
-  <li>{{jobs.interested}}</li>
-  <li>{{jobs.applied}}</li>
-  <li>{{jobs.responded}}</li>
-  <li>{{jobs.phone}}</li>
-  <li>{{jobs.interview}}</li>
-  <li>{{jobs.offer}}</li>
-  <li>{{jobs.rejected}}</li>
-  <li>{{jobs.ignored}}</li>
-</ul>
-
+<div class="container-fluid">
+  <div class="row col-sm-10 col-sm-offset-1">
+      <h4>Current state of your active applications</h4>
+      <uib-progress class="progress-striped active" max="stats.active">
+        <uib-bar  animate="true" ng-repeat="stat in currentStage" value="stat.value"  title="stat.text" type="{{stat.type}}">
+          <label>{{stat.text}}</label>
+          <span>: {{stat.value}}</span>
+        </uib-bar>
+      </uib-progress>
+  </div>
+  <div class="row col-sm-10 col-sm-offset-1 well">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h4>General performance</h4>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <label>Total saved jobs</label>
+      <uib-progressbar max="stats.total" value="stats.total" type="info">
+        <span>{{stats.total}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <label>Jobs applied to out of total saved jobs</label>
+      <uib-progressbar max="stats.total" value="stats.applied" type="warning">
+        <span>{{stats.applied}} / {{stats.total}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <label>Got a response</label>
+      <uib-progressbar max="stats.total" value="stats.responded" type="success">
+        <span>{{stats.responded}} / {{stats.total}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <label>Reached phone screen</label>
+      <uib-progressbar max="stats.total" value="stats.phone" type="info">
+        <span>{{stats.phone}} / {{stats.total}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <label>Reached interview stage</label>
+      <uib-progressbar max="stats.total" value="stats.interview" type="warning">
+        <span>{{stats.interview}} / {{stats.total}}</span>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <label>Offers received</label>
+      <uib-progressbar max="stats.total" value="stats.offer" type="success">
+        <span>{{stats.offer}} / {{stats.total}}</span>
+      </uib-progressbar>
+    </div>
+  </div>
+</div>
