@@ -7,7 +7,7 @@ angular.module('jobTracker.mainList', [])
   $scope.statuses = JobFactory.statuses;
   $scope.interestLevels = JobFactory.interestLevels;
 
-  $scope.sortHeader = 'company';
+  $scope.sortHeader = 'interestLevel';
   $scope.sortReverse = false;
 
   $scope.logout = function() {
