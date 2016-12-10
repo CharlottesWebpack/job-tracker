@@ -1,5 +1,5 @@
 angular.module('jobTracker.mainList', [])
-.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location, externalApiFactory) {
+.controller('mainListController', function($scope, JobFactory, $filter, AuthFactory, $location, externalApiFactory, $uibModal) {
   $scope.navButton = "Sign out";
   $scope.new = {}
   $scope.jobs = [];
@@ -53,7 +53,19 @@ angular.module('jobTracker.mainList', [])
       //data.items is array of news story objects
       console.log(data);
       $scope.news.stories = data;
-    }) 
+    })
+    .then(function(){
+      $uibModal.open({
+        templateUrl: 'app/mainList/getNews.html',
+        controller: 'getNewsController',
+        controllerAs: '$ctrl',
+        resolve: {
+          news: function() {
+            return $scope.news;
+          }
+        }
+      })
+    })
   }
 
   $scope.showDate = function(job) {

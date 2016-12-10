@@ -1,12 +1,21 @@
-<div class="media" ng-repeat='story in news.stories.items'>
-  <div class=" media-left media-middle">
-    <a href="#">
-      <img class="media-object" src="{{story.pagemap.cse_thumbnail[0].src}}">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">{{story.title}}</h4>
-    <a href="{{story.displayLink}}">{{story.displayLink}}</a>
-    <p>{{story.snippet}}</p>
-  </div>
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">News about {{$ctrl.news.stories.queries.request[0].searchTerms}}</h3>
 </div>
+<div class="modal-body" id="modal-body">
+
+  <ul ng-repeat='story in $ctrl.news.stories.items'>
+    <div class=" media-left media-middle">
+      <a href="{{story.formattedUrl}}">
+        <img class="media-object" ng-src="{{story.pagemap.cse_thumbnail[0].src}}"  src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
+      </a>
+    </div>
+    <div class="media-body">
+      <li>{{story.title}}</li>
+      <li>{{story.displayLink}}</li>
+      <li>{{story.snippet}}</li>
+    </div>
+  </ul>
+
+
+
+
