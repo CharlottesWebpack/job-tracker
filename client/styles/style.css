@@ -181,6 +181,8 @@ a.navbar-brand {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .demoP {
