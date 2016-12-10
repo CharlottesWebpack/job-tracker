@@ -117,7 +117,6 @@ angular.module('jobTracker.mainList', [])
     $scope.totalPages = Math.ceil($scope.jobs.length / $scope.pageSize);
     $scope.pagedData = $scope.jobs.slice(0, $scope.currentPage * $scope.pageSize);
   };
-
   $scope.getJobs();
   $scope.addFile = function() {
       
@@ -128,4 +127,4 @@ angular.module('jobTracker.mainList', [])
       angular.element("input[type= 'file']").val(null);
   };
 
-  });
+});

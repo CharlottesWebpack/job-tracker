@@ -12,8 +12,8 @@ angular.module('jobTracker.directives', [])
     restrict: 'E',
     templateUrl: 'app/mainList/addJob.html'
   }
-
 })
+
 .directive('fileModel', function($parse) {
   return {
     restrict: 'A',
@@ -29,7 +29,5 @@ angular.module('jobTracker.directives', [])
     }
   }
 });
-
-
 
 
