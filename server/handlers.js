@@ -91,7 +91,6 @@ getUser: function(req, res) {
       console.error(err);
       res.sendStatus(204);
     });
-
   },
 
   uploadFile: function(req, res) {
@@ -112,7 +111,6 @@ getUser: function(req, res) {
       console.error(err);
       res.sendStatus(204);
     });
-
   },
   updatePassword : function(req,res){
     var username = req.user.username;
@@ -141,5 +139,4 @@ getUser: function(req, res) {
       console.error(err);
       res.sendStatus(204);
     });
-  }
 };
