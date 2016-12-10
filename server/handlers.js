@@ -91,5 +91,10 @@ getUser: function(req, res) {
       console.error(err);
       res.sendStatus(204);
     });
+  },
+
+  uploadFile: function(req, res) {
+    res.json({success : true});
   }
+
 };
