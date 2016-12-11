@@ -2,6 +2,7 @@ angular.module('jobTracker.stats', [])
 .controller('statsController', function($scope, JobFactory, $filter, AuthFactory, $location) {
   $scope.navButton = "Sign out";
   $scope.jobs = [];
+  
   $scope.isActive = function(viewLocation) {
     return viewLocation === $location.path();
   };
