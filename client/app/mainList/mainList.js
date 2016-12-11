@@ -64,8 +64,10 @@ angular.module('jobTracker.mainList', [])
   $scope.getNews = function(job) {
     externalApiFactory.searchGoogle(job.company)
     .then(function(data) {
+      console.log(data);
+      //this is where yu need to start with valerie
       //data.items is array of news story objects
-      $scope.news.stories = data;
+      $scope.news.stories = data.data;
     })
     .then(function(){
       $uibModal.open({
@@ -77,9 +79,9 @@ angular.module('jobTracker.mainList', [])
             return $scope.news;
           }
         }
-      })
-    })
-  }
+      });
+    });
+  };
 
   $scope.showDate = function(job) {
     JobFactory.formatDate(job);
@@ -136,4 +138,3 @@ angular.module('jobTracker.mainList', [])
   };
 
 });
-  

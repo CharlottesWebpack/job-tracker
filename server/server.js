@@ -78,6 +78,8 @@ app.put('/users/password', handlers.updatePassword);
 
 app.post('/users/delete', handlers.deleteAccount);
 
+app.get('/getNews', handlers.searchGoogle);
+
 
 db.on('error', (err) => {
   console.error("DB CONNECTION ERROR", err);
