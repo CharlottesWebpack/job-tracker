@@ -41,7 +41,7 @@ angular.module('jobTracker.mainList', [])
   $scope.removeJob = function(job) {
     $scope.jobToRemove = job;
     $uibModal.open({
-      templateUrl: 'app/mainList/removeModal.html',
+      templateUrl: 'app/mainList/removeModal/removeModal.html',
       controller: 'removeModalController',
       controllerAs: '$remove',
       resolve: {
@@ -69,7 +69,7 @@ angular.module('jobTracker.mainList', [])
     })
     .then(function(){
       $uibModal.open({
-        templateUrl: 'app/mainList/getNews.html',
+        templateUrl: 'app/mainList/getNews/getNews.html',
         controller: 'getNewsController',
         controllerAs: '$ctrl',
         resolve: {
