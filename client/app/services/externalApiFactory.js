@@ -1,9 +1,9 @@
 angular.module('jobTracker.externalApiService', [])
 .factory('externalApiFactory', function($http, GOOGLE_API_URL, SEARCH_ENGINE_ID, API_KEY) {
 
-  var APIKEY = process.env.API_KEY;
-  var SEARCHENGINEID = process.env.SEARCH_ENGINE_ID;
-  var googleUrl =  process.env.GOOGLE_API_URL;
+  var APIKEY = process.env.API_KEY || API_KEY;
+  var SEARCHENGINEID = process.env.SEARCH_ENGINE_ID || SEARCH_ENGINE_ID;
+  var googleUrl =  process.env.GOOGLE_API_URL || GOOGLE_API_URL;
 
 
   var searchGoogle = function(company) {
