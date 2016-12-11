@@ -3,14 +3,14 @@ angular.module('jobTracker.directives', [])
   return {
     transclude: true,
     restrict: 'E',
-    templateUrl: 'app/mainList/singleJob/singleJob.html'
+    templateUrl: 'app/mainList/singleJob.html'
   }
 })
 .directive('addJobDir', function(){
   return {
     transclude: true,
     restrict: 'E',
-    templateUrl: 'app/mainList/addJob/addJob.html'
+    templateUrl: 'app/mainList/addJob.html'
   }
 })
 
