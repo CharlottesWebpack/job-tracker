@@ -23,5 +23,37 @@ module.exports = {
         }
       });
     });
+  },
+
+  updateUserInDb: function(user, userId) {
+    return User.update({"_id": userId}, user)
+    .exec()
+    .then(function(resp) {
+      return resp;
+    });
+  },
+
+  changePassword: function(user, userId) {
+    return User.update(
+    //TO BE REDONE
+    //   {"username": username},
+    //   {"$set":
+    //     {"password": user.password}
+    // })
+    // .exec()
+    // .then(function(resp) {
+    //   return resp;
+    );
+  },
+
+  deleteUser: function(userId) {
+    return User.remove(
+      {"_id": userId}
+      )
+    .exec()
+    .then(function(resp) {
+      return resp;
+    });
   }
+
 };

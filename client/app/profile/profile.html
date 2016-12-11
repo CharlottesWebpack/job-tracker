@@ -1,0 +1,68 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+  <div class="row col-sm-10  col-sm-offset-1 well">
+            <!--  -->
+            <!-- Change Password -->
+            <!--  -->
+          <!-- <div class="col-sm-5 col-sm-offset-2"> -->
+            <!-- <change-password ng-show="showChangePassword"></change-password> -->
+          <!-- </div> -->
+      <!-- Show/Edit Profile -->
+    <form editable-form name="editProfileForm" type="form" onaftersave="updateProfile()">
+      <div class="col-sm-5 col-sm-offset-1">
+        <h3>Account Settings</h3>
+        <br/>
+        <div ng-hide="showChangePassword">
+          <div class="form-group col-lg-10">
+            <label class="control-label">Username:</label>
+            <span editable-text="user.username">{{ user.username || "--" }}</span>
+          </div>
+          <div class="form-group col-lg-10">
+            <label class="control-label">First name</label>
+            <span editable-text="user.firstname">{{ user.firstname || '--' }}</span>
+          </div>
+          <div class="form-group col-lg-10">
+            <label class="control-label">Username:</label>
+            <span editable-text="user.lastname">{{ user.lastname || '--' }}</span>
+          </div>
+          <div class="form-group col-lg-10">
+            <label class="control-label">Email:</label>
+            <span editable-text="user.email">{{ user.email || '--' }}</span>
+          </div>
+          <div class="form-group col-lg-10">
+            <label class="control-label">Phone number:</label>
+            <span editable-text="user.phone">{{ user.phone || '--' }}</span>
+          </div>
+          <div class="form-group col-lg-10">
+            <label class="control-label">Job Status:</label>
+            <span editable-select="user.jobStatus" e-ng-options="s.value as s.text for s in jobStatuses">{{ showJobStatus() || "--" }}</span>
+          </div>
+          <br/>
+        </div> <!-- col-sm-5 col-sm-offset-2"-->
+      </div>
+      <div class="col-sm-5 col-sm-offset-1">
+        <br/>
+        <br/>
+        <button type="button" class="btn btn-default col-md-8" ng-click="editProfileForm.$show()" ng-show="!editProfileForm.$visible">
+          Edit Profile
+        </button>
+        <span ng-show="editProfileForm.$visible">
+          <button type="submit" class="btn btn-primary" ng-disabled="editProfileForm.$waiting">
+            Save
+          </button>
+          <button type="button" class="btn btn-default" ng-disabled="editProfileForm.$waiting" ng-click="editProfileForm.$cancel()">
+            Cancel
+          </button>
+        </span>
+        <br/>
+        <br/>
+          <button class="btn btn-default col-md-8" ng-click="showChangePassword = !showChangePassword">Change Password</button>
+        <br/>
+        <br/>
+          <button class="btn btn-default col-md-8" ng-click="deleteProfile()">Delete Account</button>
+        <br/>
+        <br/>
+      </div> <!-- col-sm-3 col-sm-offset-1 -->
+    </form>
+  </div>
+</div>

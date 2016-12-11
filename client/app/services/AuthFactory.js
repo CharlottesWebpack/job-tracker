@@ -40,12 +40,61 @@ angular.module('jobTracker.authService', [])
       console.error("ERROR:", err);
     });
   };
+  var getProfile = function() {
+    return $http({
+      method: 'GET',
+      url: '/users',
+    }).then((res) => {
+      console.log("GOT USER", res.data)
+      return res.data;
+      }, (err) => {
+      console.error("ERROR:", err);
+    });
+  }
+
+  var updateAccount = function(user) {
+    return $http({
+      method: 'PUT',
+      url: '/users',
+      data: user,
+    }).then((res) => {
+      console.log(res);
+      return res.data;
+    },(err) => {
+      console.error("ERROR:", err);
+    });
+  };
+
+  var updatePassword = function(user) {
+    return $http({
+      method: 'PUT',
+      url: '/users/password',
+      data: user
+      }).then((res) => {
+      console.log(res);
+      $location.path('/profile');
+
+    });
+  };
+  var deleteAccount = function() {
+    return $http({
+      method: 'POST',
+      url: '/users/delete',
+    }).then((res) => {
+      console.log(res);
+      $location.path('/');
+    });
+  };
 
   return {
     login: login,
     logout: logout,
     signup: signup,
-    isAuth: isAuth
+    isAuth: isAuth,
+    updateAccount: updateAccount,
+    updatePassword: updatePassword,
+    deleteAccount: deleteAccount,
+    getProfile: getProfile
   };
 
 });

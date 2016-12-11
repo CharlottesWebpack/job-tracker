@@ -58,8 +58,8 @@ getUser: function(req, res) {
     var userId = req.user._id;
     var job = req.body;
     jobsController.addJobToDb(job, userId)
-    .then(function(resp) {
-      res.send(resp);
+    .then(function(data) {
+      res.send(data);
     })
     .catch(function(err) {
       console.error(err);
@@ -71,8 +71,8 @@ getUser: function(req, res) {
     var userId = req.user._id;
     var job = req.body;
     jobsController.removeJobFromDb(job, userId)
-    .then(function(resp) {
-      res.send(resp);
+    .then(function(data) {
+      res.send(data);
     })
     .catch(function(err) {
       console.error(err);
@@ -84,17 +84,53 @@ getUser: function(req, res) {
     var userId = req.user._id;
     var job = req.body;
     jobsController.updateJobInDb(job, userId)
-    .then(function(resp) {
-      res.send(resp);
+    .then(function(data) {
+      res.send(data);
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(204);
+    });
+
+  },
+
+  uploadFile: function(req, res) {
+    res.json({success : true});
+  },
+
+  updateUser: function(req, res){
+    var userId = req.user._id;
+    var user = req.body;
+    userController.updateUserInDb(user, userId)
+    .then(function(data) {
+      res.send(data)
     })
     .catch(function(err) {
       console.error(err);
       res.sendStatus(204);
     });
   },
-
-  uploadFile: function(req, res) {
-    res.json({success : true});
+  updatePassword: function(req,res){
+    var userId = req.user._id;
+    var user = req.body;
+    userController.changePassword(user, userId)
+    .then(function(data) {
+      res.send(resp)
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(204);
+    });
+  },
+  deleteAccount: function(req, res){
+    var userId = req.user._id;
+    userController.deleteUser(userId)
+    .then(function(data) {
+      res.send(data)
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(204);
+    });
   }
-
 };
