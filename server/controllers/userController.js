@@ -24,40 +24,31 @@ module.exports = {
       });
     });
   },
-  updateUserInDb: function(user, username) {
-    
-    return User.update(
-      {"username": username}, 
-      {"$set": 
-        {"firstname": user.firstname , 
-        "lastname" : user.lastname,
-        "emailid":user.emailid,
-        "dob":user.dob,
-        "jobstatus":user.jobstatus
-      }
 
-    })
+  updateUserInDb: function(user, userId) {
+    return User.update({"_id": userId}, user)
     .exec()
     .then(function(resp) {
       return resp;
     });
   },
-  updateUserPasswordInDb: function(user, username) {
-    
+
+  changePassword: function(user, userId) {
     return User.update(
-      {"username": username}, 
-      {"$set": 
-        {"password": user.password}
-    })
-    .exec()
-    .then(function(resp) {
-      return resp;
-    });
+    //TO BE REDONE
+    //   {"username": username},
+    //   {"$set":
+    //     {"password": user.password}
+    // })
+    // .exec()
+    // .then(function(resp) {
+    //   return resp;
+    );
   },
-  deleteProfile: function(username) {
-    
+
+  deleteUser: function(userId) {
     return User.remove(
-      {"username": username} 
+      {"_id": userId}
       )
     .exec()
     .then(function(resp) {

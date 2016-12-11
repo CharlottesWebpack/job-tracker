@@ -3,17 +3,16 @@ var jobSchema = require('./jobSchema.js');
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var userSchema = mongoose.Schema({
-  firstname:{type: String, default:''},
-  lastname:{type: String, default:''},
-  emailid:{type: String, default:''},
-  dob:{type: Date, default:''},
-  jobstatus:{type: String, default:''},
-  
   username: {type: String, unique: true},
   facebookId: String,
   password: String,
+  jobList: [jobSchema],
+
+  firstname: String,
+  lastname: String,
   email: String,
-  jobList: [jobSchema]
+  phone: Number,
+  jobstatus: {type: Number, default: 1}
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -23,3 +22,12 @@ var User = mongoose.model('User', userSchema);
 
 
 module.exports = User;
+
+
+///////////////////////////
+////Job status explained///
+///////////////////////////
+
+//1 - actively looking for a job
+//2 - found a job
+//3 - not actively looking for a job

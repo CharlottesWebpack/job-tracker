@@ -58,8 +58,8 @@ getUser: function(req, res) {
     var userId = req.user._id;
     var job = req.body;
     jobsController.addJobToDb(job, userId)
-    .then(function(resp) {
-      res.send(resp);
+    .then(function(data) {
+      res.send(data);
     })
     .catch(function(err) {
       console.error(err);
@@ -71,8 +71,8 @@ getUser: function(req, res) {
     var userId = req.user._id;
     var job = req.body;
     jobsController.removeJobFromDb(job, userId)
-    .then(function(resp) {
-      res.send(resp);
+    .then(function(data) {
+      res.send(data);
     })
     .catch(function(err) {
       console.error(err);
@@ -84,8 +84,8 @@ getUser: function(req, res) {
     var userId = req.user._id;
     var job = req.body;
     jobsController.updateJobInDb(job, userId)
-    .then(function(resp) {
-      res.send(resp);
+    .then(function(data) {
+      res.send(data);
     })
     .catch(function(err) {
       console.error(err);
@@ -95,17 +95,26 @@ getUser: function(req, res) {
   },
 
   uploadFile: function(req, res) {
-    console.log(req);
     res.json({success : true});
   },
 
-  updateUser : function(req,res){
-    var username = req.user.username;
-
+  updateUser: function(req, res){
+    var userId = req.user._id;
     var user = req.body;
-    userController.updateUserInDb(user, username)
-    .then(function(resp) {
-      //getUser(req,res)
+    userController.updateUserInDb(user, userId)
+    .then(function(data) {
+      res.send(data)
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.sendStatus(204);
+    });
+  },
+  updatePassword: function(req,res){
+    var userId = req.user._id;
+    var user = req.body;
+    userController.changePassword(user, userId)
+    .then(function(data) {
       res.send(resp)
     })
     .catch(function(err) {
@@ -113,34 +122,15 @@ getUser: function(req, res) {
       res.sendStatus(204);
     });
   },
-  updatePassword : function(req,res){
-    var username = req.user.username;
-    console.log(username)
-    var user = req.body;
-    userController.updateUserPasswordInDb(user, username)
-    .then(function(resp) {
-      //getUser(req,res)
-      res.send(resp)
+  deleteAccount: function(req, res){
+    var userId = req.user._id;
+    userController.deleteUser(userId)
+    .then(function(data) {
+      res.send(data)
     })
     .catch(function(err) {
       console.error(err);
       res.sendStatus(204);
     });
-  },
-  deleteProfile : function(req,res){
-    var username = req.user.username;
-    console.log(username)
-    // var user = req.body;
-    userController.deleteProfile(username)
-    .then(function(resp) {
-      //getUser(req,res)
-      res.send(resp)
-    })
-    .catch(function(err) {
-      console.error(err);
-      res.sendStatus(204);
-    });
-
   }
-
 };

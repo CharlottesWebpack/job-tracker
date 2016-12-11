@@ -70,11 +70,13 @@ app.post('/jobs/delete', handlers.deleteJob);
 
 app.put('/jobs', handlers.updateJob);
 
-app.put('/user', handlers.updateUser);
+app.get('/users', handlers.getUser);
 
-app.put('/changepassword', handlers.updatePassword);
-app.delete('/user', handlers.deleteProfile);
+app.put('/users', handlers.updateUser);
 
+app.put('/users/password', handlers.updatePassword);
+
+app.post('/users/delete', handlers.deleteAccount);
 
 
 db.on('error', (err) => {

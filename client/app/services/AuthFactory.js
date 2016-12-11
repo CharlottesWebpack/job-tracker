@@ -40,42 +40,49 @@ angular.module('jobTracker.authService', [])
       console.error("ERROR:", err);
     });
   };
+  var getProfile = function() {
+    return $http({
+      method: 'GET',
+      url: '/users',
+    }).then((res) => {
+      console.log("GOT USER", res.data)
+      return res.data;
+      }, (err) => {
+      console.error("ERROR:", err);
+    });
+  }
 
-  var updateAccount = function(infoPeople) {
-    
+  var updateAccount = function(user) {
     return $http({
       method: 'PUT',
-      url: '/user',
-      data: infoPeople
+      url: '/users',
+      data: user,
     }).then((res) => {
       console.log(res);
-      $location.path('/profile');
-      
+      return res.data;
+    },(err) => {
+      console.error("ERROR:", err);
     });
   };
 
-  var updatePassword = function(infoPeople) {
-    
+  var updatePassword = function(user) {
     return $http({
       method: 'PUT',
-      url: '/changepassword',
-      data: infoPeople
-    }).then((res) => {
+      url: '/users/password',
+      data: user
+      }).then((res) => {
       console.log(res);
       $location.path('/profile');
-      
+
     });
   };
-  var deleteProfile = function(infoPeople) {
-    
+  var deleteAccount = function() {
     return $http({
-      method: 'DELETE',
-      url: '/user',
-      data: infoPeople
+      method: 'POST',
+      url: '/users/delete',
     }).then((res) => {
       console.log(res);
-      $location.path('/login');
-      
+      $location.path('/');
     });
   };
 
@@ -86,7 +93,8 @@ angular.module('jobTracker.authService', [])
     isAuth: isAuth,
     updateAccount: updateAccount,
     updatePassword: updatePassword,
-    deleteProfile:deleteProfile
+    deleteAccount: deleteAccount,
+    getProfile: getProfile
   };
 
 });
