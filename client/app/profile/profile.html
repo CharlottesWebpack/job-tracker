@@ -1,75 +1,70 @@
-<div class="container">
-    <h1>Profile</h1>
-    <hr>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="text-center">
-                <br>
-                <br>
-                <br>
-                <br>
-                <button type="button" class="btn btn-default" ng-click="editProfile()">Edit Profile</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-default" ng-click="changePassword()">Change Password</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-default" ng-click="deleteProfile()">Delete Account</button>
-                <br>
-                <br>
+<nav-bar></nav-bar>
+<div class="container-fluid">
+  <div class="row col-sm-12">
+            <!--  -->
+            <!-- Change Password -->
+            <!--  -->
+          <!-- <div class="col-sm-5 col-sm-offset-2"> -->
+            <!-- <change-password ng-show="showChangePassword"></change-password> -->
+          <!-- </div> -->
+      <!-- Show/Edit Profile -->
+      <div >
+        <br/>
+        <br/>
+        <form editable-form name="editProfileForm" type="form" onaftersave="updateProfile()">
+          <div class="col-sm-5 col-sm-offset-2" ng-hide="showChangePassword">
+            <div class="form-group col-lg-10">
+              <label class="control-label">Username:</label>
+              <span editable-text="user.username">{{ user.username || "--" }}</span>
             </div>
-        </div>
-        <div class="col-md-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-coffee"></i>
+            <div class="form-group col-lg-10">
+              <label class="control-label">First name</label>
+              <span editable-text="user.firstname">{{ user.firstname || '--' }}</span>
             </div>
-            <h3>Personal info</h3>
-            <table class='table'>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div>First Name</din>
-                        </td>
-                        <td>
-                            <div>{{userDetails.firstname}}</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>Last Name</din>
-                        </td>
-                        <td>
-                            <div>{{userDetails.lastname}}</din>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>Email_Id</din>
-                        </td>
-                        <td>
-                            <div>{{userDetails.emailid}}</din>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>Date Of Birth</din>
-                        </td>
-                        <td>
-                            <div>{{userDetails.dob}}</din>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>Job Status</din>
-                        </td>
-                        <td>
-                            <div>{{userDetails.jobstatus}}</din>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <hr>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Username:</label>
+              <span editable-text="user.lastname">{{ user.lastname || '--' }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Email:</label>
+              <span editable-text="user.email">{{ user.email || '--' }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Phone number:</label>
+              <span editable-text="user.phone">{{ user.phone || '--' }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Job Status:</label>
+              <span editable-select="user.jobStatus" e-ng-options="s.value as s.text for s in jobStatuses">{{ showJobStatus() || "--" }}</span>
+            </div>
+            <br/>
+          </div> <!-- col-sm-5 col-sm-offset-2"-->
+
+          <div class="col-sm-3 col-sm-offset-1">
+            <br/>
+            <br/>
+              <button type="button" class="btn btn-default col-md-8" ng-click="editProfileForm.$show()" ng-show="!editProfileForm.$visible">
+                Edit Profile
+              </button>
+              <span ng-show="editProfileForm.$visible">
+                <button type="submit" class="btn btn-primary" ng-disabled="editProfileForm.$waiting">
+                  Save
+                </button>
+                <button type="button" class="btn btn-default" ng-disabled="editProfileForm.$waiting" ng-click="editProfileForm.$cancel()">
+                  Cancel
+                </button>
+              </span>
+            <br/>
+            <br/>
+              <button class="btn btn-default col-md-8" ng-click="showChangePassword = !showChangePassword">Change Password</button>
+            <br/>
+            <br/>
+              <button class="btn btn-default col-md-8" ng-click="deleteProfile()">Delete Account</button>
+            <br/>
+            <br/>
+          </div> <!-- col-sm-3 col-sm-offset-1 -->
+        </form>
+      </div>
+
+  </div>
 </div>
