@@ -16,7 +16,6 @@ angular.module('jobTracker', [
   'jobTracker.externalApiService',
   'jobTracker.demo',
   'jobTracker.getNews',
-  'jobTracker.config',
   'jobTracker.landing',
   'jobTracker.demoFactory',
   'ui.bootstrap',
