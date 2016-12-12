@@ -2,7 +2,7 @@ angular.module('jobTracker.stats', [])
 .controller('statsController', function($scope, JobFactory, $filter, AuthFactory, $location) {
   $scope.navButton = "Sign out";
   $scope.jobs = [];
-  
+
   $scope.isActive = function(viewLocation) {
     return viewLocation === $location.path();
   };
@@ -81,11 +81,11 @@ angular.module('jobTracker.stats', [])
 
 
       $scope.currentStage = [
-        {value: $scope.stateNow.applied, text: "Awaiting response", type: 'danger'},
-        {value: $scope.stateNow.responded, text: "Got a response", type: 'info'},
-        {value: $scope.stateNow.phone, text: "Phone screen stage", type: 'warning'},
-        {value: $scope.stateNow.interview, text: "Interviewing", type: 'info'},
-        {value: $scope.stateNow.offer, text: "Offer", type: "success"}
+        {value: $scope.stateNow.applied, text: "Awaiting Response", type: 'danger'},
+        {value: $scope.stateNow.responded, text: "Received Response", type: 'info'},
+        {value: $scope.stateNow.phone, text: "Phone Screen Scheduled", type: 'warning'},
+        {value: $scope.stateNow.interview, text: "Interview Scheduled", type: 'info'},
+        {value: $scope.stateNow.offer, text: "Offers Received", type: "success"}
       ];
     });
   }
