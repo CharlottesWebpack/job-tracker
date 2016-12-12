@@ -1,5 +1,6 @@
 angular.module('jobTracker.demo', [])
 .controller('demoController', function($scope, $filter, JobFactory, DemoFactory, externalApiFactory, $location) {
+  $scope.demo = true;
   $scope.navButton = "Sign Up!";
   $scope.new = {};
   $scope.news = {};
@@ -20,10 +21,12 @@ angular.module('jobTracker.demo', [])
     $scope.pagedData.push(newJob);
     $scope.new = '';
   };
+  $scope.getJobs = function(jobs) {
+    $scope.pagedData = jobs;
+  };
 
   $scope.removeJob = function(job) {
-    $scope.pagedData = DemoFactory.jane.jobList
-      .filter((item) => {return item.id !== job.id;})
+    JobFactory.openRemove(job, $scope);
   };
 
   $scope.editJob = function(job, data, field) {

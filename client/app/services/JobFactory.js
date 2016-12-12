@@ -20,7 +20,25 @@ angular.module('jobTracker.jobService', [])
       return res.data.jobList;
     })
   };
-
+  var openRemove = function(job, scope){
+    scope.jobToRemove = job;
+    $uibModal.open({
+      templateUrl: 'app/mainList/removeModal/removeModal.html',
+      controller: 'removeModalController',
+      controllerAs: '$remove',
+      resolve: {
+        job: function () {
+          return scope.jobToRemove;
+        },
+        getJobs: function () {
+          return scope.getJobs;
+        },
+        demo: function() {
+          return scope.demo;
+        }
+      }
+    });
+  }
   var deleteJob = function(job) {
     return $http({
       method: 'POST',
@@ -135,7 +153,8 @@ angular.module('jobTracker.jobService', [])
     formatStatus: formatStatus,
     statuses: statuses,
     interestLevels: interestLevels,
-    getNews: getNews
+    getNews: getNews,
+    openRemove: openRemove
   };
 });
 

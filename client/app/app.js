@@ -44,6 +44,16 @@ angular.module('jobTracker', [
       templateUrl: 'app/mainList/mainList.html',
       controller: 'demoController'
     })
+    .state('demo/profile', {
+      url: '/demo/profile',
+      templateUrl: 'app/profile/profile.html',
+      controller: 'demoController'
+    })
+    .state('demo/stats', {
+      url: '/demo/stats',
+      templateUrl: 'app/stats/stats.html',
+      controller: 'demoController'
+    })
     .state('mainList', {
       url: '/mainList',
       templateUrl: 'app/mainList/mainList.html',
