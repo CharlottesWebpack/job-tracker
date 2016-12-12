@@ -22,7 +22,6 @@ angular.module('jobTracker.mainList', [])
   $scope.getJobs = function() {
     JobFactory.getAllJobs()
     .then((res) => {
-      console.log(res)
       $scope.jobs = res;
       initPagination();
     })
@@ -39,20 +38,7 @@ angular.module('jobTracker.mainList', [])
   };
 
   $scope.removeJob = function(job) {
-    $scope.jobToRemove = job;
-    $uibModal.open({
-      templateUrl: 'app/mainList/removeModal/removeModal.html',
-      controller: 'removeModalController',
-      controllerAs: '$remove',
-      resolve: {
-        job: function () {
-          return $scope.jobToRemove;
-        },
-        getJobs: function () {
-          return $scope.getJobs;
-        }
-      }
-    });
+    JobFactory.openRemove(job, $scope);
   };
   $scope.editJob = function(job, data) {
     if (data) {
