@@ -16,10 +16,11 @@ angular.module('jobTracker', [
   'jobTracker.externalApiService',
   'jobTracker.demo',
   'jobTracker.getNews',
-  'jobTracker.removeModal',
   'jobTracker.config',
   'jobTracker.landing',
-  'jobTracker.demoFactory'
+  'jobTracker.demoFactory',
+  'ui.bootstrap',
+  'jobTracker.removeModal'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
