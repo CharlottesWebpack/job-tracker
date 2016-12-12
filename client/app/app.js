@@ -16,8 +16,7 @@ angular.module('jobTracker', [
   'jobTracker.demo',
   'jobTracker.getNews',
   'ui.bootstrap',
-  'jobTracker.removeModal',
-  'jobTracker.config'
+  'jobTracker.removeModal'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
