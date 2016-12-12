@@ -1,13 +1,12 @@
 var request = require('request');
-var googleConfig = require('../../configGoogle.js');
 
 var googleSearch = function(company) {
   return new Promise(function(resolve, reject) {
     request({
-      'url': googleConfig.GOOGLE_API_URL,
+      'url': process.env.GOOGLE_API_URL,
       'qs': {
-        'key': googleConfig.API_KEY,
-        'cx': googleConfig.SEARCH_ENGINE_ID,
+        'key': process.env.API_KEY,
+        'cx': process.env.SEARCH_ENGINE_ID,
         'q': company,
         'type': 'application/json'
       }
