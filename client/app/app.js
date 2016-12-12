@@ -22,10 +22,6 @@ angular.module('jobTracker', [
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('main', {
-      url: '/',
-      templateUrl: 'app/main/main.html'
-    })
     .state('login', {
       url: '/login',
       templateUrl: 'app/auth/login/login.html',
@@ -37,7 +33,7 @@ angular.module('jobTracker', [
       controller: 'signupController'
     })
     .state('landing', {
-      url: '/landing',
+      url: '/',
       templateUrl: 'app/demo/landing.html'
     })
     .state('demo', {
@@ -63,7 +59,7 @@ angular.module('jobTracker', [
       controller: 'profileController',
       authRequired : true
     });
-  $urlRouterProvider.otherwise('/landing');
+  $urlRouterProvider.otherwise('/');
   //this being set to /login is causing the auto redirect to login on a bad singup request - NWF
   //something weird happens when you try to login if this is
   //anything other than /login. It renders that page first for a second. - VE
