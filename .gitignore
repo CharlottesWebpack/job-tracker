@@ -3,3 +3,4 @@ client/lib/
 config.js
 config.json
 client/app/config.js
+configGoogle.js
