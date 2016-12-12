@@ -51,7 +51,7 @@ app.use(multer({
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname,'/client')));
+app.use(express.static(path.join(__dirname,'./client')));
 
 app.post('/login', passport.authenticate('local'), handlers.getUser);
 
