@@ -36,5 +36,13 @@ angular.module('jobTracker.profile', [])
   $scope.logout = function() {
     AuthFactory.logout();
   };
+
+  $scope.cancelPasswordChange = function() {
+    $scope.changePass = '';
+    $scope.showChangePassword = false;
+  };
+  $scope.changePassword = function() {
+
+  };
   $scope.getUser();
 });

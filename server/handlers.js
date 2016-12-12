@@ -12,6 +12,7 @@ getUser: function(req, res) {
     if(user === null) {
       res.sendStatus(204);
     } else {
+      console.log(user);
       res.status(200).json(user);
     }
   }).catch(function(err) {

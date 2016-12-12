@@ -80,7 +80,7 @@ app.get('/users', handlers.getUser);
 
 app.put('/users', handlers.updateUser);
 
-app.put('/users/password', handlers.updatePassword);
+app.put('/users/password', passport.authenticate('local'), handlers.updatePassword);
 
 app.post('/users/delete', handlers.deleteAccount);
 

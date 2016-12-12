@@ -62,23 +62,7 @@ angular.module('jobTracker.mainList', [])
   };
 
   $scope.getNews = function(job) {
-    externalApiFactory.searchGoogle(job.company)
-    .then(function(data) {
-      //data.items is array of news story objects
-      $scope.news.stories = data.data;
-    })
-    .then(function(){
-      $uibModal.open({
-        templateUrl: 'app/mainList/getNews/getNews.html',
-        controller: 'getNewsController',
-        controllerAs: '$ctrl',
-        resolve: {
-          news: function() {
-            return $scope.news;
-          }
-        }
-      });
-    });
+    JobFactory.getNews(job, $scope);
   };
 
   $scope.showDate = function(job) {
@@ -125,14 +109,11 @@ angular.module('jobTracker.mainList', [])
     $scope.totalPages = Math.ceil($scope.jobs.length / $scope.pageSize);
     $scope.pagedData = $scope.jobs.slice(0, $scope.currentPage * $scope.pageSize);
   };
-  $scope.getJobs();
   $scope.addFile = function() {
-
-      var file = this.myfile;
-      console.log(file);
-      var uploadUrl = '/upload';
-      JobFactory.upload(uploadUrl, file);
-      angular.element("input[type= 'file']").val(null);
+    var file = this.myfile;
+    JobFactory.upload('/upload', file);
+    angular.element("input[type='file']").val(null);
   };
+  $scope.getJobs();
 
 });

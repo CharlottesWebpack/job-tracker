@@ -1,6 +1,9 @@
 angular.module('jobTracker', [
   'xeditable',
   'ui.router',
+  'ui.bootstrap',
+  'validation.match',
+  'navDirective',
   'jobTracker.login',
   'jobTracker.signup',
   'jobTracker.mainList',
@@ -9,16 +12,14 @@ angular.module('jobTracker', [
   'jobTracker.authService',
   'jobTracker.jobService',
   'jobTracker.directives',
-  'validation.match',
   'jobTracker.stats',
   'jobTracker.externalApiService',
-  'navDirective',
   'jobTracker.demo',
   'jobTracker.getNews',
-  'ui.bootstrap',
   'jobTracker.removeModal',
   'jobTracker.config',
   'jobTracker.landing',
+  'jobTracker.demoFactory'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
