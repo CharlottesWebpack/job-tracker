@@ -44,7 +44,7 @@ angular.module('jobTracker.demo', [])
   $scope.statuses = JobFactory.statuses;
   $scope.interestLevels = JobFactory.interestLevels;
 
-  $scope.logout = function() {
+  $scope.buttonFunc = function() {
     $location.path("/signup");
   }
 

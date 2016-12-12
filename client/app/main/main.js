@@ -1,6 +1,11 @@
 angular.module('jobTracker.landing', [])
-.controller('landingController', function($scope) {
+.controller('landingController', function($scope, $location) {
   $scope.navButton = "Sign Up!";
+
+  $scope.buttonFunc = function() {
+    $location.path("/signup");
+  };
+
 })
 .directive('landingDir', () => {
   return {

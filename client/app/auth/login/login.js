@@ -2,6 +2,10 @@ angular.module('jobTracker.login', [])
 .controller('loginController', function($scope, AuthFactory, $location) {
 	 $scope.navButton = "Sign Up!";
 
+  $scope.buttonFunc = function() {
+    $location.path("/signup");
+  }
+
   $scope.login = function () {
 		AuthFactory.login($scope.user)
 		.then((data) => {

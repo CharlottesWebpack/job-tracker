@@ -11,7 +11,7 @@ angular.module('jobTracker.mainList', [])
   $scope.sortHeader = 'interestLevel';
   $scope.sortReverse = false;
 
-  $scope.logout = function() {
+  $scope.buttonFunc = function() {
     AuthFactory.logout();
   };
 
