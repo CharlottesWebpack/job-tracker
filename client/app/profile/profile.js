@@ -40,6 +40,9 @@ angular.module('jobTracker.profile', [])
   $scope.cancelPasswordChange = function() {
     $scope.changePass = '';
     $scope.showChangePassword = false;
-  }
+  };
+  $scope.changePassword = function() {
+
+  };
   $scope.getUser();
 });

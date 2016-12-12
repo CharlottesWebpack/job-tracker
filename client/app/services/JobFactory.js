@@ -1,5 +1,5 @@
 angular.module('jobTracker.jobService', [])
-.factory('JobFactory', function($http, $filter) {
+.factory('JobFactory', function($http, $filter, externalApiFactory, $uibModal) {
 
   var getAllJobs = function() {
     return $http({
@@ -55,6 +55,28 @@ angular.module('jobTracker.jobService', [])
       job.niceDateString = job.age.toString().substring(0,15);
     }
   };
+
+  var getNews = function (job, scope) {
+    console.log(job);
+    return externalApiFactory.searchGoogle(job.company)
+    .then(function(data) {
+      //data.items is array of news story objects
+      scope.news.stories = data.data;
+    })
+    .then(function(){
+      $uibModal.open({
+        templateUrl: 'app/mainList/getNews/getNews.html',
+        controller: 'getNewsController',
+        controllerAs: '$ctrl',
+        resolve: {
+          news: function() {
+            return scope.news;
+          }
+        }
+      });
+    });
+  };
+
   var interestLevels = [
     {value: 1},
     {value: 2},
@@ -112,7 +134,8 @@ angular.module('jobTracker.jobService', [])
     formatInterestLevel: formatInterestLevel,
     formatStatus: formatStatus,
     statuses: statuses,
-    interestLevels: interestLevels
+    interestLevels: interestLevels,
+    getNews: getNews
   };
 });
 
