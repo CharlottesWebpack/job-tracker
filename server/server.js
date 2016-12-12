@@ -5,6 +5,7 @@ var handlers = require('./handlers.js');
 var path = require('path');
 var session = require('express-session');
 var passport = require('./auth/passLocal.js');
+var pasportFacebook = require('./auth/passFb.js');
 var User = require('./models/userModel.js');
 var cookieParser = require('cookie-parser');
 var multer = require('multer');
@@ -56,6 +57,11 @@ app.post('/login', passport.authenticate('local'), handlers.getUser);
 
 app.post('/signup', handlers.postUser);
 
+app.get('/facebook', passport.authenticate('facebook'), function(req, res) {
+  console.log(req);
+  res.sendStatus(200);
+});
+
 app.get('/logout', handlers.logout);
 
 app.get('/auth', handlers.auth);
@@ -77,6 +83,8 @@ app.put('/users', handlers.updateUser);
 app.put('/users/password', handlers.updatePassword);
 
 app.post('/users/delete', handlers.deleteAccount);
+
+app.get('/getNews', handlers.searchGoogle);
 
 
 db.on('error', (err) => {

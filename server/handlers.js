@@ -1,5 +1,6 @@
 var userController = require('./controllers/userController.js');
 var jobsController = require('./controllers/jobsController.js');
+var googleSearchController = require('./controllers/googleSearchController');
 
 
 module.exports = {
@@ -126,11 +127,21 @@ getUser: function(req, res) {
     var userId = req.user._id;
     userController.deleteUser(userId)
     .then(function(data) {
-      res.send(data)
+      res.send(data);
     })
     .catch(function(err) {
       console.error(err);
       res.sendStatus(204);
+    });
+  },
+  searchGoogle: function(req, res) {
+    console.log(req.query);
+    googleSearchController(req.query.company)
+    .then(function(data) {
+      res.status(200).send(data);
+    }).catch(function(error) {
+      console.log(error);
+      res.sendStatus(400);
     });
   }
 };

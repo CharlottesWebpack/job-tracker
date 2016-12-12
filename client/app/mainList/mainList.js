@@ -65,7 +65,7 @@ angular.module('jobTracker.mainList', [])
     externalApiFactory.searchGoogle(job.company)
     .then(function(data) {
       //data.items is array of news story objects
-      $scope.news.stories = data;
+      $scope.news.stories = data.data;
     })
     .then(function(){
       $uibModal.open({
@@ -77,9 +77,9 @@ angular.module('jobTracker.mainList', [])
             return $scope.news;
           }
         }
-      })
-    })
-  }
+      });
+    });
+  };
 
   $scope.showDate = function(job) {
     JobFactory.formatDate(job);
@@ -136,4 +136,3 @@ angular.module('jobTracker.mainList', [])
   };
 
 });
-  
