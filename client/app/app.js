@@ -17,7 +17,8 @@ angular.module('jobTracker', [
   'jobTracker.getNews',
   'ui.bootstrap',
   'jobTracker.removeModal',
-  'jobTracker.config'
+  'jobTracker.config',
+  'jobTracker.landing',
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -34,7 +35,8 @@ angular.module('jobTracker', [
     })
     .state('landing', {
       url: '/',
-      templateUrl: 'app/demo/landing.html'
+      templateUrl: 'app/demo/landing.html',
+      controller: 'landingController'
     })
     .state('demo', {
       url: '/demo',

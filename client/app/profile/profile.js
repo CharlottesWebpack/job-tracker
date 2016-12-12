@@ -13,6 +13,11 @@ angular.module('jobTracker.profile', [])
     {value: 2, text: "Found a job"},
     {value: 3, text: "Not actively looking for a job"}
   ];
+  
+  $scope.isActive = function(viewLocation) {
+    return viewLocation === $location.path();
+  };
+
   $scope.showJobStatus = function() {
     var selected = $filter('filter')($scope.jobStatuses, {value: $scope.user.jobStatus});
     return selected[0].text;
