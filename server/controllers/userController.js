@@ -34,16 +34,9 @@ module.exports = {
   },
 
   changePassword: function(user, userId) {
-    return User.update(
-    //TO BE REDONE
-    //   {"username": username},
-    //   {"$set":
-    //     {"password": user.password}
-    // })
-    // .exec()
-    // .then(function(resp) {
-    //   return resp;
-    );
+    //find User
+    //setPassword()
+    //save
   },
 
   deleteUser: function(userId) {
