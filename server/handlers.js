@@ -127,7 +127,7 @@ getUser: function(req, res) {
     var userId = req.user._id;
     userController.deleteUser(userId)
     .then(function(data) {
-      res.send(data)
+      res.send(data);
     })
     .catch(function(err) {
       console.error(err);

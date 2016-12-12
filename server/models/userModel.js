@@ -4,7 +4,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var userSchema = mongoose.Schema({
   username: {type: String, unique: true},
-  facebookId: String,
+  facebookDisplayName: String,
   password: String,
   jobList: [jobSchema],
 
