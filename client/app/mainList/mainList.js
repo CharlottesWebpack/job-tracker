@@ -64,8 +64,6 @@ angular.module('jobTracker.mainList', [])
   $scope.getNews = function(job) {
     externalApiFactory.searchGoogle(job.company)
     .then(function(data) {
-      console.log(data);
-      //this is where yu need to start with valerie
       //data.items is array of news story objects
       $scope.news.stories = data.data;
     })
