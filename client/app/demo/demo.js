@@ -5,12 +5,13 @@ angular.module('jobTracker.demo', [])
   $scope.new = {};
   $scope.news = {};
   $scope.pagedData = DemoFactory.jane.jobList;
-
+  $scope.user = DemoFactory.jane;
   $scope.sortHeader = 'company';
   $scope.sortReverse = false;
 
   $scope.statuses = JobFactory.statuses;
   $scope.interestLevels = JobFactory.interestLevels;
+  $scope.jobStatuses = JobFactory.profileJobStatuses;
 
   $scope.buttonFunc = function() {
     $location.path("/signup");
@@ -49,4 +50,10 @@ angular.module('jobTracker.demo', [])
   $scope.showStatus = function(job) {
     return JobFactory.formatStatus($scope, job);
   };
+  $scope.showJobStatus = function() {
+    return JobFactory.showJobStatus($scope);
+  };
+  $scope.deleteProfile = function() {
+    $location.path('/');
+  }
 })

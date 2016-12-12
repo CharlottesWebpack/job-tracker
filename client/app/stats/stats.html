@@ -1,7 +1,7 @@
 <nav-bar></nav-bar>
 <div class="container-fluid">
   <div class="row col-sm-10 col-sm-offset-1">
-      <h4>Current state of your active applications</h4>
+      <h4>Current State of Your Active Applications</h4>
       <uib-progress class="progress-striped active" max="stats.active">
         <uib-bar  animate="true" ng-repeat="stat in currentStage" value="stat.value"  title="stat.text" type="{{stat.type}}">
           <label>{{stat.text}}</label>
@@ -11,40 +11,40 @@
   </div>
   <div class="row col-sm-10 col-sm-offset-1 well">
     <div class="col-sm-10 col-sm-offset-1">
-      <h4>General performance</h4>
+      <h4>General Performance</h4>
     </div>
     <div class="col-sm-10 col-sm-offset-1">
-      <label>Total saved jobs</label>
+      <label>Total Saved Jobs</label>
       <uib-progressbar max="stats.total" value="stats.total" type="info">
         <span>{{stats.total}}</span>
       </uib-progressbar>
     </div>
     <div class="col-sm-10 col-sm-offset-1">
-      <label>Jobs applied to out of total saved jobs</label>
+      <label>Submitted Applications</label>
       <uib-progressbar max="stats.total" value="stats.applied" type="warning">
         <span>{{stats.applied}} / {{stats.total}}</span>
       </uib-progressbar>
     </div>
     <div class="col-sm-10 col-sm-offset-1">
-      <label>Got a response</label>
+      <label>Received Response</label>
       <uib-progressbar max="stats.total" value="stats.responded" type="success">
         <span>{{stats.responded}} / {{stats.total}}</span>
       </uib-progressbar>
     </div>
     <div class="col-sm-10 col-sm-offset-1">
-      <label>Reached phone screen</label>
+      <label>Reached Phone Screen</label>
       <uib-progressbar max="stats.total" value="stats.phone" type="info">
         <span>{{stats.phone}} / {{stats.total}}</span>
       </uib-progressbar>
     </div>
     <div class="col-sm-10 col-sm-offset-1">
-      <label>Reached interview stage</label>
+      <label>Reached Interview Stage</label>
       <uib-progressbar max="stats.total" value="stats.interview" type="warning">
         <span>{{stats.interview}} / {{stats.total}}</span>
       </uib-progressbar>
     </div>
     <div class="col-sm-10 col-sm-offset-1">
-      <label>Offers received</label>
+      <label>Received Offers</label>
       <uib-progressbar max="stats.total" value="stats.offer" type="success">
         <span>{{stats.offer}} / {{stats.total}}</span>
       </uib-progressbar>

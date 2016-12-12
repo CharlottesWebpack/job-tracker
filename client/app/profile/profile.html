@@ -1,46 +1,46 @@
 <nav-bar></nav-bar>
 <div class="container-fluid">
   <div class="row col-sm-10  col-sm-offset-1 well">
-    <div class="col-sm-5 col-sm-offset-1">
       <br/>
       <!--  -->
       <!-- Change Password -->
       <!--  -->
-      <div class="col-sm-10" ng-show="showChangePassword">
-        <change-password ></change-password>
-      </div>
+      <!-- <div class="col-sm-10" ng-show="showChangePassword"> -->
+        <!-- <change-password ></change-password> -->
+      <!-- </div> -->
       <!-- Show/Edit Profile -->
       <form editable-form name="editProfileForm" type="form" onaftersave="updateProfile()">
-        <div ng-hide="showChangePassword">
-          <h3>Account Settings</h3>
-          <br/>
-          <div class="form-group col-lg-10">
-            <label class="control-label">Username:</label>
-            <span editable-text="user.username">{{ user.username || "--" }}</span>
+        <div class="col-sm-5 col-sm-offset-1">
+          <div ng-hide="showChangePassword">
+            <h3>Account Settings</h3>
+            <br/>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Username:</label>
+              <span editable-text="user.username">{{ user.username || "--" }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">First Name</label>
+              <span editable-text="user.firstname">{{ user.firstname || '--' }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Last Name:</label>
+              <span editable-text="user.lastname">{{ user.lastname || '--' }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Email:</label>
+              <span editable-text="user.email">{{ user.email || '--' }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Phone Number:</label>
+              <span editable-text="user.phone">{{ user.phone || '--' }}</span>
+            </div>
+            <div class="form-group col-lg-10">
+              <label class="control-label">Job Status:</label>
+              <span editable-select="user.jobStatus" e-ng-options="s.value as s.text for s in jobStatuses">{{ showJobStatus() || "--" }}</span>
+            </div>
+            <br/>
           </div>
-          <div class="form-group col-lg-10">
-            <label class="control-label">First name</label>
-            <span editable-text="user.firstname">{{ user.firstname || '--' }}</span>
-          </div>
-          <div class="form-group col-lg-10">
-            <label class="control-label">Last name:</label>
-            <span editable-text="user.lastname">{{ user.lastname || '--' }}</span>
-          </div>
-          <div class="form-group col-lg-10">
-            <label class="control-label">Email:</label>
-            <span editable-text="user.email">{{ user.email || '--' }}</span>
-          </div>
-          <div class="form-group col-lg-10">
-            <label class="control-label">Phone number:</label>
-            <span editable-text="user.phone">{{ user.phone || '--' }}</span>
-          </div>
-          <div class="form-group col-lg-10">
-            <label class="control-label">Job Status:</label>
-            <span editable-select="user.jobStatus" e-ng-options="s.value as s.text for s in jobStatuses">{{ showJobStatus() || "--" }}</span>
-          </div>
-          <br/>
         </div> <!-- col-sm-5 col-sm-offset-2"-->
-      </div>
       <div class="col-sm-5 col-sm-offset-1">
         <br/>
         <br/>
@@ -65,5 +65,6 @@
         <br/>
       </div> <!-- col-sm-3 col-sm-offset-1 -->
       </form>
+    </div>
   </div>
 </div>

@@ -103,13 +103,13 @@ angular.module('jobTracker.jobService', [])
     {value: 5}
   ];
   var statuses = [
-    {value: {progress: 1}, text: "Not applied"},
-    {value: {progress: 2}, text: "Applied"},
-    {value: {progress: 3}, text: "Responded"},
-    {value: {progress: 4}, text: "Phone screen"},
-    {value: {progress: 5}, text: "In-person interview"},
-    {value: {progress: 6}, text: "Offer"},
-    {value: {rejected: true}, text: "Application rejected"}
+    {value: {progress: 1}, text: "Application Not Submitted"},
+    {value: {progress: 2}, text: "Application Submitted"},
+    {value: {progress: 3}, text: "Company Responded"},
+    {value: {progress: 4}, text: "Phone Screen Scheduled"},
+    {value: {progress: 5}, text: "In-person Interview Scheduled"},
+    {value: {progress: 6}, text: "Offer Received"},
+    {value: {rejected: true}, text: "Application Rejected"}
   ];
 
   var formatInterestLevel = function(scope, job) {
@@ -141,7 +141,15 @@ angular.module('jobTracker.jobService', [])
       })
   };
 
-
+  var profileJobStatuses = [
+    {value: 1, text: "Actively Job Seeking"},
+    {value: 2, text: "Successfully Found a Job"},
+    {value: 3, text: "No Longer Looking"}
+  ];
+  var showJobStatus = function(scope) {
+    var selected = $filter('filter')(scope.jobStatuses, {value: scope.user.jobStatus});
+    return selected[0].text;
+  };
   return {
     getAllJobs: getAllJobs,
     createJob: createJob,
@@ -154,7 +162,9 @@ angular.module('jobTracker.jobService', [])
     statuses: statuses,
     interestLevels: interestLevels,
     getNews: getNews,
-    openRemove: openRemove
+    openRemove: openRemove,
+    profileJobStatuses: profileJobStatuses,
+    showJobStatus: showJobStatus
   };
 });
 

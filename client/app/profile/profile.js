@@ -1,5 +1,5 @@
 angular.module('jobTracker.profile', [])
-.controller('profileController', function($scope, AuthFactory, $location, $filter) {
+.controller('profileController', function($scope, AuthFactory, JobFactory, $location, $filter) {
   $scope.navButton = "Sign Out";
   $scope.getUser = function (){
     AuthFactory.getProfile()
@@ -8,22 +8,17 @@ angular.module('jobTracker.profile', [])
     });
   }
 
-  $scope.jobStatuses = [
-    {value: 1, text: "Actively looking for a job"},
-    {value: 2, text: "Found a job"},
-    {value: 3, text: "Not actively looking for a job"}
-  ];
-  
+  $scope.jobStatuses = JobFactory.profileJobStatuses;
+
   $scope.isActive = function(viewLocation) {
     return viewLocation === $location.path();
   };
 
   $scope.showJobStatus = function() {
-    var selected = $filter('filter')($scope.jobStatuses, {value: $scope.user.jobStatus});
-    return selected[0].text;
+    return JobFactory.showJobStatus($scope);
   };
   $scope.updateProfile = function() {
-    console.log("update profile called");
+    console.log("update profile called")
     AuthFactory.updateAccount($scope.user);
   };
 
