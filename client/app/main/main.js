@@ -6,6 +6,10 @@ angular.module('jobTracker.landing', [])
     $location.path("/signup");
   };
 
+  $scope.isActive = function(viewLocation) {
+    return viewLocation === $location.path();
+  };
+
 })
 .directive('landingDir', () => {
   return {

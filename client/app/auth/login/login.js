@@ -6,6 +6,10 @@ angular.module('jobTracker.login', [])
     $location.path("/signup");
   }
 
+  $scope.isActive = function(viewLocation) {
+    return viewLocation === $location.path();
+  };
+
   $scope.login = function () {
 		AuthFactory.login($scope.user)
 		.then((data) => {
