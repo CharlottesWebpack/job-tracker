@@ -5,3 +5,4 @@ configGoogle.js
 config.json
 client/app/config.js
 configGoogle.js
+.DS_Store
