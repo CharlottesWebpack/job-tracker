@@ -85,11 +85,16 @@
 .navbar-default .navbar-brand{
   color: #212121;
 }
-.navbar-default .navbar-nav li a{
+.navbar-default .navbar-nav>li>a{
   color: #FFFFFF;
   padding-right: 30px;
   padding-left: 30px;
 }
+.a-button{
+  color: #FFFFFF;
+}
+
+
 .navbar-default .navbar-nav li a:hover{
   background: #B2EBF2;
   color: #212121;
@@ -138,16 +143,6 @@ body {
 	height: 50%;
 	box-shadow: 5px 10px 5px lightgrey;
 }
-*/
-/*img {
-	height: 100%;
-	width: 100%;
-}*/
-
-.nav {
-	margin: 0;
-	background-color: #00BCD4
-}
 
 .aNav {
 	color: #FFFFFF;;
@@ -157,20 +152,13 @@ body {
 a.navbar-brand {
 	color: #ff5252;
 	font-family: 'Nixie One', cursive;
-	font-size: 50px;
+	font-size: 45px;
 }
 
 #carouselBody {
 	background-color: #00BCD4;
 }
 
-.navbar-inverse .navbar-nav>li>a {
-	color: white;
-}
-
-.navbar-inverse .navbar-brand {
-	color: #ffffff;
-}
 
 .mainDemoImg {
 	box-shadow: 0px 0px 30px grey;

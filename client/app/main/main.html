@@ -1,10 +1,14 @@
-<nav class="navbar navbar-default col-lg-12">
+<nav class="navbar navbar-default col-md-12">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Jåger</a>
-    <ul class="nav navbar-nav">
-      <li><a href="#/demo">Try It</a></li>
-      <li><a href="#/signup">Sign up</a></li>
-      <li><a href="#/login">Login</a></li>
-    </ul>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{active: isActive('/')}"><a href="#/">Home</a></li>
+        <li ng-class="{active: isActive('/stats')}"><a href="#/demo">Demo</a></li>
+        <li ng-class="{active: isActive('/profile')}"><a href="#/login">Login</a></li>
+        <li><button type="button" class="btn btn-default navbar-btn" ng-click="logout()">{{navButton}}</button></li>
+        
+      </ul>
+    </div>
   </div>
 </nav>

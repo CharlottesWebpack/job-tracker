@@ -1,6 +1,6 @@
 angular.module('jobTracker.demo', [])
 .controller('demoController', function($scope, $filter, JobFactory, $location) {
-  $scope.navButton = "Back to Homepage";
+  $scope.navButton = "Sign Up!";
   $scope.new = {}
   $scope.pagedData = [
     {"company":"khan academy",
@@ -45,7 +45,7 @@ angular.module('jobTracker.demo', [])
   $scope.interestLevels = JobFactory.interestLevels;
 
   $scope.logout = function() {
-    $location.path("/");
+    $location.path("/signup");
   }
 
   $scope.addJob = function() {
