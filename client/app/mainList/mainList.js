@@ -33,7 +33,7 @@ angular.module('jobTracker.mainList', [])
     .then((res) => {
       $scope.jobs = res;
       initPagination();
-      $scope.new = '';
+      $scope.new = {};
     });
   };
 
