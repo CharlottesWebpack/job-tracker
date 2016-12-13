@@ -1,17 +1,23 @@
 angular.module('jobTracker.demo', [])
-.controller('demoController', function($scope, $filter, JobFactory, DemoFactory, externalApiFactory, $location) {
+.controller('demoController', function($scope, JobFactory, DemoFactory, StatsFactory, AuthFactory, $location) {
   $scope.demo = true;
   $scope.navButton = "Sign Up!";
   $scope.new = {};
-  $scope.news = {};
+
   $scope.pagedData = DemoFactory.jane.jobList;
   $scope.user = DemoFactory.jane;
+  $scope.jobs = $scope.pagedData;
+
   $scope.sortHeader = 'company';
   $scope.sortReverse = false;
+  $scope.news = {};
 
   $scope.statuses = JobFactory.statuses;
   $scope.interestLevels = JobFactory.interestLevels;
-  $scope.jobStatuses = JobFactory.profileJobStatuses;
+  $scope.jobStatuses = AuthFactory.profileJobStatuses;
+
+  $scope.stats = StatsFactory.stats;
+  $scope.stateNow = StatsFactory.stateNow;
 
   $scope.buttonFunc = function() {
     $location.path("/signup");
@@ -51,9 +57,13 @@ angular.module('jobTracker.demo', [])
     return JobFactory.formatStatus($scope, job);
   };
   $scope.showJobStatus = function() {
-    return JobFactory.showJobStatus($scope);
+    return AuthFactory.showJobStatus($scope);
   };
   $scope.deleteProfile = function() {
     $location.path('/');
+  };
+  $scope.getStats = function() {
+    StatsFactory.calculateStats($scope);
   }
+  $scope.getStats();
 })

@@ -20,7 +20,8 @@ angular.module('jobTracker', [
   'jobTracker.config',
   'jobTracker.landing',
   'jobTracker.demoFactory',
-  'jobTracker.deleteAccountModal'
+  'jobTracker.deleteAccountModal',
+  'jobTracker.statsFactory'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
 
