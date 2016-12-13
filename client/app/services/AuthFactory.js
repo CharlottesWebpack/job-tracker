@@ -45,7 +45,6 @@ angular.module('jobTracker.authService', [])
       method: 'GET',
       url: '/users',
     }).then((res) => {
-      console.log("GOT USER", res.data)
       return res.data;
       }, (err) => {
       console.error("ERROR:", err);
@@ -58,7 +57,6 @@ angular.module('jobTracker.authService', [])
       url: '/users',
       data: user,
     }).then((res) => {
-      console.log(res);
       return res.data;
     },(err) => {
       console.error("ERROR:", err);
@@ -81,7 +79,6 @@ angular.module('jobTracker.authService', [])
       method: 'POST',
       url: '/users/delete',
     }).then((res) => {
-      console.log(res);
       $location.path('/');
     });
   };
