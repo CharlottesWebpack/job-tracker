@@ -1,5 +1,5 @@
 angular.module('jobTracker.profile', [])
-.controller('profileController', function($scope, AuthFactory, JobFactory, $location, $filter) {
+.controller('profileController', function($scope, AuthFactory, JobFactory, $location, $filter, $uibModal) {
   $scope.navButton = "Sign Out";
   $scope.getUser = function (){
     AuthFactory.getProfile()
@@ -18,17 +18,23 @@ angular.module('jobTracker.profile', [])
     return JobFactory.showJobStatus($scope);
   };
   $scope.updateProfile = function() {
-    console.log("update profile called")
     AuthFactory.updateAccount($scope.user);
   };
 
   $scope.deleteProfile = function() {
-    AuthFactory.deleteAccount()
-    .then(() => {
-      $location.path('/');
-    })
+    console.log("deleteProfile called in controller")
+    $uibModal.open({
+      templateUrl: 'app/profile/deleteModal.html',
+      controller: 'deleteAccountController',
+      controllerAs: '$delete',
+      resolve: {
+        user: function () {
+          return $scope.user;
+        }
+      }
+    });
   };
-  $scope.logout = function() {
+  $scope.buttonFunc = function() {
     AuthFactory.logout();
   };
 
