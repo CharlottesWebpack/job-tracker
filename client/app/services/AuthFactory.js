@@ -1,5 +1,5 @@
 angular.module('jobTracker.authService', [])
-.factory('AuthFactory', function($http, $location) {
+.factory('AuthFactory', function($http, $location, $filter) {
   var errorMessage = "";
   var login = function(user){
     return $http({
@@ -82,7 +82,15 @@ angular.module('jobTracker.authService', [])
       $location.path('/');
     });
   };
-
+  var profileJobStatuses = [
+    {value: 1, text: "Actively Job Seeking"},
+    {value: 2, text: "Successfully Found a Job"},
+    {value: 3, text: "No Longer Looking"}
+  ];
+  var showJobStatus = function(scope) {
+    var selected = $filter('filter')(scope.jobStatuses, {value: scope.user.jobStatus});
+    return selected[0].text;
+  };
   return {
     login: login,
     logout: logout,
@@ -91,7 +99,9 @@ angular.module('jobTracker.authService', [])
     updateAccount: updateAccount,
     updatePassword: updatePassword,
     deleteAccount: deleteAccount,
-    getProfile: getProfile
+    getProfile: getProfile,
+    profileJobStatuses: profileJobStatuses,
+    showJobStatus: showJobStatus
   };
 
 });

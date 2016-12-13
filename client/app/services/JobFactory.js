@@ -120,7 +120,7 @@ angular.module('jobTracker.jobService', [])
   var formatStatus = function(scope, job) {
     var selected = statuses.filter((status) => {
       if (job.status.rejected){
-        return  status.value.rejected
+        return  status.value.rejected;
       }
       return status.value.progress === job.status.progress;
     })
@@ -141,15 +141,6 @@ angular.module('jobTracker.jobService', [])
       })
   };
 
-  var profileJobStatuses = [
-    {value: 1, text: "Actively Job Seeking"},
-    {value: 2, text: "Successfully Found a Job"},
-    {value: 3, text: "No Longer Looking"}
-  ];
-  var showJobStatus = function(scope) {
-    var selected = $filter('filter')(scope.jobStatuses, {value: scope.user.jobStatus});
-    return selected[0].text;
-  };
   return {
     getAllJobs: getAllJobs,
     createJob: createJob,
@@ -162,10 +153,7 @@ angular.module('jobTracker.jobService', [])
     statuses: statuses,
     interestLevels: interestLevels,
     getNews: getNews,
-    openRemove: openRemove,
-    profileJobStatuses: profileJobStatuses,
-    showJobStatus: showJobStatus
+    openRemove: openRemove
   };
+
 });
-
-

@@ -8,14 +8,14 @@ angular.module('jobTracker.profile', [])
     });
   }
 
-  $scope.jobStatuses = JobFactory.profileJobStatuses;
+  $scope.jobStatuses = AuthFactory.profileJobStatuses;
 
   $scope.isActive = function(viewLocation) {
     return viewLocation === $location.path();
   };
 
   $scope.showJobStatus = function() {
-    return JobFactory.showJobStatus($scope);
+    return AuthFactory.showJobStatus($scope);
   };
   $scope.updateProfile = function() {
     AuthFactory.updateAccount($scope.user);
